@@ -1,0 +1,12 @@
+// como colocar interação 2024 davi mendes flamecode
+
+1 - Você coloca a cena "interaction_area" dentro do objeto que você deseja que tenha interação
+
+2 - Após isso, no canto direito da tela, se tiver, crie um sprite2d, converta ele para meshinstance 2d onde vc coloca a shader de outline e 
+coloque no canto da tela para o jogo identificar a outline.
+
+3 - Crie uma colisão dentro do InteractionArea que você colocou na cena
+4 - Determine o tamanho dessa colisão
+5 - Aplique o código na pasta src/scripts/interaction/interacions/...
+
+OBS: Recomendo fazer um Node2D, colocar o objeto dentro desse node2D e colocar o script sicronizado com esse node2D.

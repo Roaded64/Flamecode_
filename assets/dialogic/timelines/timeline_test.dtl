@@ -1,0 +1,8 @@
+oi, teste
+se mata
+[text_input text="Escreva a senha:" var="lol" placeholder="nao sei"]
+if {lol} == {need}:
+	mlk ce é mó bacana, saba mto
+	[signal arg="conseguiu"]
+else:
+	burro

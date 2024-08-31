@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://khrd1tn2ssi"]
+
+[ext_resource type="Script" path="res://src/scripts/debug/DebugHUD.gd" id="1_8ixw7"]
+[ext_resource type="FontFile" uid="uid://d0vfu20tqy5c1" path="res://assets/fonts/VCR.ttf" id="2_lffbh"]
+
+[node name="DebugHUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_8ixw7")
+
+[node name="Debug_01" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 105.0
+offset_bottom = 72.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_lffbh")
+theme_override_font_sizes/font_size = 30
+text = "FPS
+MEM / MEM PEAK
+VER
+
+CURRENT_BUILD"
+
+[node name="Debug_02" type="Label" parent="."]
+offset_left = 1160.0
+offset_top = 5.0
+offset_right = 1394.0
+offset_bottom = 62.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_lffbh")
+theme_override_font_sizes/font_size = 30
+text = "(WINDOW_SIZE)
+(SCREEN_SIZE)"
+horizontal_alignment = 2

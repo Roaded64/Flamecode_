@@ -1,0 +1,19 @@
+// criar item 2024 flamecode feccetec
+
+1 - Crie um item e faça os mesmos procedimentos de como criar interação
+
+2 - Utilizando o script "res://src/scripts/interaction/interactions/item_interaction.gd"
+
+3 - Coloquei no canto direito da tela o nome do item
+
+4 - No arquivo json "res://assets/json/items.json" crie um item com a seguinte estrutura
+
+"nome_item":
+	{
+		"is_taken": false
+		"desc": "Apenas uma descrição da merda",
+	}
+
+5 - Após isso o seu código deve estar funcionado.
+
+OBS: O código de item vai ser atualizado depois.

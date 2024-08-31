@@ -1,0 +1,10 @@
+
+{
+	"placeholder":
+	{
+		"is_taken": false,
+		"desc": "Apenas uma descrição da merda",
+		"sprite_path": "res",
+		"hframe": 1
+	}
+}
