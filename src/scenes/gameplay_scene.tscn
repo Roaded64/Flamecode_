@@ -1,9 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://7tdjgphnrbxv"]
+[gd_scene load_steps=24 format=4 uid="uid://7tdjgphnrbxv"]
 
 [ext_resource type="Script" path="res://src/scripts/playstate.gd" id="1_2qssg"]
 [ext_resource type="PackedScene" uid="uid://dhvb8kge6c3ly" path="res://src/scenes/player_scene.tscn" id="2_18val"]
 [ext_resource type="FontFile" uid="uid://cx32lcthwwpfj" path="res://assets/fonts/PressStart2P.ttf" id="2_aosde"]
-[ext_resource type="Texture2D" uid="uid://vff1b8fgkygv" path="res://assets/images/house_tilemap.png" id="2_hxqhu"]
+[ext_resource type="Texture2D" uid="uid://drm42mcsfoale" path="res://assets/images/house_tilemap.png" id="2_hxqhu"]
 [ext_resource type="Script" path="res://src/scripts/interaction/interactions/placeholder_interaction.gd" id="3_a63id"]
 [ext_resource type="Shader" path="res://assets/shaders/outline_shader.gdshader" id="3_atmyd"]
 [ext_resource type="Texture2D" uid="uid://baccuxu4m75eo" path="res://assets/images/objects/placeholder_object.png" id="4_0bvjq"]
@@ -13,14 +13,43 @@
 [ext_resource type="Texture2D" uid="uid://5ramottjeilk" path="res://assets/images/flame_sprite.png" id="6_8je5p"]
 [ext_resource type="Texture2D" uid="uid://15ypxn34vfgi" path="res://assets/images/scenes/banheiro/tapete_sprite.png" id="11_jjacx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_in0xr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxa78"]
 texture = ExtResource("2_hxqhu")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_punym"]
-sources/2 = SubResource("TileSetAtlasSource_in0xr")
+[sub_resource type="TileSet" id="TileSet_kmjh4"]
+sources/0 = SubResource("TileSetAtlasSource_dxa78")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0mi6"]
+texture = ExtResource("2_hxqhu")
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 6, 4, 6, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -8, 4)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -6, 4, -6, -8, -8, -8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.33333, -8, -5.33333, 8, -8, 8, -8, -8)
+1:3/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.33333, -8, 5.33333, 8, 8, 8, 8, -8)
+2:1/next_alternative_id = 2
+2:1/0 = 0
+2:2/next_alternative_id = 3
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p0b6y"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_x0mi6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_35vw5"]
 shader = ExtResource("3_atmyd")
@@ -38,14 +67,14 @@ shader_parameter/max_or_add = false
 _surfaces = [{
 "2d": true,
 "aabb": AABB(-8, -8, 0, 16, 16, 0),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8="),
 "format": 34393296913,
 "index_count": 6,
-"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AwAAAAEAAQACAAMA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 193, 0, 0, 0, 65, 0, 0, 0, 193, 0, 0, 0, 193, 0, 0, 0, 65, 0, 0, 0, 193, 0, 0, 0, 65, 0, 0, 0, 65)
+"vertex_data": PackedByteArray("AAAAwQAAAEEAAADBAAAAwQAAAEEAAADBAAAAQQAAAEE=")
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr56u"]
@@ -70,14 +99,14 @@ shader_parameter/max_or_add = false
 _surfaces = [{
 "2d": true,
 "aabb": AABB(-4.5, -6.5, 0, 9, 13, 0),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8="),
 "format": 34393296913,
 "index_count": 6,
-"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AwAAAAEAAQACAAMA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 144, 192, 0, 0, 208, 64, 0, 0, 144, 192, 0, 0, 208, 192, 0, 0, 144, 64, 0, 0, 208, 192, 0, 0, 144, 64, 0, 0, 208, 64)
+"vertex_data": PackedByteArray("AACQwAAA0EAAAJDAAADQwAAAkEAAANDAAACQQAAA0EA=")
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_244as"]
@@ -90,11 +119,15 @@ offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="FloorTile" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
-tile_set = SubResource("TileSet_punym")
-format = 2
-layer_0/tile_data = PackedInt32Array(196614, 2, 0, 262150, 2, 0, 262151, 2, 0, 196615, 2, 0, 196616, 2, 0, 131079, 2, 0, 131078, 2, 0, 131077, 2, 0, 65541, 2, 0, 65540, 2, 0, 65539, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 65538, 0, 65548, 65538, 0, 65549, 131074, 0, 131075, 2, 0, 196611, 2, 0, 262147, 2, 0, 327683, 2, 0, 393219, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 393225, 2, 0, 393226, 2, 0, 393227, 65538, 0, 458763, 65538, 0, 458764, 65538, 0, 393229, 65538, 0, 327693, 65538, 0, 262157, 65538, 0, 196621, 65538, 0, 131085, 131074, 0, 458765, 65538, 0, 458762, 2, 0, 458761, 2, 0, 393228, 65538, 0, 327692, 65538, 0, 262156, 65538, 0, 196620, 65538, 0, 131084, 65538, 0, 131083, 65538, 0, 131082, 2, 0, 131081, 2, 0, 131080, 2, 0, 131076, 2, 0, 196612, 2, 0, 262148, 2, 0, 262149, 2, 0, 196613, 2, 0, 327684, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 327688, 2, 0, 327689, 2, 0, 262153, 2, 0, 262152, 2, 0, 327686, 2, 0, 327687, 2, 0, 327690, 2, 0, 327691, 65538, 0, 262155, 65538, 0, 196618, 2, 0, 196619, 65538, 0, 196617, 2, 0, 327685, 2, 0, 262154, 2, 0, 458766, 65538, 0, 393230, 65538, 0, 327694, 65538, 0, 262158, 65538, 0, 196622, 65538, 0, 131086, 131074, 0, 65550, 131074, 0, 65538, 2, 0, 131074, 2, 0, 196610, 2, 0, 262146, 2, 0, 327682, 2, 0, 393218, 2, 0, 458754, 2, 0, 458753, 2, 0, 393217, 2, 0, 327681, 2, 0, 262145, 2, 0, 196609, 2, 0, 131073, 2, 0, 65537, 2, 0)
+tile_map_data = PackedByteArray("AAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAACAAMAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAYAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAYAAAAAAAAAAAALAAIAAAABAAAAAAAMAAIAAAABAAAAAAAMAAMAAAABAAAAAAANAAMAAAACAAAAAAAMAAQAAAABAAAAAAAMAAUAAAABAAAAAAAMAAYAAAABAAAAAAAMAAcAAAABAAAAAAALAAcAAAABAAAAAAANAAcAAAACAAAAAAAOAAcAAAACAAAAAAAOAAYAAAACAAAAAAAOAAUAAAACAAAAAAAOAAQAAAACAAAAAAAOAAMAAAACAAAAAAAOAAIAAAACAAAAAAANAAIAAAACAAAAAAALAAMAAAABAAAAAAALAAQAAAABAAAAAAALAAUAAAABAAAAAAALAAYAAAABAAAAAAANAAYAAAACAAAAAAANAAUAAAACAAAAAAANAAQAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_kmjh4")
+
+[node name="WallTile" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAAIAAAAAAAIAAAABAAMAAAAAAAMAAAABAAQAAAAAAAMAAAAOAAYAAAACAAMAAAAOAAUAAAACAAMAAAAOAAQAAAACAAMAAAAOAAMAAAACAAMAAAAOAAIAAAACAAIAAAAOAAcAAAACAAQAAAANAAcAAAABAAQAAAAMAAcAAAABAAQAAAALAAcAAAABAAQAAAAKAAcAAAABAAQAAAAJAAcAAAABAAQAAAAIAAcAAAABAAQAAAAHAAcAAAABAAQAAAAGAAcAAAABAAQAAAAFAAcAAAABAAQAAAAEAAcAAAABAAQAAAADAAcAAAABAAQAAAACAAcAAAABAAQAAAABAAcAAAAAAAQAAAACAAEAAAABAAEAAAADAAEAAAABAAEAAAAEAAEAAAABAAEAAAAFAAEAAAABAAEAAAAGAAEAAAABAAEAAAAHAAEAAAABAAEAAAAIAAEAAAABAAEAAAAJAAEAAAABAAEAAAAKAAEAAAABAAEAAAALAAEAAAABAAEAAAAMAAEAAAABAAEAAAANAAEAAAABAAEAAAAOAAEAAAACAAEAAAABAAEAAAAAAAEAAAACAAIAAAABAAIAAAADAAIAAAABAAIAAAAEAAIAAAABAAIAAAAFAAIAAAABAAIAAAAGAAIAAAABAAIAAAAHAAIAAAABAAIAAAAIAAIAAAABAAIAAAAJAAIAAAABAAIAAAAKAAIAAAABAAIAAAALAAIAAAABAAIAAAAMAAIAAAABAAIAAAANAAIAAAABAAIAAAABAAYAAAAAAAMAAAABAAUAAAAAAAMAAAA=")
+tile_set = SubResource("TileSet_p0b6y")
 
 [node name="Scenes_Objects" type="Node2D" parent="."]
 
@@ -173,7 +206,7 @@ text = "\"descrição e bla bla\""
 horizontal_alignment = 1
 
 [node name="Test" type="Node2D" parent="."]
-position = Vector2(416, 208)
+position = Vector2(443, 263)
 script = ExtResource("3_a63id")
 
 [node name="Outline" type="MeshInstance2D" parent="Test" groups=["outline"]]
@@ -202,7 +235,7 @@ scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_qr56u")
 
 [node name="Test3" type="Node2D" parent="."]
-position = Vector2(154, 207)
+position = Vector2(181, 262)
 script = ExtResource("3_a63id")
 
 [node name="Outline" type="MeshInstance2D" parent="Test3" groups=["outline"]]
@@ -231,7 +264,7 @@ scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_qr56u")
 
 [node name="Test2" type="Node2D" parent="."]
-position = Vector2(288, 208)
+position = Vector2(315, 263)
 
 [node name="PlaceholderObject" type="Sprite2D" parent="Test2"]
 texture_filter = 1
@@ -246,7 +279,7 @@ position = Vector2(-20, -20)
 shape = SubResource("RectangleShape2D_lt57v")
 
 [node name="Item" type="Node2D" parent="."]
-position = Vector2(94, 384)
+position = Vector2(157, 384)
 scale = Vector2(5, 5)
 script = ExtResource("6_8h1to")
 item_name = "placeholder"
