@@ -7,7 +7,7 @@ var active_areas = []
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
-func _process(delta):
+func _process(delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 

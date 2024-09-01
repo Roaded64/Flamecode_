@@ -1,33 +1,27 @@
 extends Node2D
 
 # palavras pra ir pra roda!
-const word = ["amante", "a", "mulher", "negro", "escravo"]
+const word = ["amante", "catapimbas", "mulher", "negro", "escravo"]
 var rw
 
 @onready var label = $HUD/Label
-@onready var test_box = $ColorRect
 
-func _ready():
+# baguio do tempo
+@onready var timer_progress = $HUD/ProgressBar
+@onready var timer = $HUD/ProgressBar/Timer
+
+func _ready():	
 	# escolher a palavra aleatória
 	rw = _random_word(word)
 	
-	#label.text += str(rw)
-	#
-	#Dialogic.VAR.set('need', rw)
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+	label.text += str(rw)
 	
-	# switch da vida
-	#match rw:
-		#"amante":
-			#test_box.color = Color(1, 1, 1)
-		#"a":
-			#test_box.color = Color(0, 0, 0)
-		#"mulher":
-			#test_box.color = Color(1, 0, 0)
-		#"negro":
-			#test_box.color = Color(0, 1, 0)
-		#"escravo":
-			#test_box.color = Color(0, 0, 1)
+	Dialogic.VAR.set('password', rw)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_0):
+		Dialogic.start("timeline_test")
 
 func _on_dialogic_signal(argument:String):
 	if argument == "conseguiu":
@@ -48,3 +42,7 @@ func _random_word(word):
 	var out = word[w]
 
 	return out
+
+
+func _on_timer_timeout() -> void:
+	timer_progress.value += 1

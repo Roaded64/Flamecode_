@@ -23,7 +23,6 @@ config/icon="res://icon.svg"
 Main="*res://src/scripts/autoload/main.gd"
 InteractionManager="*res://src/scenes/interaction/interaction_manager.tscn"
 ItemData="*res://src/scripts/autoload/item_data.gd"
-Playstate="*res://src/scripts/playstate.gd"
 Transition="*res://src/scenes/misc/transition.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
@@ -51,11 +50,11 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 variables={
-"lol": "",
-"need": ""
+"checkPassword": "",
+"password": ""
 }
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://assets/dialogic/styles/dialogue_style.tres"]
+layout/default_style="res://assets/dialogic/styles/dialogue_style.tres"
 glossary/default_case_sensitive=true
 text/autoadvance_fixed_delay=1.0
 layout/end_behaviour=0
@@ -68,6 +67,7 @@ translation/add_separator=false
 text/autoadvance_enabled=false
 text/autocolor_names=true
 text/split_at_new_lines=false
+portraits/default_portrait=""
 
 [display]
 

@@ -5,7 +5,13 @@ const SPEED = 450
 # se ele pode se mover ou não
 var playerMove = true
 
-@onready var playerSprite = $AnimatedSprite2D 
+@onready var playerSprite = $AnimatedSprite2D
+
+func _process(delta: float) -> void:
+	if Dialogic.is_playing:
+		playerMove = false
+	elif !Dialogic.is_playing:
+		playerMove = true
 
 func _physics_process(_delta):
 	# Fazer o vagabundo se mover

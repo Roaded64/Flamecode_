@@ -25,6 +25,9 @@ enum ClearFlags {
 	TIMELINE_INFO_ONLY = 2	## Doesn't clear subsystems but current timeline and index
 	}
 
+# Mudança feita por mim
+var is_playing = false
+
 ## Reference to the currently executed timeline.
 var current_timeline: DialogicTimeline = null
 ## Copy of the [member current_timeline]'s events.
@@ -220,6 +223,7 @@ func start_timeline(timeline:Variant, label_or_idx:Variant = "") -> void:
 		if label_or_idx >-1:
 			current_event_idx = label_or_idx -1
 
+	is_playing = true
 	timeline_started.emit()
 	handle_next_event()
 
@@ -242,6 +246,7 @@ func preload_timeline(timeline_resource:Variant) -> Variant:
 ## Clears and stops the current timeline.
 func end_timeline() -> void:
 	await clear(ClearFlags.TIMELINE_INFO_ONLY)
+	is_playing = false
 	_on_timeline_ended()
 	timeline_ended.emit()
 

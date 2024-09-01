@@ -1,7 +1,7 @@
 oi, teste
-se mata
-[text_input text="Escreva a senha:" var="lol" placeholder="nao sei"]
-if {lol} == {need}:
+nao sabo de nada
+[text_input text="Escreva a senha:" var="checkPassword" placeholder="nao sei"]
+if {checkPassword} == {password}:
 	mlk ce é mó bacana, saba mto
 	[signal arg="conseguiu"]
 else:
