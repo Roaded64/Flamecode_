@@ -10,6 +10,7 @@ var playerMove = true
 func _process(delta: float) -> void:
 	if Dialogic.is_playing:
 		playerMove = false
+		playerSprite.play("idle")
 	elif !Dialogic.is_playing:
 		playerMove = true
 

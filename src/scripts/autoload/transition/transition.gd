@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+var progress = []
+var scene_loadStatus = 0
+
 @onready var anim_player = $AnimationPlayer
 @onready var color = $ColorRect
 
@@ -8,6 +11,7 @@ func change_scene(target: String):
 	anim_player.play("transition")
 	
 	await anim_player.animation_finished
+
 	get_tree().change_scene_to_file(target)
 	
 	anim_player.play_backwards("transition")

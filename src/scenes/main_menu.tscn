@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://caofhjgv7ooo"]
 
 [ext_resource type="Script" path="res://src/scripts/menu_inicial.gd" id="1_om8jm"]
-[ext_resource type="FontFile" uid="uid://ccdo1d78ubjtj" path="res://assets/fonts/charbb_reg.ttf" id="2_vly3p"]
 [ext_resource type="FontFile" uid="uid://cx32lcthwwpfj" path="res://assets/fonts/PressStart2P.ttf" id="3_2vpa1"]
+[ext_resource type="Texture2D" uid="uid://oc7yjy86fc8m" path="res://assets/images/menu/mainmenu/flamecode_logo.svg" id="3_h6sqo"]
 
 [node name="menu_inicial" type="Control"]
 layout_mode = 3
@@ -22,81 +22,36 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="box_menu" type="VBoxContainer" parent="back_dus_grund"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -448.0
-offset_top = -288.0
-offset_right = 448.0
-offset_bottom = 288.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="name_game" type="Label" parent="back_dus_grund/box_menu"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("2_vly3p")
-theme_override_font_sizes/font_size = 100
-text = "FlameCode"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="box2" type="HBoxContainer" parent="back_dus_grund/box_menu/name_game"]
+[node name="box_buttons" type="VBoxContainer" parent="back_dus_grund"]
+custom_minimum_size = Vector2(510, 350)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -1.0
-offset_right = 448.0
-offset_bottom = 481.0
+offset_left = -444.0
+offset_top = -263.0
+offset_right = 444.0
+offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="box_buttons" type="VBoxContainer" parent="back_dus_grund/box_menu/name_game/box2"]
-custom_minimum_size = Vector2(510, 350)
-layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="jogar" type="Button" parent="back_dus_grund/box_menu/name_game/box2/box_buttons" groups=["buttons_menu"]]
+[node name="jogar" type="Button" parent="back_dus_grund/box_buttons" groups=["buttons_menu"]]
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_2vpa1")
-theme_override_font_sizes/font_size = 40
-text = "Jogar"
+theme_override_font_sizes/font_size = 24
+text = "Clique aqui para jogar"
 flat = true
 
-[node name="controles" type="Button" parent="back_dus_grund/box_menu/name_game/box2/box_buttons" groups=["buttons_menu"]]
-layout_mode = 2
-focus_mode = 0
-theme_override_fonts/font = ExtResource("3_2vpa1")
-theme_override_font_sizes/font_size = 40
-text = "Controles
-"
-flat = true
-
-[node name="sei_la" type="Button" parent="back_dus_grund/box_menu/name_game/box2/box_buttons" groups=["buttons_menu"]]
-layout_mode = 2
-focus_mode = 0
-theme_override_fonts/font = ExtResource("3_2vpa1")
-theme_override_font_sizes/font_size = 40
-text = "Sei Lá"
-flat = true
-
-[node name="sair" type="Button" parent="back_dus_grund/box_menu/name_game/box2/box_buttons" groups=["buttons_menu"]]
-layout_mode = 2
-focus_mode = 0
-theme_override_fonts/font = ExtResource("3_2vpa1")
-theme_override_font_sizes/font_size = 40
-text = "Sair"
-flat = true
+[node name="FlamecodeLogo" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(640, 264)
+scale = Vector2(0.925795, 0.925795)
+texture = ExtResource("3_h6sqo")
