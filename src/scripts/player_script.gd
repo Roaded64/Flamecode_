@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 450
+const SPEED = 400
 
 # se ele pode se mover ou não
 var playerMove = true

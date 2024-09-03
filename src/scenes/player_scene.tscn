@@ -58,7 +58,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.5
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qp47"]
@@ -82,16 +82,17 @@ material = SubResource("ShaderMaterial_jg6m4")
 position = Vector2(-24, -24)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_4c8qt")
-animation = &"idle"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-24, 4)
 shape = SubResource("RectangleShape2D_2qp47")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(1.1, 1.1)
+zoom = Vector2(1.2, 1.2)
 limit_left = 0
 limit_top = 0
-limit_right = 1280
-limit_bottom = 720
+limit_right = 1104
+limit_bottom = 1408
 limit_smoothed = true
+editor_draw_limits = true
