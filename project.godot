@@ -31,6 +31,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={}
 directories/dtl_directory={
 "ia_timeline": "res://assets/dialogic/timelines/ia_timeline.dtl",
+"mission1_AItimeline": "res://assets/dialogic/timelines/mission1_AItimeline.dtl",
 "timeline_test": "res://assets/dialogic/timelines/timeline_test.dtl"
 }
 text/letter_speed=0.05

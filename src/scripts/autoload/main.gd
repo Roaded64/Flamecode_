@@ -5,6 +5,8 @@ var fullscreen:bool
 var debug_hud = preload("res://src/scenes/debug/debug_hud.tscn")
 var debug = OS.is_debug_build()
 
+var mission
+
 func _ready() -> void:
 	# colocar a cena se for debug
 	if debug:
@@ -24,3 +26,10 @@ func _process(_delta):
 	if debug:
 		if Input.is_action_just_pressed("key_debug"):
 			get_tree().reload_current_scene()
+
+func _random_mission():
+	var rm = RandomNumberGenerator.new()
+	var mrn = rm.randi_range(0, 2)
+	
+	mission = mrn
+	print(mrn)

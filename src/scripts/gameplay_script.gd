@@ -3,6 +3,7 @@ extends Node2D
 # palavras pra ir pra roda!
 const word = ["amante", "catapimbas", "mulher", "negro", "escravo"]
 var rw
+var curMission
 
 @onready var label = $HUD/Label
 
@@ -18,15 +19,22 @@ func _ready():
 	
 	Dialogic.VAR.set('password', rw)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	Dialogic.signal_event.connect(_on_mission_signal)
 
 func _process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_0):
 		Dialogic.start("timeline_test")
 
 func _on_dialogic_signal(argument:String):
-	if argument == "conseguiu":
-		print("acerto")
+	match argument:
+		"conseguiu":
+			print("acerto")
+		"mission":
+			curMission = 1
+			$HUD/Label4.text += str(curMission)
 
+func _on_mission_signal(argument:String):
+	pass
 #func _on_line_edit_text_submitted(word_try):
 	#if word_try == rw:
 		# acertou
