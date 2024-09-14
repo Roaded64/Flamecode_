@@ -6,5 +6,12 @@
 		"desc": "Apenas uma descrição da merda",
 		"sprite_path": "res",
 		"hframe": 1
+	},
+	"lixoA":
+	{
+		"is_taken": false,
+		"desc": "Apenas uma descrição da merda",
+		"sprite_path": "res",
+		"hframe": 1
 	}
 }

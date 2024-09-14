@@ -6,6 +6,7 @@ var debug_hud = preload("res://src/scenes/debug/debug_hud.tscn")
 var debug = OS.is_debug_build()
 
 var mission
+var missionAtual = 0
 
 func _ready() -> void:
 	# colocar a cena se for debug
@@ -29,7 +30,6 @@ func _process(_delta):
 
 func _random_mission():
 	var rm = RandomNumberGenerator.new()
-	var mrn = rm.randi_range(0, 2)
-	
+	var mrn = rm.randi_range(1, 5)
 	mission = mrn
 	print(mrn)

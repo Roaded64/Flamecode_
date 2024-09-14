@@ -33,3 +33,6 @@ func _physics_process(_delta):
 			playerSprite.play("idle")
 
 		move_and_slide()
+		
+		## Variável para armazenar os itens coletados
+#var itens_coletados = []

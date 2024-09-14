@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_talk")
+	# Conecte o sinal ao método que habilitará o ScriptB
 
 func _talk():
 	Main._random_mission()
@@ -11,8 +12,21 @@ func _talk():
 		1:
 			if !Dialogic.is_playing:
 				Dialogic.start("mission1_AItimeline")
+			Main.missionAtual = 1
+		2:
+			if !Dialogic.is_playing:
+				Dialogic.start("mission2_AItimeline")
+		3:
+			if !Dialogic.is_playing:
+				Dialogic.start("mission3_AItimeline")
+		4:
+			if !Dialogic.is_playing:
+				Dialogic.start("mission4_AItimeline")
+		5:
+			if !Dialogic.is_playing:
+				Dialogic.start("mission5_AItimeline")
 
 	#if !Dialogic.is_playing:
-		#Dialogic.start("ia_timeline")
+	#    Dialogic.start("ia_timeline")
 	#else:
-		#pass
+	#    pass
