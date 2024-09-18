@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://7tdjgphnrbxv"]
+[gd_scene load_steps=90 format=4 uid="uid://7tdjgphnrbxv"]
 
 [ext_resource type="Script" path="res://src/scripts/gameplay_script.gd" id="1_mygsn"]
 [ext_resource type="PackedScene" uid="uid://dhvb8kge6c3ly" path="res://src/scenes/player_scene.tscn" id="2_18val"]
@@ -46,73 +46,9 @@
 [ext_resource type="Texture2D" uid="uid://nsygbavtaw7d" path="res://assets/images/scenes/entrada/tapete_entrada.png" id="45_rvxly"]
 [ext_resource type="Texture2D" uid="uid://cfun8boa00unq" path="res://assets/images/scenes/entrada/planta_entrada.png" id="46_w62k1"]
 [ext_resource type="Texture2D" uid="uid://30xrtymj5mye" path="res://assets/images/scenes/entrada/comoda_entrada.png" id="47_g68nk"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxa78"]
-texture = ExtResource("2_hxqhu")
-3:0/0 = 0
-2:0/0 = 0
-0:0/0 = 0
-1:0/0 = 0
-5:0/0 = 0
-5:1/0 = 0
-4:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_kmjh4"]
-sources/0 = SubResource("TileSetAtlasSource_dxa78")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0mi6"]
-texture = ExtResource("2_hxqhu")
-1:4/0 = 0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -8, 4)
-0:4/0 = 0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -6, 4, -6, -8, -8, -8)
-0:3/0 = 0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.33333, -8, -5.33333, 8, -8, 8, -8, -8)
-1:3/0 = 0
-2:3/0 = 0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.33333, -8, 5.33333, 8, 8, 8, 8, -8)
-2:1/next_alternative_id = 2
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -8, -6)
-2:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, -6, -8, 8, -6, 8, -6, -6)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
-1:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, -8, 8, -8, 8, 4, 6, 4)
-1:2/0/physics_layer_0/polygon_2/points = PackedVector2Array(-8, -8, -6, -8, -6, 4, -8, 4)
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
-0:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, 4, 6, -8, 8, -8, 8, 4)
-2:2/next_alternative_id = 3
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
-2:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, -8, -8, -8, -8, 4, -6, 4, -6, -8)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -6.01041, -6, -8, -6)
-1:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, 0, 6, -6, 8, -6, 8, 8, 6, 8)
-1:1/0/physics_layer_0/polygon_2/points = PackedVector2Array(-6, -6, -6, 8, -8, 8, -8, -6)
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, -8, -8, -8)
-0:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(8, 8, 8, -4, 6, -4, 6, 8)
-3:1/next_alternative_id = 3
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2, -8, 2, 4, 8, 4, 8, 8, -8, 8, -8, 4, -2, 4, -2, -8)
-3:2/next_alternative_id = 2
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -8, 2, -8, 2, 8, -2, 8)
-3:3/0 = 0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -8, 2, -8, 2, 8, -2, 8)
-2:4/0 = 0
-2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 6, 4, 6, -8, 8, -8, 8, 8, -8, 8)
-4:1/0 = 0
-4:2/0 = 0
-4:3/0 = 0
-4:4/0 = 0
-5:3/0 = 0
-5:4/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_p0b6y"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_x0mi6")
+[ext_resource type="Texture2D" uid="uid://c3vjci32btorq" path="res://assets/images/misc/termometro/termometro_sprite.png" id="47_n21ew"]
+[ext_resource type="Texture2D" uid="uid://vauk4t4mox2h" path="res://assets/images/misc/termometro/termometro_spriteOver.png" id="48_541if"]
+[ext_resource type="Texture2D" uid="uid://b1i8uk3dwjeii" path="res://assets/images/misc/termometro/termometro fases2.png" id="49_glery"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y0ykw"]
 shader = ExtResource("3_atmyd")
@@ -142,6 +78,96 @@ _surfaces = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tevw"]
 size = Vector2(89, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmbyh"]
+size = Vector2(143, 89.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcan"]
+size = Vector2(96, 53.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14i0x"]
+size = Vector2(97, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35wn6"]
+size = Vector2(40.5, 38.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cguoy"]
+size = Vector2(29, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yadgr"]
+radius = 24.1868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsgk2"]
+radius = 20.0998
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxa78"]
+texture = ExtResource("2_hxqhu")
+3:0/0 = 0
+2:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kmjh4"]
+sources/0 = SubResource("TileSetAtlasSource_dxa78")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0mi6"]
+texture = ExtResource("2_hxqhu")
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -8, 4)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -6, 4, -6, -8, -8, -8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.33333, -8, -5.33333, 8, -8, 8, -8, -8)
+1:3/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.33333, -8, 5.33333, 8, 8, 8, 8, -8)
+2:1/next_alternative_id = 2
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -8, -6)
+2:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, -6, -8, 8, -6, 8, -6, -6)
+2:1/0/physics_layer_0/polygon_2/points = PackedVector2Array(8, 8, 4, 8, 4, -6, 8, -6)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+1:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, -8, 8, -8, 8, 4, 6, 4)
+1:2/0/physics_layer_0/polygon_2/points = PackedVector2Array(-8, -8, -6, -8, -6, 4, -8, 4)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+0:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, 4, 6, -8, 8, -8, 8, 4)
+2:2/next_alternative_id = 3
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+2:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, -8, -8, -8, -8, 4, -6, 4, -6, -8)
+2:2/0/physics_layer_0/polygon_2/points = PackedVector2Array(4, -4, 4, -4, 4, -8, 8, -8, 8, 4, 4, 4)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -6.01041, -6, -8, -6)
+1:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, 0, 6, -6, 8, -6, 8, 8, 6, 8)
+1:1/0/physics_layer_0/polygon_2/points = PackedVector2Array(-6, -6, -6, 8, -8, 8, -8, -6)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, -8, -8, -8)
+0:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(8, 8, 8, -4, 6, -4, 6, 8)
+3:1/next_alternative_id = 3
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2, -8, 2, 4, 8, 4, 8, 8, -8, 8, -8, 4, -2, 4, -2, -8)
+3:2/next_alternative_id = 2
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -8, 2, -8, 2, 8, -2, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -8, 2, -8, 2, 8, -2, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 6, 4, 6, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+4:4/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p0b6y"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_x0mi6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x37v"]
 size = Vector2(152, 51)
@@ -181,6 +207,12 @@ _surfaces = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_244as"]
 size = Vector2(9.6, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61iae"]
+size = Vector2(47, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ir6i"]
+size = Vector2(51, 109)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv3qa"]
 size = Vector2(16, 11.2)
 
@@ -192,6 +224,36 @@ size = Vector2(31.8, 11.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpje4"]
 size = Vector2(16.2, 11.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcrcj"]
+size = Vector2(44.5, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r88q4"]
+size = Vector2(156, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mnmb"]
+size = Vector2(157, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipvub"]
+size = Vector2(73, 38.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1mm2"]
+size = Vector2(83, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmmbm"]
+size = Vector2(37, 65)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o3f1r"]
+radius = 20.2237
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfo6k"]
+size = Vector2(124.5, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku0fu"]
+size = Vector2(45, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58tm2"]
+size = Vector2(99, 80.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_35vw5"]
 shader = ExtResource("3_atmyd")
@@ -231,33 +293,23 @@ script = ExtResource("1_mygsn")
 
 [node name="BGColor" type="ColorRect" parent="."]
 offset_top = -704.0
-offset_right = 1617.0
-offset_bottom = 736.0
+offset_right = 1220.0
+offset_bottom = 492.0
 color = Color(0, 0, 0, 1)
-
-[node name="FloorTile" type="TileMapLayer" parent="."]
-position = Vector2(411, -275)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAACAAYAAAAAAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAYAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAYAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAD//wcAAAABAAAAAAAAAAUAAAACAAAAAAAAAAEAAAAAAAAAAAAAAAcAAAABAAAAAAD+/wcAAAABAAAAAAD9/wcAAAABAAAAAAD9/wYAAAABAAAAAAD8/wYAAAABAAAAAAD8/wcAAAABAAAAAAD9/wUAAAABAAAAAAD8/wUAAAABAAAAAAD+/wUAAAACAAAAAAD//wUAAAACAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wgAAAABAAAAAAD9/wgAAAABAAAAAAD+/wgAAAABAAAAAAD//wgAAAABAAAAAAAAAAgAAAABAAAAAAD8/wAAAAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAADAP//AAADAAAAAAAEAP//AAADAAAAAAAFAP//AAADAAAAAAAIAP//AAADAAAAAAAHAP//AAADAAAAAAACAP//AAAAAAAAAAD+/wYAAAABAAAAAAD//wYAAAABAAAAAAAAAAYAAAABAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAAIAP7/AAADAAAAAAAHAP7/AAADAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAGAP//AAADAAAAAAAGAP7/AAADAAAAAAACAP7/AAAAAAAAAAADAP7/AAADAAAAAAAEAP7/AAADAAAAAAAFAP7/AAADAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAAAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAA=")
-tile_set = SubResource("TileSet_kmjh4")
-
-[node name="FloorTile2" type="TileMapLayer" parent="."]
-position = Vector2(411, -275)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAAAAgAAAAFAAAAAAAAAAEAAAAFAAAAAAACAAEAAAAEAAAAAAACAAcAAAAEAAAAAAA=")
-tile_set = SubResource("TileSet_kmjh4")
-
-[node name="WallTile" type="TileMapLayer" parent="."]
-position = Vector2(411, -275)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAD9/wgAAAABAAQAAAD+/wgAAAABAAQAAAD//wgAAAABAAQAAAAAAAgAAAABAAQAAAAAAAcAAAACAAMAAAAAAAYAAAACAAMAAAAAAAUAAAACAAMAAAAAAAMAAAAFAAMAAAAAAAQAAAAFAAQAAAD8/wQAAAAAAAIAAAD9/wQAAAAEAAIAAAD+/wQAAAAEAAQAAAD//wQAAAAEAAQAAAD//wMAAAAEAAMAAAD+/wMAAAAEAAMAAAD9/wMAAAAEAAEAAAD8/wMAAAAAAAEAAAAAAP//AAACAAMAAAD9/wUAAAACAAMAAAD8/wUAAAAAAAMAAAD8/wYAAAAAAAMAAAD8/wcAAAAAAAMAAAD8/wgAAAAAAAQAAAD8////AAAAAAMAAAD8/wAAAAAAAAMAAAD8/wEAAAAAAAQAAAD9/wEAAAABAAQAAAD+/wEAAAABAAQAAAD//wEAAAABAAQAAAAAAAEAAAABAAQAAAAAAAAAAAACAAMAAAAAAP7/AAACAAMAAAD8//7/AAAAAAMAAAD8//3/AAAAAAIAAAD9//3/AAABAAIAAAD+//3/AAABAAIAAAD///3/AAABAAIAAAAAAP3/AAACAAIAAAD9//z/AAABAAEAAAD+//z/AAABAAEAAAD///z/AAABAAEAAAAAAPz/AAACAAEAAAD8//z/AAAAAAEAAAACAPz/AAAAAAEAAAACAP3/AAAAAAIAAAADAP3/AAABAAIAAAAEAP3/AAABAAIAAAAFAP3/AAABAAIAAAADAPz/AAABAAEAAAAEAPz/AAABAAEAAAAFAPz/AAABAAEAAAACAP7/AAAAAAMAAAACAP//AAAAAAMAAAACAAAAAAAAAAMAAAACAAIAAAAAAAMAAAACAAMAAAAAAAMAAAACAAQAAAAAAAMAAAACAAUAAAAAAAMAAAAGAPz/AAABAAEAAAAGAP3/AAABAAIAAAAHAP3/AAABAAIAAAADAAcAAAABAAQAAAACAAcAAAABAAQAAAACAAYAAAAAAAMAAAAHAPz/AAABAAEAAAAIAPz/AAACAAEAAAAIAP3/AAACAAIAAAAIAP7/AAACAAMAAAAIAP//AAACAAMAAAAIAAAAAAACAAMAAAAIAAEAAAACAAMAAAAIAAIAAAACAAMAAAAIAAMAAAACAAMAAAAIAAQAAAACAAMAAAAIAAUAAAACAAMAAAAIAAYAAAACAAMAAAAIAAcAAAACAAQAAAAHAAcAAAABAAQAAAAGAAcAAAABAAQAAAAFAAcAAAABAAQAAAA=")
-tile_set = SubResource("TileSet_p0b6y")
+metadata/_edit_use_anchors_ = true
 
 [node name="Scenes_Objects" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(425, -275)
 
+[node name="Player" parent="Scenes_Objects" instance=ExtResource("2_18val")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(593, 391)
+
 [node name="Banheiro_Objects" type="Node2D" parent="Scenes_Objects"]
+modulate = Color(0.140447, 0.140447, 0.140447, 1)
+y_sort_enabled = true
 position = Vector2(-375, 720)
 
 [node name="Node2D" type="Node2D" parent="Scenes_Objects/Banheiro_Objects"]
@@ -294,40 +346,112 @@ position = Vector2(15.1182, -16.5811)
 scale = Vector2(15.1176, 16.5806)
 shape = SubResource("RectangleShape2D_2tevw")
 
-[node name="BanheiraSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
+[node name="banheira" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(81, -80)
+
+[node name="BanheiraSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/banheira"]
 position = Vector2(306, -340)
 scale = Vector2(5, 5)
 texture = ExtResource("7_lqn0y")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/banheira"]
+position = Vector2(308.5, -324.75)
+shape = SubResource("RectangleShape2D_vmbyh")
+
 [node name="TapeteSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(312, -203)
+position = Vector2(391, -281)
 scale = Vector2(5, 5)
 texture = ExtResource("11_jjacx")
 
-[node name="PiaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
+[node name="pia" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(81, -80)
+
+[node name="PiaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/pia"]
 position = Vector2(124, -340)
 scale = Vector2(5, 5)
 texture = ExtResource("9_mn4k5")
 
-[node name="PrivadaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/pia"]
+position = Vector2(123, -318.75)
+shape = SubResource("RectangleShape2D_1vcan")
+
+[node name="privada" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(81, -80)
+
+[node name="PrivadaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/privada"]
 position = Vector2(106, -160)
 scale = Vector2(5, 5)
 texture = ExtResource("10_4drbq")
 
-[node name="DesentupidorSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(76, -110)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/privada"]
+position = Vector2(102.5, -154)
+shape = SubResource("RectangleShape2D_14i0x")
+
+[node name="desentupidor" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(81, -80)
+
+[node name="DesentupidorSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/desentupidor"]
+position = Vector2(75, -104)
 scale = Vector2(5, 5)
 texture = ExtResource("11_2e54n")
 
-[node name="lixo_balde" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(96, -56)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/desentupidor"]
+position = Vector2(74.75, -98.25)
+shape = SubResource("RectangleShape2D_35wn6")
+
+[node name="papel_higienico" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(81, -80)
+
+[node name="PapelHigienico" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/papel_higienico"]
+position = Vector2(71, -231)
+scale = Vector2(5, 5)
+texture = ExtResource("32_ih18f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/papel_higienico"]
+position = Vector2(73.5, -226)
+shape = SubResource("RectangleShape2D_cguoy")
+
+[node name="lixo" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(98, -85)
+
+[node name="lixo_balde" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/lixo"]
+position = Vector2(94, -45)
 scale = Vector2(5, 5)
 texture = ExtResource("4_a0cep")
 
-[node name="PapelHigienico" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(71, -224)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/lixo"]
+position = Vector2(96, -52)
+shape = SubResource("CircleShape2D_yadgr")
+
+[node name="planta" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(81, -80)
+
+[node name="PlantaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/planta"]
+position = Vector2(386, -54)
 scale = Vector2(5, 5)
-texture = ExtResource("32_ih18f")
+texture = ExtResource("20_3qnb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/planta"]
+position = Vector2(387, -43)
+shape = SubResource("CircleShape2D_rsgk2")
+
+[node name="FloorTile" type="TileMapLayer" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(361, -720)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAAQAAAACAAAAAAAAAAQAAAACAAAAAAD//wQAAAACAAAAAAD+/wQAAAABAAAAAAD9/wQAAAABAAAAAAD9/wUAAAABAAAAAAD+/wUAAAABAAAAAAD//wUAAAABAAAAAAAAAAUAAAABAAAAAAABAAUAAAABAAAAAAABAAYAAAABAAAAAAABAAcAAAABAAAAAAAAAAcAAAABAAAAAAD//wcAAAABAAAAAAD+/wcAAAABAAAAAAD9/wcAAAABAAAAAAD9/wYAAAABAAAAAAD+/wYAAAABAAAAAAD//wYAAAABAAAAAAAAAAYAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_kmjh4")
+
+[node name="WallTile" type="TileMapLayer" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(361, -720)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAAUAAAACAAMAAAABAAcAAAACAAQAAAAAAAcAAAABAAQAAAD//wcAAAABAAQAAAD+/wcAAAABAAQAAAD9/wcAAAAAAAQAAAD9/wUAAAAAAAMAAAD9/wYAAAAAAAMAAAABAAIAAAAFAAMAAAABAAMAAAAFAAQAAAAAAAMAAAAEAAQAAAAAAAIAAAAEAAMAAAD+/wIAAAAEAAEAAAD+/wMAAAAEAAIAAAD9/wIAAAAAAAEAAAD9/wMAAAAAAAIAAAD9/wQAAAAAAAMAAAD//wIAAAAEAAMAAAD//wMAAAAEAAQAAAD+/wQAAAACAAMAAAABAAQAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_p0b6y")
 
 [node name="Sala_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
@@ -416,17 +540,58 @@ z_index = 2
 y_sort_enabled = true
 position = Vector2(-20, -5)
 
-[node name="PlantaSprite" type="Sprite2D" parent="Scenes_Objects/Sala_Objects"]
-position = Vector2(-333, 636)
+[node name="TapeteEntrada" type="Sprite2D" parent="Scenes_Objects/Sala_Objects"]
+position = Vector2(13, 626)
 scale = Vector2(5, 5)
-texture = ExtResource("20_3qnb4")
+texture = ExtResource("45_rvxly")
+
+[node name="planta" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 89)
+
+[node name="PlantaEntrada" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/planta"]
+position = Vector2(-142, 540)
+scale = Vector2(5, 5)
+texture = ExtResource("46_w62k1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/planta"]
+position = Vector2(-141.5, 565.5)
+shape = SubResource("RectangleShape2D_61iae")
+
+[node name="comoda" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="ComodaEntrada" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/comoda"]
+position = Vector2(-141, 400)
+rotation = 3.14159
+scale = Vector2(5, -5)
+texture = ExtResource("47_g68nk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/comoda"]
+position = Vector2(-142.5, 410.5)
+shape = SubResource("RectangleShape2D_0ir6i")
+
+[node name="FloorTile" type="TileMapLayer" parent="Scenes_Objects/Sala_Objects"]
+position = Vector2(-347, 49)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAADAAAAAAAIAP//AAADAAAAAAAIAP7/AAADAAAAAAACAP7/AAAAAAAAAAADAP7/AAADAAAAAAAEAP7/AAADAAAAAAAFAP7/AAADAAAAAAAGAP7/AAADAAAAAAAHAP7/AAADAAAAAAADAP//AAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAFAP//AAADAAAAAAAGAP//AAADAAAAAAAHAP//AAADAAAAAAAEAP//AAADAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAADAAAAAAAHAAAAAAADAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAQAAAAAAAAAAAAEAAYAAAAAAAAAAAADAAYAAAAAAAAAAAACAAYAAAAAAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAAGAAIAAAAAAAAAAAACAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_kmjh4")
+
+[node name="WallTile" type="TileMapLayer" parent="Scenes_Objects/Sala_Objects"]
+position = Vector2(-347, 49)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAACAP7/AAAAAAMAAAACAP//AAAAAAMAAAACAAEAAAAAAAMAAAACAAIAAAAAAAMAAAACAAMAAAAAAAMAAAACAAQAAAAAAAMAAAACAAUAAAAAAAMAAAACAAcAAAAAAAQAAAADAAcAAAABAAQAAAAFAAcAAAABAAQAAAAGAAcAAAABAAQAAAAHAAcAAAABAAQAAAAIAAcAAAACAAQAAAAIAAYAAAACAAMAAAAIAAUAAAACAAMAAAAIAAQAAAACAAMAAAAIAAMAAAACAAMAAAAIAAIAAAACAAMAAAAIAAEAAAACAAMAAAAIAAAAAAACAAMAAAAIAP//AAACAAMAAAAIAP7/AAACAAMAAAACAP3/AAAAAAIAAAADAP3/AAABAAIAAAAEAP3/AAABAAIAAAAFAP3/AAABAAIAAAAGAP3/AAABAAIAAAAHAP3/AAABAAIAAAAIAP3/AAACAAIAAAACAPz/AAAAAAEAAAAIAPz/AAACAAEAAAADAPz/AAABAAEAAAAEAPz/AAABAAEAAAAFAPz/AAABAAEAAAAGAPz/AAABAAEAAAAHAPz/AAABAAEAAAA=")
+tile_set = SubResource("TileSet_p0b6y")
 
 [node name="Cozinha_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
 position = Vector2(227, 0)
 
 [node name="GeladeiraSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
-position = Vector2(426, -200)
+z_index = 1
+position = Vector2(426, -189)
 scale = Vector2(5, 5)
 texture = ExtResource("17_se2vj")
 
@@ -450,6 +615,7 @@ position = Vector2(0.199993, 0.199997)
 shape = SubResource("RectangleShape2D_mmqyt")
 
 [node name="PiaSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
+z_index = 1
 position = Vector2(306, -160)
 scale = Vector2(5, 5)
 texture = ExtResource("15_v77wi")
@@ -461,6 +627,7 @@ position = Vector2(0.0999985, -1.2)
 shape = SubResource("RectangleShape2D_xfmph")
 
 [node name="FogãoSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
+z_index = 1
 position = Vector2(186, -160)
 scale = Vector2(5, 5)
 texture = ExtResource("16_vjxuw")
@@ -472,6 +639,7 @@ position = Vector2(0.100006, -0.699997)
 shape = SubResource("RectangleShape2D_kpje4")
 
 [node name="ArmarioSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
+z_index = 1
 position = Vector2(106, -160)
 scale = Vector2(5, 5)
 texture = ExtResource("17_5mhgc")
@@ -483,93 +651,213 @@ position = Vector2(-0.2, -0.800003)
 shape = SubResource("RectangleShape2D_kpje4")
 
 [node name="CoifaSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
+z_index = 1
 position = Vector2(186, -265)
 scale = Vector2(5, 5)
 texture = ExtResource("22_o27wn")
 
 [node name="Armario2Sprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
+z_index = 1
 position = Vector2(306, -265)
 scale = Vector2(5, 5)
 texture = ExtResource("23_7yh7p")
 
 [node name="Mesa_Objects" type="Node2D" parent="Scenes_Objects"]
+y_sort_enabled = true
 position = Vector2(553, 193)
 
-[node name="CadeiraCSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects"]
-position = Vector2(-2.98023e-07, -65)
-scale = Vector2(5, 5)
-texture = ExtResource("27_0cscy")
+[node name="cadeiraes" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraBSprite2" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeiraes"]
+position = Vector2(-90, 0)
+rotation = 3.14159
+scale = Vector2(5, -5)
+texture = ExtResource("28_2xne1")
 metadata/_edit_lock_ = true
 
-[node name="CadeiraBSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeiraes"]
+position = Vector2(-93.75, 14)
+shape = SubResource("RectangleShape2D_tcrcj")
+
+[node name="cadeiradt" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraBSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeiradt"]
 position = Vector2(90, 0)
 scale = Vector2(5, 5)
 texture = ExtResource("28_2xne1")
 metadata/_edit_lock_ = true
 
-[node name="CadeiraBSprite2" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects"]
-position = Vector2(-90, 0)
-scale = Vector2(-5, 5)
-texture = ExtResource("28_2xne1")
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeiradt"]
+position = Vector2(94, 14)
+shape = SubResource("RectangleShape2D_tcrcj")
 
-[node name="MesaSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects"]
+[node name="cadeiracm" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraCSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeiracm"]
+position = Vector2(0, -65)
 scale = Vector2(5, 5)
-texture = ExtResource("29_dmf31")
+texture = ExtResource("27_0cscy")
 metadata/_edit_lock_ = true
 
-[node name="CadeiraASprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects"]
-position = Vector2(-3.69549e-06, 48)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeiracm"]
+position = Vector2(1, -45)
+shape = SubResource("RectangleShape2D_tcrcj")
+
+[node name="cadeirabx" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraASprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeirabx"]
+position = Vector2(0, 48)
 scale = Vector2(5, 5)
 texture = ExtResource("30_6mgwd")
 metadata/_edit_lock_ = true
 
-[node name="Quarto_Objects" type="Node2D" parent="Scenes_Objects"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeirabx"]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_tcrcj")
 
-[node name="CamaSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
-position = Vector2(-239, -155)
+[node name="mesa" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="MesaSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/mesa"]
 scale = Vector2(5, 5)
-texture = ExtResource("33_m42km")
+texture = ExtResource("29_dmf31")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/mesa"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_r88q4")
+
+[node name="Quarto_Objects" type="Node2D" parent="Scenes_Objects"]
+modulate = Color(0.141176, 0.141176, 0.141176, 1)
+y_sort_enabled = true
 
 [node name="TapeteEntrada" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
-position = Vector2(23.0001, 110)
+position = Vector2(106, 39)
 scale = Vector2(5, 5)
 texture = ExtResource("39_fft7t")
 
 [node name="TapeteSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
-position = Vector2(-130, -20.0001)
+position = Vector2(-45, 0.999908)
 scale = Vector2(5, 5)
 texture = ExtResource("40_tn0ra")
 
-[node name="TenisSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
-position = Vector2(-137, 113)
+[node name="cama" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
+position = Vector2(80, 1)
+
+[node name="CamaSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/cama"]
+position = Vector2(-239, -155)
+scale = Vector2(5, 5)
+texture = ExtResource("33_m42km")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/cama"]
+position = Vector2(-237.5, -158.5)
+shape = SubResource("RectangleShape2D_4mnmb")
+
+[node name="tenis" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(80, 0)
+
+[node name="TenisSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/tenis"]
+position = Vector2(-134, 113)
 scale = Vector2(4, 4)
 texture = ExtResource("41_mrxt8")
 
-[node name="CabeceiraSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
-position = Vector2(-279, -81.0001)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/tenis"]
+position = Vector2(-143.5, 123.25)
+shape = SubResource("RectangleShape2D_ipvub")
+
+[node name="cabeceira" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(80, 0)
+
+[node name="CabeceiraSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/cabeceira"]
+position = Vector2(-279, -50.0001)
 scale = Vector2(5, 5)
 texture = ExtResource("42_3xlnp")
 
-[node name="CabiderSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
-position = Vector2(21, -27)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/cabeceira"]
+position = Vector2(-276.5, -27.5)
+shape = SubResource("RectangleShape2D_h1mm2")
+
+[node name="cabider" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(80, -46)
+
+[node name="CabiderSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/cabider"]
+position = Vector2(21, -12)
 scale = Vector2(6, 6)
 texture = ExtResource("43_8xkfy")
 
-[node name="MesaecadeiracompSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/cabider"]
+position = Vector2(33.5, -19.5)
+shape = SubResource("RectangleShape2D_xmmbm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/cabider"]
+position = Vector2(10, 20)
+shape = SubResource("CircleShape2D_o3f1r")
+
+[node name="compactacao" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(80, 0)
+
+[node name="MesaecadeiracompSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/compactacao"]
 position = Vector2(-254, 85)
 scale = Vector2(5, 5)
 texture = ExtResource("44_5ej03")
 
-[node name="ComodaSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/compactacao"]
+position = Vector2(-250.25, 107.5)
+shape = SubResource("RectangleShape2D_xfo6k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/compactacao"]
+position = Vector2(-248.5, 64)
+shape = SubResource("RectangleShape2D_ku0fu")
+
+[node name="comoda" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(80, 0)
+
+[node name="ComodaSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/comoda"]
 position = Vector2(-3.99997, -162)
 scale = Vector2(5, 5)
 texture = ExtResource("45_hd553")
 
-[node name="Player" parent="Scenes_Objects" instance=ExtResource("2_18val")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(593, 391)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/comoda"]
+position = Vector2(-0.5, -161.25)
+shape = SubResource("RectangleShape2D_58tm2")
+
+[node name="FloorTile" type="TileMapLayer" parent="Scenes_Objects/Quarto_Objects"]
+position = Vector2(-14, 0)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_kmjh4")
+
+[node name="WallTile" type="TileMapLayer" parent="Scenes_Objects/Quarto_Objects"]
+position = Vector2(-14, 0)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD9/wAAAAAAAAMAAAD9////AAAAAAMAAAD9//7/AAAAAAMAAAABAP//AAACAAMAAAABAP7/AAACAAMAAAABAP3/AAACAAIAAAABAPz/AAACAAEAAAD9//z/AAAAAAEAAAD9//3/AAAAAAIAAAD+//3/AAABAAIAAAD///3/AAABAAIAAAAAAP3/AAABAAIAAAAAAPz/AAABAAEAAAD///z/AAABAAEAAAD+//z/AAABAAEAAAD9/wEAAAAAAAQAAAABAAEAAAACAAQAAAAAAAEAAAABAAQAAAD//wEAAAABAAQAAAD+/wEAAAABAAQAAAA=")
+tile_set = SubResource("TileSet_p0b6y")
+
+[node name="ColorRect" type="ColorRect" parent="Scenes_Objects/Quarto_Objects"]
+offset_left = 141.0
+offset_top = 155.0
+offset_right = 146.0
+offset_bottom = 165.0
+color = Color(0.14902, 0.156863, 0.207843, 1)
 
 [node name="Test" type="Node2D" parent="."]
 visible = false
@@ -651,6 +939,7 @@ shape = SubResource("RectangleShape2D_lt57v")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="HUD"]
+visible = false
 offset_left = 6.0
 offset_top = 687.0
 offset_right = 214.0
@@ -660,6 +949,7 @@ text = "A palavra é: "
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="HUD"]
+visible = false
 texture_filter = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -673,6 +963,7 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_aosde")
 theme_override_font_sizes/font_size = 0
 text = "Você coletou \"alguma coisa\"!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="HUD"]
 visible = false
@@ -691,18 +982,19 @@ theme_override_font_sizes/font_size = 12
 text = "\"descrição e bla bla\""
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="HUD"]
-offset_left = 1224.0
-offset_top = 549.0
-offset_right = 1256.0
-offset_bottom = 701.0
-max_value = 300.0
-step = 1.0
-rounded = true
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD"]
+offset_left = 13.0
+offset_top = 390.0
+offset_right = 53.0
+offset_bottom = 454.0
+scale = Vector2(5, 5)
+max_value = 180.0
 fill_mode = 3
-show_percentage = false
+texture_under = ExtResource("47_n21ew")
+texture_over = ExtResource("48_541if")
+texture_progress = ExtResource("49_glery")
 
-[node name="Timer" type="Timer" parent="HUD/ProgressBar"]
+[node name="Timer" type="Timer" parent="HUD/TextureProgressBar"]
 autostart = true
 
 [node name="Label4" type="Label" parent="HUD"]
@@ -710,20 +1002,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_aosde")
 text = "Sua missão atual é: "
+metadata/_edit_use_anchors_ = true
 
-[node name="TapeteEntrada" type="Sprite2D" parent="."]
-position = Vector2(771, 311)
-scale = Vector2(5, 5)
-texture = ExtResource("45_rvxly")
-
-[node name="PlantaEntrada" type="Sprite2D" parent="."]
-position = Vector2(616, 216)
-scale = Vector2(5, 5)
-texture = ExtResource("46_w62k1")
-
-[node name="ComodaEntrada" type="Sprite2D" parent="."]
-position = Vector2(617, 76)
-scale = Vector2(-5, 5)
-texture = ExtResource("47_g68nk")
-
-[connection signal="timeout" from="HUD/ProgressBar/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HUD/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]

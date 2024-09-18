@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 400
+
+var playerSpeed = 275
 
 # se ele pode se mover ou não
 var playerMove = true
@@ -13,14 +14,19 @@ func _process(delta: float) -> void:
 		playerSprite.play("idle")
 	elif !Dialogic.is_playing:
 		playerMove = true
+	
+	if Input.is_action_pressed("key_run"):
+		playerSpeed = 500
+	else:
+		playerSpeed = 275
 
 func _physics_process(_delta):
 	# Fazer o vagabundo se mover
 	if playerMove:
 		var direction: Vector2 = Input.get_vector("key_left", "key_right", "key_up", "key_down")
 		
-		velocity.x = move_toward(velocity.x, SPEED * direction.x, SPEED)
-		velocity.y = move_toward(velocity.y, SPEED * direction.y, SPEED)
+		velocity.x = move_toward(velocity.x, playerSpeed * direction.x, playerSpeed)
+		velocity.y = move_toward(velocity.y, playerSpeed * direction.y, playerSpeed)
 
 		if Input.is_action_pressed("key_left"):
 			playerSprite.scale.x = -5
@@ -33,6 +39,3 @@ func _physics_process(_delta):
 			playerSprite.play("idle")
 
 		move_and_slide()
-		
-		## Variável para armazenar os itens coletados
-#var itens_coletados = []

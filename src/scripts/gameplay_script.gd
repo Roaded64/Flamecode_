@@ -8,8 +8,8 @@ var curMission
 @onready var label = $HUD/Label
 
 # baguio do tempo
-@onready var timer_progress = $HUD/ProgressBar
-@onready var timer = $HUD/ProgressBar/Timer
+@onready var timer_progress = $HUD/TextureProgressBar
+@onready var timer = $HUD/TextureProgressBar/Timer
 
 func _ready():	
 	# escolher a palavra aleatória
@@ -22,8 +22,14 @@ func _ready():
 	Dialogic.signal_event.connect(_on_mission_signal)
 
 func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_0):
-		Dialogic.start("timeline_test")
+	if timer_progress.value == 43:
+		timer_progress.texture_progress = preload("res://assets/images/misc/termometro/termometro fases3.png")
+	elif timer_progress.value == 77:
+		timer_progress.texture_progress = preload("res://assets/images/misc/termometro/termometro fases4.png")
+	elif timer_progress.value == 111:
+		timer_progress.texture_progress = preload("res://assets/images/misc/termometro/termometro fases5.png")
+	elif timer_progress.value == 144:
+		timer_progress.texture_progress = preload("res://assets/images/misc/termometro/termometro fases6.png")
 
 func _on_dialogic_signal(argument:String):
 	match argument:
