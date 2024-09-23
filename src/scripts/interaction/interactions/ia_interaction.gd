@@ -7,24 +7,30 @@ func _ready() -> void:
 	# Conecte o sinal ao método que habilitará o ScriptB
 
 func _talk():
-	Main._random_mission()
-	match Main.mission:
-		1:
-			if !Dialogic.is_playing:
-				Dialogic.start("mission1_AItimeline")
-			Main.missionAtual = 1
-		2:
-			if !Dialogic.is_playing:
-				Dialogic.start("mission2_AItimeline")
-		3:
-			if !Dialogic.is_playing:
-				Dialogic.start("mission3_AItimeline")
-		4:
-			if !Dialogic.is_playing:
-				Dialogic.start("mission4_AItimeline")
-		5:
-			if !Dialogic.is_playing:
-				Dialogic.start("mission5_AItimeline")
+	if !Dialogic.is_playing:
+		Dialogic.start("mission1_AItimeline")
+	
+	#Main._random_mission()
+	#
+	#match Main.mission:
+		#1:
+			#if !Dialogic.is_playing:
+				#Dialogic.start("mission1_AItimeline")
+			#Main.missionAtual = 1
+		#2:
+			#if !Dialogic.is_playing:
+				#Dialogic.start("mission2_AItimeline")
+			#Main.missionAtual = 2
+		#3:
+			#if !Dialogic.is_playing:
+				#Dialogic.start("mission3_AItimeline")
+			#Main.missionAtual = 4
+		#4:
+			#if !Dialogic.is_playing:
+				#Dialogic.start("mission4_AItimeline")
+		#5:
+			#if !Dialogic.is_playing:
+				#Dialogic.start("mission5_AItimeline")
 
 	#if !Dialogic.is_playing:
 	#    Dialogic.start("ia_timeline")

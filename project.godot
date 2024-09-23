@@ -24,12 +24,14 @@ Main="*res://src/scripts/autoload/main.gd"
 InteractionManager="*res://src/scenes/interaction/interaction_manager.tscn"
 ItemData="*res://src/scripts/autoload/item_data.gd"
 Transition="*res://src/scenes/misc/transition.tscn"
+WordsData="*res://src/scripts/autoload/words_data.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={}
 directories/dtl_directory={
+"first_AItimeline": "res://assets/dialogic/timelines/word_AItimeline.dtl",
 "ia_timeline": "res://assets/dialogic/timelines/ia_timeline.dtl",
 "mission1_AItimeline": "res://assets/dialogic/timelines/mission1_AItimeline.dtl",
 "mission2_AItimeline": "res://assets/dialogic/timelines/mission2_AItimeline.dtl",

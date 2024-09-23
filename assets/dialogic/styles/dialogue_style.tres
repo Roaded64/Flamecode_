@@ -31,7 +31,7 @@ script = ExtResource("1_r3l61")
 scene = ExtResource("5_3p1m7")
 overrides = {
 "normal_font": "\"res://assets/fonts/PressStart2P.ttf\"",
-"text_size": "18.0",
+"text_size": "16.0",
 "text_use_global_font": "false",
 "text_use_global_size": "false"
 }

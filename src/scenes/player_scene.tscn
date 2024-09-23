@@ -83,17 +83,17 @@ material = SubResource("ShaderMaterial_jg6m4")
 position = Vector2(-24, -24)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_4c8qt")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-24, 4)
 shape = SubResource("RectangleShape2D_2qp47")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(1.27, 1.27)
+zoom = Vector2(1.1, 1.1)
 limit_left = 0
 limit_top = 88
-limit_right = 1220
+limit_right = 1420
 limit_bottom = 1155
 limit_smoothed = true
 position_smoothing_enabled = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://djvd3rshc1rv8"]
+
+[ext_resource type="Script" path="res://src/scripts/area_2d.gd" id="1_5ojqu"]
+
+[node name="AreaEntered" type="Area2D"]
+script = ExtResource("1_5ojqu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

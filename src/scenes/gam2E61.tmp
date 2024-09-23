@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://7tdjgphnrbxv"]
+[gd_scene load_steps=91 format=4 uid="uid://7tdjgphnrbxv"]
 
 [ext_resource type="Script" path="res://src/scripts/gameplay_script.gd" id="1_mygsn"]
 [ext_resource type="PackedScene" uid="uid://dhvb8kge6c3ly" path="res://src/scenes/player_scene.tscn" id="2_18val"]
@@ -16,8 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cq8pscpxajhri" path="res://assets/images/scenes/banheiro/banheira_sprite.png" id="7_lqn0y"]
 [ext_resource type="Texture2D" uid="uid://bky1wckehkcig" path="res://icon.svg" id="8_khycv"]
 [ext_resource type="Texture2D" uid="uid://b53li3vrbw7ub" path="res://assets/images/scenes/sala/COMODA.png" id="8_u0271"]
-[ext_resource type="Material" uid="uid://d3p62owxka05b" path="res://assets/shaders/materials/outline.tres" id="9_d3gor"]
-[ext_resource type="Script" path="res://src/scripts/interaction/interactions/banheiro_interaction.gd" id="9_gored"]
+[ext_resource type="Texture2D" uid="uid://chrvcvot8v4md" path="res://assets/images/scenes/sala/TV.png" id="9_8tf71"]
 [ext_resource type="Texture2D" uid="uid://doiop65y6j7dd" path="res://assets/images/scenes/banheiro/pia_sprite.png" id="9_mn4k5"]
 [ext_resource type="Script" path="res://src/scripts/interaction/interactions/ia_interaction.gd" id="9_rtlto"]
 [ext_resource type="Texture2D" uid="uid://tetv2iw6yfk1" path="res://assets/images/scenes/banheiro/privada_sprite.png" id="10_4drbq"]
@@ -25,12 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://15ypxn34vfgi" path="res://assets/images/scenes/banheiro/tapete_sprite.png" id="11_jjacx"]
 [ext_resource type="Texture2D" uid="uid://hctiwunm0k15" path="res://assets/images/scenes/cozinha/balcão_sprite.png" id="14_wm6cf"]
 [ext_resource type="Texture2D" uid="uid://cv825yejewgr" path="res://assets/images/scenes/cozinha/pia_sprite.png" id="15_v77wi"]
-[ext_resource type="PackedScene" uid="uid://djvd3rshc1rv8" path="res://src/scenes/interaction/area_entered.tscn" id="16_hp6ks"]
 [ext_resource type="Texture2D" uid="uid://tddhbj6gudhb" path="res://assets/images/scenes/cozinha/fogão_sprite.png" id="16_vjxuw"]
 [ext_resource type="Texture2D" uid="uid://bdsyh0opc7gl4" path="res://assets/images/scenes/cozinha/armario_sprite.png" id="17_5mhgc"]
 [ext_resource type="Texture2D" uid="uid://bbvxmq4jwgh6t" path="res://assets/images/scenes/cozinha/geladeira_sprite.png" id="17_se2vj"]
 [ext_resource type="Texture2D" uid="uid://c1cl376ebhfbr" path="res://assets/images/scenes/sala/planta_sprite.png" id="20_3qnb4"]
-[ext_resource type="Texture2D" uid="uid://bmir0qoj8y0wg" path="res://assets/images/scenes/sala/tv_sprite.png" id="20_cbxwx"]
 [ext_resource type="Texture2D" uid="uid://bmt4iafhixjtx" path="res://assets/images/scenes/cozinha/coifa_sprite.png" id="22_o27wn"]
 [ext_resource type="Texture2D" uid="uid://b376fwoft8dk5" path="res://assets/images/scenes/cozinha/armario2_sprite.png" id="23_7yh7p"]
 [ext_resource type="Texture2D" uid="uid://5uk3s4bysg5p" path="res://assets/images/scenes/mesa/cadeiraC_sprite.png" id="27_0cscy"]
@@ -52,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://c3vjci32btorq" path="res://assets/images/misc/termometro/termometro_sprite.png" id="47_n21ew"]
 [ext_resource type="Texture2D" uid="uid://vauk4t4mox2h" path="res://assets/images/misc/termometro/termometro_spriteOver.png" id="48_541if"]
 [ext_resource type="Texture2D" uid="uid://b1i8uk3dwjeii" path="res://assets/images/misc/termometro/termometro fases2.png" id="49_glery"]
+[ext_resource type="PackedScene" uid="uid://crvfucxbyv0r4" path="res://src/scenes/Fire.tscn" id="50_ss642"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y0ykw"]
 shader = ExtResource("3_atmyd")
@@ -87,9 +85,6 @@ size = Vector2(143, 89.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcan"]
 size = Vector2(96, 53.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivmla"]
-size = Vector2(95.5, 63.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14i0x"]
 size = Vector2(97, 58)
@@ -170,15 +165,10 @@ texture = ExtResource("2_hxqhu")
 4:4/0 = 0
 5:3/0 = 0
 5:4/0 = 0
-5:2/0 = 0
-5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 6, -8, 6, -8, 8, 8, 8)
 
 [sub_resource type="TileSet" id="TileSet_p0b6y"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_x0mi6")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rloyh"]
-size = Vector2(382.5, 452)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x37v"]
 size = Vector2(152, 51)
@@ -186,46 +176,34 @@ size = Vector2(152, 51)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btt7i"]
 size = Vector2(152, 74)
 
-[sub_resource type="Animation" id="Animation_35om2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_ju6d7"]
-resource_name = "fogo"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [3, 4, 5, 6]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcerm"]
-_data = {
-"RESET": SubResource("Animation_35om2"),
-"fogo": SubResource("Animation_ju6d7")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yolh2"]
 size = Vector2(29.8, 11.6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eqwxe"]
+shader = ExtResource("3_atmyd")
+shader_parameter/thickness = 0.5
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = null
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = true
+shader_parameter/offset = null
+shader_parameter/max_or_add = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lvlw5"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-6, -5, 0, 12, 10, 0),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8="),
+"format": 34393296913,
+"index_count": 6,
+"index_data": PackedByteArray("AwAAAAEAAQACAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AADAwAAAoEAAAMDAAACgwAAAwEAAAKDAAADAQAAAoEA=")
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_244as"]
 size = Vector2(9.6, 8)
@@ -278,9 +256,6 @@ size = Vector2(45, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58tm2"]
 size = Vector2(99, 80.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nhwj"]
-size = Vector2(384, 451.5)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_35vw5"]
 shader = ExtResource("3_atmyd")
 shader_parameter/thickness = 0.5
@@ -319,7 +294,7 @@ script = ExtResource("1_mygsn")
 
 [node name="BGColor" type="ColorRect" parent="."]
 offset_top = -704.0
-offset_right = 1500.0
+offset_right = 1220.0
 offset_bottom = 492.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
@@ -331,9 +306,10 @@ position = Vector2(425, -275)
 [node name="Player" parent="Scenes_Objects" instance=ExtResource("2_18val")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(451, 391)
+position = Vector2(593, 391)
 
 [node name="Banheiro_Objects" type="Node2D" parent="Scenes_Objects"]
+modulate = Color(0.140447, 0.140447, 0.140447, 1)
 y_sort_enabled = true
 position = Vector2(-375, 720)
 
@@ -367,76 +343,38 @@ scale = Vector2(0.0132296, 0.0120623)
 outline = NodePath("../Outline")
 
 [node name="lixo" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Node2D/InteractionArea"]
-position = Vector2(0.000976563, -16.582)
+position = Vector2(15.1182, -16.5811)
 scale = Vector2(15.1176, 16.5806)
 shape = SubResource("RectangleShape2D_2tevw")
+
+[node name="banheira" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(81, -80)
+
+[node name="BanheiraSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/banheira"]
+position = Vector2(306, -340)
+scale = Vector2(5, 5)
+texture = ExtResource("7_lqn0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/banheira"]
+position = Vector2(308.5, -324.75)
+shape = SubResource("RectangleShape2D_vmbyh")
 
 [node name="TapeteSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
 position = Vector2(391, -281)
 scale = Vector2(5, 5)
 texture = ExtResource("11_jjacx")
 
-[node name="Banheira" type="Node2D" parent="Scenes_Objects/Banheiro_Objects"]
-script = ExtResource("9_gored")
-objectID = 2
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects/Banheira"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Banheira/StaticBody2D"]
-position = Vector2(389.5, -404.75)
-shape = SubResource("RectangleShape2D_vmbyh")
-
-[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Banheira"]
-visible = false
-material = ExtResource("9_d3gor")
-position = Vector2(387, -420)
-scale = Vector2(5, 5)
-texture = ExtResource("7_lqn0y")
-
-[node name="BanheiraSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Banheira"]
-position = Vector2(387, -420)
-scale = Vector2(5, 5)
-texture = ExtResource("7_lqn0y")
-
-[node name="InteractionArea" parent="Scenes_Objects/Banheiro_Objects/Banheira" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
-position = Vector2(-50, -445)
-outline = NodePath("../Outline")
-can_interact = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Banheira/InteractionArea"]
-position = Vector2(439.5, 47.25)
-shape = SubResource("RectangleShape2D_vmbyh")
-
-[node name="Pia" type="Node2D" parent="Scenes_Objects/Banheiro_Objects"]
+[node name="pia" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
 position = Vector2(81, -80)
-script = ExtResource("9_gored")
-objectID = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects/Pia"]
+[node name="PiaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/pia"]
+position = Vector2(124, -340)
+scale = Vector2(5, 5)
+texture = ExtResource("9_mn4k5")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Pia/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/pia"]
 position = Vector2(123, -318.75)
 shape = SubResource("RectangleShape2D_1vcan")
-
-[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Pia"]
-visible = false
-material = ExtResource("9_d3gor")
-position = Vector2(124, -340)
-scale = Vector2(5, 5)
-texture = ExtResource("9_mn4k5")
-
-[node name="PiaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Pia"]
-position = Vector2(124, -340)
-scale = Vector2(5, 5)
-texture = ExtResource("9_mn4k5")
-
-[node name="InteractionArea" parent="Scenes_Objects/Banheiro_Objects/Pia" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
-outline = NodePath("../Outline")
-can_interact = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Pia/InteractionArea"]
-position = Vector2(123.25, -311.75)
-shape = SubResource("RectangleShape2D_ivmla")
 
 [node name="privada" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
 z_index = 1
@@ -509,23 +447,12 @@ position = Vector2(361, -720)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAABAAQAAAACAAAAAAAAAAQAAAACAAAAAAD//wQAAAACAAAAAAD+/wQAAAABAAAAAAD9/wQAAAABAAAAAAD9/wUAAAABAAAAAAD+/wUAAAABAAAAAAD//wUAAAABAAAAAAAAAAUAAAABAAAAAAABAAUAAAABAAAAAAABAAYAAAABAAAAAAABAAcAAAABAAAAAAAAAAcAAAABAAAAAAD//wcAAAABAAAAAAD+/wcAAAABAAAAAAD9/wcAAAABAAAAAAD9/wYAAAABAAAAAAD+/wYAAAABAAAAAAD//wYAAAABAAAAAAAAAAYAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_kmjh4")
-metadata/_edit_lock_ = true
 
 [node name="WallTile" type="TileMapLayer" parent="Scenes_Objects/Banheiro_Objects"]
 position = Vector2(361, -720)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAABAAUAAAACAAMAAAABAAcAAAACAAQAAAAAAAcAAAABAAQAAAD//wcAAAABAAQAAAD+/wcAAAABAAQAAAD9/wcAAAAAAAQAAAD9/wUAAAAAAAMAAAD9/wYAAAAAAAMAAAABAAIAAAAFAAMAAAABAAMAAAAFAAQAAAAAAAMAAAAEAAQAAAAAAAIAAAAEAAMAAAD+/wIAAAAEAAEAAAD+/wMAAAAEAAIAAAD9/wIAAAAAAAEAAAD9/wMAAAAAAAIAAAD9/wQAAAAAAAMAAAD//wIAAAAEAAMAAAD//wMAAAAEAAQAAAD+/wQAAAACAAMAAAABAAQAAAACAAMAAAA=")
 tile_set = SubResource("TileSet_p0b6y")
-metadata/_edit_lock_ = true
-
-[node name="AreaEntered" parent="Scenes_Objects/Banheiro_Objects" instance=ExtResource("16_hp6ks")]
-visible = false
-salaID = 2
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/AreaEntered"]
-position = Vector2(328.75, -319)
-shape = SubResource("RectangleShape2D_rloyh")
 
 [node name="Sala_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
@@ -563,17 +490,10 @@ shape = SubResource("RectangleShape2D_btt7i")
 
 [node name="Tv" type="Sprite2D" parent="Scenes_Objects/Sala_Objects"]
 z_index = 3
-position = Vector2(239, 539)
+position = Vector2(239, 566)
 scale = Vector2(5, 5)
-texture = ExtResource("20_cbxwx")
-hframes = 7
-frame = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Scenes_Objects/Sala_Objects/Tv"]
-libraries = {
-"": SubResource("AnimationLibrary_hcerm")
-}
-speed_scale = 1.5
+texture = ExtResource("9_8tf71")
+metadata/_edit_lock_ = true
 
 [node name="comodafisics" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects"]
 z_index = 2
@@ -594,6 +514,7 @@ shape = SubResource("RectangleShape2D_yolh2")
 z_index = 2
 y_sort_enabled = true
 position = Vector2(-20, -5)
+metadata/_edit_lock_ = true
 
 [node name="Ia" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Ia"]
 position = Vector2(255, 467)
@@ -601,20 +522,24 @@ scale = Vector2(5, 5)
 texture = ExtResource("6_ckdcg")
 script = ExtResource("9_rtlto")
 
+[node name="Outline" type="MeshInstance2D" parent="Scenes_Objects/Sala_Objects/Ia/Ia" groups=["outline"]]
+visible = false
+material = SubResource("ShaderMaterial_eqwxe")
+mesh = SubResource("ArrayMesh_lvlw5")
+texture = ExtResource("6_ckdcg")
+
 [node name="InteractionArea" parent="Scenes_Objects/Sala_Objects/Ia/Ia" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
-position = Vector2(-27.8, -6.60001)
-scale = Vector2(1, 1)
+position = Vector2(-27.8, -6.6)
 outline = NodePath("../Outline")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Ia/Ia/InteractionArea"]
 position = Vector2(27.8, 7.20002)
 shape = SubResource("RectangleShape2D_244as")
 
-[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Ia/Ia"]
-visible = false
-material = ExtResource("9_d3gor")
-scale = Vector2(1, 1)
-texture = ExtResource("6_ckdcg")
+[node name="Ia" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects/Ia/Ia"]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-20, -5)
 
 [node name="TapeteEntrada" type="Sprite2D" parent="Scenes_Objects/Sala_Objects"]
 position = Vector2(13, 626)
@@ -654,14 +579,12 @@ position = Vector2(-347, 49)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAADAAAAAAAIAP//AAADAAAAAAAIAP7/AAADAAAAAAACAP7/AAAAAAAAAAADAP7/AAADAAAAAAAEAP7/AAADAAAAAAAFAP7/AAADAAAAAAAGAP7/AAADAAAAAAAHAP7/AAADAAAAAAADAP//AAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAFAP//AAADAAAAAAAGAP//AAADAAAAAAAHAP//AAADAAAAAAAEAP//AAADAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAADAAAAAAAHAAAAAAADAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAQAAAAAAAAAAAAEAAYAAAAAAAAAAAADAAYAAAAAAAAAAAACAAYAAAAAAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAAGAAIAAAAAAAAAAAACAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kmjh4")
-metadata/_edit_lock_ = true
 
 [node name="WallTile" type="TileMapLayer" parent="Scenes_Objects/Sala_Objects"]
 position = Vector2(-347, 49)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAACAP7/AAAAAAMAAAACAP//AAAAAAMAAAACAAEAAAAAAAMAAAACAAIAAAAAAAMAAAACAAMAAAAAAAMAAAACAAQAAAAAAAMAAAACAAUAAAAAAAMAAAACAAcAAAAAAAQAAAADAAcAAAABAAQAAAAFAAcAAAABAAQAAAAGAAcAAAABAAQAAAAHAAcAAAABAAQAAAAIAAcAAAACAAQAAAAIAAYAAAACAAMAAAAIAAUAAAACAAMAAAAIAAQAAAACAAMAAAAIAAMAAAACAAMAAAAIAAIAAAACAAMAAAAIAAEAAAACAAMAAAAIAAAAAAACAAMAAAAIAP//AAACAAMAAAAIAP7/AAACAAMAAAACAP3/AAAAAAIAAAADAP3/AAABAAIAAAAEAP3/AAABAAIAAAAFAP3/AAABAAIAAAAGAP3/AAABAAIAAAAHAP3/AAABAAIAAAAIAP3/AAACAAIAAAACAPz/AAAAAAEAAAAIAPz/AAACAAEAAAADAPz/AAABAAEAAAAEAPz/AAABAAEAAAAFAPz/AAABAAEAAAAGAPz/AAABAAEAAAAHAPz/AAABAAEAAAAEAAcAAAAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAACAP7/AAAAAAMAAAACAP//AAAAAAMAAAACAAEAAAAAAAMAAAACAAIAAAAAAAMAAAACAAMAAAAAAAMAAAACAAQAAAAAAAMAAAACAAUAAAAAAAMAAAACAAcAAAAAAAQAAAADAAcAAAABAAQAAAAFAAcAAAABAAQAAAAGAAcAAAABAAQAAAAHAAcAAAABAAQAAAAIAAcAAAACAAQAAAAIAAYAAAACAAMAAAAIAAUAAAACAAMAAAAIAAQAAAACAAMAAAAIAAMAAAACAAMAAAAIAAIAAAACAAMAAAAIAAEAAAACAAMAAAAIAAAAAAACAAMAAAAIAP//AAACAAMAAAAIAP7/AAACAAMAAAACAP3/AAAAAAIAAAADAP3/AAABAAIAAAAEAP3/AAABAAIAAAAFAP3/AAABAAIAAAAGAP3/AAABAAIAAAAHAP3/AAABAAIAAAAIAP3/AAACAAIAAAACAPz/AAAAAAEAAAAIAPz/AAACAAEAAAADAPz/AAABAAEAAAAEAPz/AAABAAEAAAAFAPz/AAABAAEAAAAGAPz/AAABAAEAAAAHAPz/AAABAAEAAAA=")
 tile_set = SubResource("TileSet_p0b6y")
-metadata/_edit_lock_ = true
 
 [node name="Cozinha_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
@@ -815,6 +738,7 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_r88q4")
 
 [node name="Quarto_Objects" type="Node2D" parent="Scenes_Objects"]
+modulate = Color(0.141176, 0.141176, 0.141176, 1)
 y_sort_enabled = true
 
 [node name="TapeteEntrada" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects"]
@@ -922,24 +846,12 @@ position = Vector2(-14, 0)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kmjh4")
-metadata/_edit_lock_ = true
 
 [node name="WallTile" type="TileMapLayer" parent="Scenes_Objects/Quarto_Objects"]
 position = Vector2(-14, 0)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAD9/wAAAAAAAAMAAAD9////AAAAAAMAAAD9//7/AAAAAAMAAAABAP//AAACAAMAAAABAP7/AAACAAMAAAABAP3/AAACAAIAAAABAPz/AAACAAEAAAD9//z/AAAAAAEAAAD9//3/AAAAAAIAAAD+//3/AAABAAIAAAD///3/AAABAAIAAAAAAP3/AAABAAIAAAAAAPz/AAABAAEAAAD///z/AAABAAEAAAD+//z/AAABAAEAAAD9/wEAAAAAAAQAAAABAAEAAAACAAQAAAAAAAEAAAABAAQAAAD//wEAAAABAAQAAAD+/wEAAAABAAQAAAA=")
 tile_set = SubResource("TileSet_p0b6y")
-metadata/_edit_lock_ = true
-
-[node name="AreaEntered" parent="Scenes_Objects/Quarto_Objects" instance=ExtResource("16_hp6ks")]
-position = Vector2(141, 155)
-salaID = 3
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/AreaEntered"]
-position = Vector2(-187, -232.75)
-shape = SubResource("RectangleShape2D_3nhwj")
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Scenes_Objects/Quarto_Objects"]
 offset_left = 141.0
@@ -1028,18 +940,14 @@ shape = SubResource("RectangleShape2D_lt57v")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="HUD"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -104.0
-offset_right = 104.0
-offset_bottom = 54.0
-grow_horizontal = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+visible = false
+offset_left = 6.0
+offset_top = 687.0
+offset_right = 214.0
+offset_bottom = 741.0
 theme_override_fonts/font = ExtResource("2_aosde")
-text = "Palavra_test"
-horizontal_alignment = 2
+text = "A palavra é: "
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="HUD"]
 visible = false
@@ -1077,9 +985,9 @@ horizontal_alignment = 1
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HUD"]
 offset_left = 13.0
-offset_top = 385.0
+offset_top = 390.0
 offset_right = 53.0
-offset_bottom = 449.0
+offset_bottom = 454.0
 scale = Vector2(5, 5)
 max_value = 180.0
 fill_mode = 3
@@ -1096,5 +1004,8 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_aosde")
 text = "Sua missão atual é: "
 metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" parent="." instance=ExtResource("50_ss642")]
+position = Vector2(681, -135)
 
 [connection signal="timeout" from="HUD/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]

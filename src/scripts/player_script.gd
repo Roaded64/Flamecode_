@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 var playerSpeed = 275
+var isRunning = false
 
 # se ele pode se mover ou não
 var playerMove = true
@@ -17,8 +18,10 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("key_run"):
 		playerSpeed = 500
+		isRunning = true
 	else:
 		playerSpeed = 275
+		isRunning = false
 
 func _physics_process(_delta):
 	# Fazer o vagabundo se mover

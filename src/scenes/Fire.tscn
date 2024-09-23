@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://crvfucxbyv0r4"]
+
+[ext_resource type="Texture2D" uid="uid://bky1wckehkcig" path="res://icon.svg" id="1_hnwl7"]
+[ext_resource type="Script" path="res://src/scenes/Fire.gd" id="3_rtwuv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="exemplo_fogo" type="Sprite2D" parent="."]
+modulate = Color(0.423529, 0, 0, 1)
+self_modulate = Color(0.556863, 0, 0, 1)
+position = Vector2(65.75, 54)
+scale = Vector2(0.084144, 0.077821)
+texture = ExtResource("1_hnwl7")
+script = ExtResource("3_rtwuv")
