@@ -7,6 +7,7 @@ var debug = OS.is_debug_build()
 
 var mission
 var curMission = 0
+var iaTalk = 0
 
 var comodID = 1
 
@@ -31,12 +32,6 @@ func _process(_delta):
 	if debug:
 		if Input.is_action_just_pressed("key_debug"):
 			get_tree().reload_current_scene()
-
-func _random_mission():
-	var rm = RandomNumberGenerator.new()
-	var mrn = rm.randi_range(1, 4)
-	mission = mrn
-	print(mrn)
 
 # Tamanho da grade
 const GRID_SIZE: int = 10

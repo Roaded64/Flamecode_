@@ -31,14 +31,14 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
-"first_AItimeline": "res://assets/dialogic/timelines/word_AItimeline.dtl",
 "ia_timeline": "res://assets/dialogic/timelines/ia_timeline.dtl",
 "mission1_AItimeline": "res://assets/dialogic/timelines/mission1_AItimeline.dtl",
 "mission2_AItimeline": "res://assets/dialogic/timelines/mission2_AItimeline.dtl",
 "mission3_AItimeline": "res://assets/dialogic/timelines/mission3_AItimeline.dtl",
 "mission4_AItimeline": "res://assets/dialogic/timelines/mission4_AItimeline.dtl",
 "mission5_AItimeline": "res://assets/dialogic/timelines/mission5_AItimeline.dtl",
-"timeline_test": "res://assets/dialogic/timelines/timeline_test.dtl"
+"timeline_test": "res://assets/dialogic/timelines/timeline_test.dtl",
+"word_AItimeline": "res://assets/dialogic/timelines/word_AItimeline.dtl"
 }
 text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
@@ -163,7 +163,5 @@ locale/test="pt_BR"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true

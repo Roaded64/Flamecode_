@@ -8,8 +8,15 @@ func _ready() -> void:
 
 func _talk():
 	if !Dialogic.is_playing:
-		Dialogic.start("mission1_AItimeline")
-	
+		match Main.iaTalk:
+			0:
+				Dialogic.start("mission1_AItimeline")
+			1:
+				Dialogic.start("mission2_AItimeline")
+			2:
+				Dialogic.start("mission3_AItimeline")
+			3:
+				Dialogic.start("word_AItimeline")
 	#Main._random_mission()
 	#
 	#match Main.mission:

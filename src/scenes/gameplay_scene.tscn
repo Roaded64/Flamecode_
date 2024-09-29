@@ -1,12 +1,10 @@
-[gd_scene load_steps=97 format=4 uid="uid://7tdjgphnrbxv"]
+[gd_scene load_steps=108 format=4 uid="uid://7tdjgphnrbxv"]
 
 [ext_resource type="Script" path="res://src/scripts/gameplay_script.gd" id="1_mygsn"]
 [ext_resource type="PackedScene" uid="uid://dhvb8kge6c3ly" path="res://src/scenes/player_scene.tscn" id="2_18val"]
 [ext_resource type="FontFile" uid="uid://cx32lcthwwpfj" path="res://assets/fonts/PressStart2P.ttf" id="2_aosde"]
 [ext_resource type="Texture2D" uid="uid://drm42mcsfoale" path="res://assets/images/house_tilemap.png" id="2_hxqhu"]
-[ext_resource type="Script" path="res://src/scripts/interaction/interactions/placeholder_interaction.gd" id="3_a63id"]
 [ext_resource type="Shader" path="res://assets/shaders/outline_shader.gdshader" id="3_atmyd"]
-[ext_resource type="Texture2D" uid="uid://baccuxu4m75eo" path="res://assets/images/objects/placeholder_object.png" id="4_0bvjq"]
 [ext_resource type="Texture2D" uid="uid://8f754c7rrs3" path="res://assets/images/scenes/banheiro/balde_sprite.png" id="4_a0cep"]
 [ext_resource type="PackedScene" uid="uid://1hw8ybo0uc5b" path="res://src/scenes/interaction/interaction_area.tscn" id="4_oxlb5"]
 [ext_resource type="Texture2D" uid="uid://fnh5bbcxg0y7" path="res://assets/images/scenes/sala/SOFA.png" id="5_7prpb"]
@@ -17,12 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://bky1wckehkcig" path="res://icon.svg" id="8_khycv"]
 [ext_resource type="Texture2D" uid="uid://b53li3vrbw7ub" path="res://assets/images/scenes/sala/COMODA.png" id="8_u0271"]
 [ext_resource type="Material" uid="uid://d3p62owxka05b" path="res://assets/shaders/materials/outline.tres" id="9_d3gor"]
-[ext_resource type="Script" path="res://src/scripts/interaction/interactions/banheiro_interaction.gd" id="9_gored"]
+[ext_resource type="Script" path="res://src/scripts/interaction/interactions/missions_interaction.gd" id="9_gored"]
 [ext_resource type="Texture2D" uid="uid://doiop65y6j7dd" path="res://assets/images/scenes/banheiro/pia_sprite.png" id="9_mn4k5"]
 [ext_resource type="Script" path="res://src/scripts/interaction/interactions/ia_interaction.gd" id="9_rtlto"]
 [ext_resource type="Texture2D" uid="uid://tetv2iw6yfk1" path="res://assets/images/scenes/banheiro/privada_sprite.png" id="10_4drbq"]
 [ext_resource type="Texture2D" uid="uid://bisyhpk2l5nv" path="res://assets/images/scenes/banheiro/desentupidor_sprite.png" id="11_2e54n"]
 [ext_resource type="Texture2D" uid="uid://15ypxn34vfgi" path="res://assets/images/scenes/banheiro/tapete_sprite.png" id="11_jjacx"]
+[ext_resource type="Texture2D" uid="uid://it5a2qlq7giu" path="res://assets/images/scenes/banheiro_sheet.png" id="12_pm70q"]
 [ext_resource type="Texture2D" uid="uid://hctiwunm0k15" path="res://assets/images/scenes/cozinha/balcão_sprite.png" id="14_wm6cf"]
 [ext_resource type="Texture2D" uid="uid://cv825yejewgr" path="res://assets/images/scenes/cozinha/pia_sprite.png" id="15_v77wi"]
 [ext_resource type="PackedScene" uid="uid://djvd3rshc1rv8" path="res://src/scenes/interaction/area_entered.tscn" id="16_hp6ks"]
@@ -34,7 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://bmt4iafhixjtx" path="res://assets/images/scenes/cozinha/coifa_sprite.png" id="22_o27wn"]
 [ext_resource type="Texture2D" uid="uid://b376fwoft8dk5" path="res://assets/images/scenes/cozinha/armario2_sprite.png" id="23_7yh7p"]
 [ext_resource type="Texture2D" uid="uid://5uk3s4bysg5p" path="res://assets/images/scenes/mesa/cadeiraC_sprite.png" id="27_0cscy"]
+[ext_resource type="Texture2D" uid="uid://da5a1f5m616a8" path="res://assets/images/scenes/cozinha/planta_sprite.png" id="28_2cbys"]
 [ext_resource type="Texture2D" uid="uid://y46htk7vi61j" path="res://assets/images/scenes/mesa/cadeiraB_sprite.png" id="28_2xne1"]
+[ext_resource type="Texture2D" uid="uid://chsigsr04yobd" path="res://assets/images/scenes/cozinha/lixeira_sprite.png" id="28_br2py"]
 [ext_resource type="Texture2D" uid="uid://c3dapa3vnwx3d" path="res://assets/images/scenes/mesa/mesa_sprite.png" id="29_dmf31"]
 [ext_resource type="Texture2D" uid="uid://b0srn3fqtbih6" path="res://assets/images/scenes/mesa/cadeiraA_sprite.png" id="30_6mgwd"]
 [ext_resource type="Texture2D" uid="uid://dgxj1fb0aabqs" path="res://assets/images/scenes/banheiro/papel_higienico.png" id="32_ih18f"]
@@ -82,8 +83,117 @@ _surfaces = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tevw"]
 size = Vector2(89, 75)
 
+[sub_resource type="Animation" id="Animation_kq5u5"]
+resource_name = "staitc"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BanheiraSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ln8my"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BanheiraSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_54bmt"]
+resource_name = "leak"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BanheiraSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 6, 9, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3ehp"]
+_data = {
+"RESET": SubResource("Animation_ln8my"),
+"leak": SubResource("Animation_54bmt"),
+"staitc": SubResource("Animation_kq5u5")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmbyh"]
 size = Vector2(143, 89.5)
+
+[sub_resource type="Animation" id="Animation_w81gy"]
+resource_name = "static"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PiaSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_jv2bc"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PiaSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_c01l5"]
+resource_name = "leak"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PiaSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 7, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_npysl"]
+_data = {
+"RESET": SubResource("Animation_jv2bc"),
+"leak": SubResource("Animation_c01l5"),
+"static": SubResource("Animation_w81gy")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcan"]
 size = Vector2(96, 53.5)
@@ -236,6 +346,12 @@ size = Vector2(47, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ir6i"]
 size = Vector2(51, 109)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mflpu"]
+size = Vector2(76, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tj2xo"]
+size = Vector2(18.2, 12.4)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv3qa"]
 size = Vector2(16, 11.2)
 
@@ -281,37 +397,285 @@ size = Vector2(99, 80.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nhwj"]
 size = Vector2(384, 451.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_35vw5"]
-shader = ExtResource("3_atmyd")
-shader_parameter/thickness = 0.5
-shader_parameter/ring_count = 1
-shader_parameter/ring_offset = 0.0
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/border_clipping_fix = true
-shader_parameter/aspect_ratio = 1.0
-shader_parameter/square_border = true
-shader_parameter/offset = null
-shader_parameter/max_or_add = false
+[sub_resource type="Animation" id="Animation_v2kin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -55)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/DicaAtual:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-460, -49)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/Label_Dica:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(528, -33)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/DicaAtual:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/Label_Dica:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HUD/ColorRect2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 727)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HUD/ColorRect2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HUD/Label_Dica:horizontal_alignment")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_624dd"]
-_surfaces = [{
-"2d": true,
-"aabb": AABB(-8, -8, 0, 16, 16, 0),
-"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8="),
-"format": 34393296913,
-"index_count": 6,
-"index_data": PackedByteArray("AwAAAAEAAQACAAMA"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAwQAAAEEAAADBAAAAwQAAAEEAAADBAAAAQQAAAEE=")
-}]
+[sub_resource type="Animation" id="Animation_4sxpr"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -55), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/DicaAtual:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(7, -49), Vector2(7, 4), Vector2(7, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/Label_Dica:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(7, -33), Vector2(7, 22), Vector2(7, 22)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/DicaAtual:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/Label_Dica:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HUD/ColorRect2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 727), Vector2(0, 673), Vector2(0, 671)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HUD/ColorRect2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HUD/Label_Dica:horizontal_alignment")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 0]
+}
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr56u"]
-size = Vector2(16.0833, 16.1667)
+[sub_resource type="Animation" id="Animation_gkw1g"]
+resource_name = "change_dica"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/DicaAtual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 5, 1, 1),
+"update": 0,
+"values": [Vector2(7, 6), Vector2(7, 11), Vector2(7, 1), Vector2(7, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/Label_Dica:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 5, 1, 1),
+"update": 0,
+"values": [Vector2(7, 22), Vector2(7, 27), Vector2(7, 12), Vector2(7, 17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/DicaAtual:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/Label_Dica:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt57v"]
-size = Vector2(80, 80)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3uhu"]
+_data = {
+"RESET": SubResource("Animation_v2kin"),
+"appear": SubResource("Animation_4sxpr"),
+"change_dica": SubResource("Animation_gkw1g")
+}
 
 [node name="GameplayScene" type="Node2D"]
 position = Vector2(-1, 704)
@@ -380,6 +744,11 @@ texture = ExtResource("11_jjacx")
 script = ExtResource("9_gored")
 objectID = 2
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scenes_Objects/Banheiro_Objects/Banheira"]
+libraries = {
+"": SubResource("AnimationLibrary_s3ehp")
+}
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects/Banheira"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Banheira/StaticBody2D"]
@@ -394,9 +763,12 @@ scale = Vector2(5, 5)
 texture = ExtResource("7_lqn0y")
 
 [node name="BanheiraSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Banheira"]
-position = Vector2(387, -420)
+position = Vector2(386, -420)
 scale = Vector2(5, 5)
-texture = ExtResource("7_lqn0y")
+texture = ExtResource("12_pm70q")
+offset = Vector2(2, 0)
+hframes = 3
+vframes = 5
 
 [node name="InteractionArea" parent="Scenes_Objects/Banheiro_Objects/Banheira" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
 position = Vector2(-50, -445)
@@ -412,6 +784,11 @@ position = Vector2(81, -80)
 script = ExtResource("9_gored")
 objectID = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scenes_Objects/Banheiro_Objects/Pia"]
+libraries = {
+"": SubResource("AnimationLibrary_npysl")
+}
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects/Pia"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Pia/StaticBody2D"]
@@ -426,9 +803,13 @@ scale = Vector2(5, 5)
 texture = ExtResource("9_mn4k5")
 
 [node name="PiaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Pia"]
-position = Vector2(124, -340)
+position = Vector2(130, -340)
 scale = Vector2(5, 5)
-texture = ExtResource("9_mn4k5")
+texture = ExtResource("12_pm70q")
+offset = Vector2(6, 0)
+hframes = 3
+vframes = 5
+frame = 1
 
 [node name="InteractionArea" parent="Scenes_Objects/Banheiro_Objects/Pia" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
 outline = NodePath("../Outline")
@@ -603,7 +984,6 @@ script = ExtResource("9_rtlto")
 
 [node name="InteractionArea" parent="Scenes_Objects/Sala_Objects/Ia/Ia" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
 position = Vector2(-27.8, -6.60001)
-scale = Vector2(1, 1)
 outline = NodePath("../Outline")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Ia/Ia/InteractionArea"]
@@ -613,7 +993,6 @@ shape = SubResource("RectangleShape2D_244as")
 [node name="Outline" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Ia/Ia"]
 visible = false
 material = ExtResource("9_d3gor")
-scale = Vector2(1, 1)
 texture = ExtResource("6_ckdcg")
 
 [node name="TapeteEntrada" type="Sprite2D" parent="Scenes_Objects/Sala_Objects"]
@@ -666,6 +1045,46 @@ metadata/_edit_lock_ = true
 [node name="Cozinha_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
 position = Vector2(227, 0)
+
+[node name="Lixeira" type="Node2D" parent="Scenes_Objects/Cozinha_Objects"]
+position = Vector2(-186, -160)
+script = ExtResource("9_gored")
+objectID = 3
+
+[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixeira"]
+visible = false
+z_index = 1
+material = ExtResource("9_d3gor")
+position = Vector2(195, -3.05176e-05)
+scale = Vector2(5, 5)
+texture = ExtResource("28_br2py")
+
+[node name="LixeiraSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixeira"]
+z_index = 1
+position = Vector2(195, -3.05176e-05)
+scale = Vector2(5, 5)
+texture = ExtResource("28_br2py")
+
+[node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixeira" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+outline = NodePath("../Outline")
+can_interact = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixeira/InteractionArea"]
+position = Vector2(192, -1)
+shape = SubResource("RectangleShape2D_mflpu")
+
+[node name="PlantaSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
+visible = false
+z_index = 1
+position = Vector2(-21, -165)
+scale = Vector2(5, 5)
+texture = ExtResource("28_2cbys")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/PlantaSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/PlantaSprite/StaticBody2D"]
+position = Vector2(-0.400006, -0.6)
+shape = SubResource("RectangleShape2D_tj2xo")
 
 [node name="GeladeiraSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
 z_index = 1
@@ -725,7 +1144,7 @@ texture = ExtResource("17_5mhgc")
 [node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/ArmarioSprite"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/ArmarioSprite/StaticBody2D"]
-position = Vector2(-0.2, -0.800003)
+position = Vector2(-0.199997, -0.799999)
 shape = SubResource("RectangleShape2D_kpje4")
 
 [node name="CoifaSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects"]
@@ -948,115 +1367,42 @@ offset_right = 146.0
 offset_bottom = 165.0
 color = Color(0.14902, 0.156863, 0.207843, 1)
 
-[node name="Test" type="Node2D" parent="."]
-visible = false
-position = Vector2(-44, 263)
-script = ExtResource("3_a63id")
-
-[node name="Outline" type="MeshInstance2D" parent="Test" groups=["outline"]]
-visible = false
-modulate = Color(0, 0.436609, 0.436609, 1)
-texture_filter = 1
-material = SubResource("ShaderMaterial_35vw5")
-position = Vector2(-20, -20)
-scale = Vector2(5.5, 5.5)
-mesh = SubResource("ArrayMesh_624dd")
-texture = ExtResource("4_0bvjq")
-
-[node name="PlaceholderObject" type="Sprite2D" parent="Test"]
-texture_filter = 1
-position = Vector2(-20, -20)
-scale = Vector2(5, 5)
-texture = ExtResource("4_0bvjq")
-
-[node name="InteractionArea" parent="Test" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
-outline = NodePath("../Outline")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test/InteractionArea"]
-physics_interpolation_mode = 1
-position = Vector2(-20, -21)
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_qr56u")
-
-[node name="Test3" type="Node2D" parent="."]
-visible = false
-position = Vector2(-306, 262)
-script = ExtResource("3_a63id")
-
-[node name="Outline" type="MeshInstance2D" parent="Test3" groups=["outline"]]
-visible = false
-modulate = Color(0, 0.436609, 0.436609, 1)
-texture_filter = 1
-material = SubResource("ShaderMaterial_35vw5")
-position = Vector2(-20, -20)
-scale = Vector2(5.5, 5.5)
-mesh = SubResource("ArrayMesh_624dd")
-texture = ExtResource("4_0bvjq")
-
-[node name="PlaceholderObject" type="Sprite2D" parent="Test3"]
-texture_filter = 1
-position = Vector2(-20, -20)
-scale = Vector2(5, 5)
-texture = ExtResource("4_0bvjq")
-
-[node name="InteractionArea" parent="Test3" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
-outline = NodePath("../Outline")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test3/InteractionArea"]
-physics_interpolation_mode = 1
-position = Vector2(-20, -21)
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_qr56u")
-
-[node name="Test2" type="Node2D" parent="."]
-visible = false
-position = Vector2(-172, 263)
-
-[node name="PlaceholderObject" type="Sprite2D" parent="Test2"]
-texture_filter = 1
-position = Vector2(-20, -20)
-scale = Vector2(5, 5)
-texture = ExtResource("4_0bvjq")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Test2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test2/StaticBody2D"]
-position = Vector2(-20, -20)
-shape = SubResource("RectangleShape2D_lt57v")
-
 [node name="HUD" type="CanvasLayer" parent="."]
 metadata/_edit_use_anchors_ = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_m3uhu")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="HUD"]
+offset_top = 727.0
+offset_right = 1501.0
+offset_bottom = 776.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+offset_top = -55.0
+offset_right = 1501.0
+offset_bottom = -6.0
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="HUD"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -104.0
-offset_right = 104.0
-offset_bottom = 54.0
+offset_left = -539.0
+offset_top = 694.0
+offset_right = -347.0
+offset_bottom = 710.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_aosde")
 text = "Palavra_test"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="HUD"]
-visible = false
-texture_filter = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 352.0
-offset_top = 612.0
-offset_right = 800.0
-offset_bottom = 635.0
-grow_vertical = 2
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("2_aosde")
-theme_override_font_sizes/font_size = 0
-text = "Você coletou \"alguma coisa\"!"
-metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="HUD"]
 visible = false
@@ -1090,11 +1436,58 @@ texture_progress = ExtResource("49_glery")
 [node name="Timer" type="Timer" parent="HUD/TextureProgressBar"]
 autostart = true
 
-[node name="Label4" type="Label" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Missão" type="Label" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -34.0
+offset_right = 224.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_aosde")
-text = "Sua missão atual é: "
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/font_size = 12
+text = "Missão_placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DicaAtual" type="Label" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -460.0
+offset_top = -49.0
+offset_right = 1740.0
+offset_bottom = 151.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = ExtResource("2_aosde")
+theme_override_font_sizes/font_size = 200
+text = "Dica atual:"
+
+[node name="Label_Dica" type="Label" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = -33.0
+offset_right = 4208.0
+offset_bottom = 237.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = ExtResource("2_aosde")
+theme_override_font_sizes/font_size = 270
+text = "Dica_placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer_Dica" type="Timer" parent="HUD"]
 
 [connection signal="timeout" from="HUD/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HUD/Timer_Dica" to="." method="_on_Timer_Dica_timeout"]
