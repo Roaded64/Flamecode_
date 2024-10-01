@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhvb8kge6c3ly"]
+[gd_scene load_steps=16 format=3 uid="uid://dhvb8kge6c3ly"]
 
 [ext_resource type="Script" path="res://src/scripts/player_script.gd" id="1_qchcu"]
 [ext_resource type="Texture2D" uid="uid://bk0b4x5th2jml" path="res://assets/images/player_sheet.png" id="2_b5muu"]
 [ext_resource type="Texture2D" uid="uid://css10vki3taqe" path="res://assets/images/misc/player_shadow.png" id="2_h7x3u"]
 [ext_resource type="Script" path="res://src/scripts/camera_2d.gd" id="4_pthmy"]
+[ext_resource type="Texture2D" uid="uid://da2wrky8ybdeb" path="res://assets/images/misc/stamina_under.png" id="5_solcr"]
+[ext_resource type="Texture2D" uid="uid://cpu5ewsvft44k" path="res://assets/images/misc/stamina_progress.png" id="6_3x3hd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jg6m4"]
 
@@ -99,3 +101,26 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 script = ExtResource("4_pthmy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 449.0
+offset_top = 624.0
+offset_right = 513.0
+offset_bottom = 635.0
+scale = Vector2(5, 5)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+max_value = 45.0
+step = 0.4
+value = 45.0
+texture_under = ExtResource("5_solcr")
+texture_progress = ExtResource("6_3x3hd")
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 0.025
+autostart = true
+
+[connection signal="timeout" from="CanvasLayer/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

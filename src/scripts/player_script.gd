@@ -8,6 +8,7 @@ var isRunning = false
 var playerMove = true
 
 @onready var playerSprite = $AnimatedSprite2D
+@onready var progress = $"../CanvasLayer/TextureProgressBar"
 
 func _process(delta: float) -> void:
 	if Dialogic.is_playing:
@@ -17,12 +18,22 @@ func _process(delta: float) -> void:
 		playerMove = true
 	
 	if Input.is_action_pressed("key_run"):
-		playerSpeed = 500
-		isRunning = true
+		if progress.value > 40:
+			isRunning = true
 	else:
-		playerSpeed = 275
 		isRunning = false
 
+	if progress.value == 0:
+		isRunning = false
+
+	if isRunning:
+		progress.value -= 0.4
+		fade(progress, 0.7, Color.WHITE)
+		playerSpeed = 500
+	else:
+		fade(progress, 0.7, Color.TRANSPARENT)
+		playerSpeed = 275
+		
 func _physics_process(_delta):
 	# Fazer o vagabundo se mover
 	if playerMove:
@@ -42,3 +53,12 @@ func _physics_process(_delta):
 			playerSprite.play("idle")
 
 		move_and_slide()
+
+func fade(node, fade_duration, color):
+	var fade_tween
+	fade_tween = get_tree().create_tween()
+	fade_tween.tween_property(node, "modulate", color, fade_duration)
+
+func _on_timer_timeout() -> void:
+	if !isRunning:
+		progress.value += 0.4

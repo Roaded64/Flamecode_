@@ -88,11 +88,11 @@ func _process(delta: float) -> void:
 	elif Main.comodID == 3:
 		fade_in($Scenes_Objects/Quarto_Objects, 0.4)
 	else:
-		fade_out($Scenes_Objects/Banheiro_Objects, 0.3)
-		fade_out($Scenes_Objects/Quarto_Objects, 0.3)
+		fade_out($Scenes_Objects/Banheiro_Objects, 0.3, null)
+		fade_out($Scenes_Objects/Quarto_Objects, 0.3, null)
 		
 		if Main.comodID != 1:
-			fade_out($Scenes_Objects/Sala_Objects, 0.3)
+			fade_out($Scenes_Objects/Sala_Objects, 0.3, null)
 
 func _on_dialogic_signal(argument:String):
 	match argument:
@@ -150,7 +150,7 @@ func _fademission(text: String):
 	await get_tree().create_timer(0.5).timeout
 	fade_in(mission, 0.5)
 	await get_tree().create_timer(2).timeout
-	fade_out(mission, 0.5)
+	fade_out(mission, 0.5, Color.TRANSPARENT)
 
 func _random_word(word):
 	var w = randi() % len(word)
@@ -163,14 +163,15 @@ func _random_mission(i, f):
 	curMission = mrn
 
 func fade_in(node, fade_duration):
-	var fade_tween = create_tween()
+	var fade_tween
 	fade_tween = get_tree().create_tween()
 	fade_tween.tween_property(node, "modulate", Color.WHITE, fade_duration)
 
-func fade_out(node, fade_duration):
-	var fade_tween = create_tween()
+func fade_out(node, fade_duration, color):
+	if color == null: color = Color.BLACK
+	var fade_tween
 	fade_tween = get_tree().create_tween()
-	fade_tween.tween_property(node, "modulate", Color.BLACK, fade_duration)
+	fade_tween.tween_property(node, "modulate", color, fade_duration)
 
 func _on_timer_timeout() -> void:
 	timer_progress.value += 1
