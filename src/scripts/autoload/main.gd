@@ -11,6 +11,8 @@ var iaTalk = 0
 
 var comodID = 1
 
+var isCutscene = false
+
 signal missionCompleted
 
 func _ready() -> void:

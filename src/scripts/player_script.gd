@@ -10,6 +10,12 @@ var playerMove = true
 @onready var playerSprite = $AnimatedSprite2D
 @onready var progress = $"../CanvasLayer/TextureProgressBar"
 
+func _ready() -> void:
+	if Main.isCutscene:
+		playerMove = false
+	else:
+		playerMove = true
+
 func _process(delta: float) -> void:
 	if Dialogic.is_playing:
 		playerMove = false

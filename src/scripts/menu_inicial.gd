@@ -12,7 +12,7 @@ func _ready() -> void:
 func on_button_pressed(button: Button) -> void:
 	match button.name:
 		"jogar":
-			Transition.change_scene("res://src/scenes/gameplay_scene.tscn")
+			Transition.change_scene("res://src/scenes/cut_scene.tscn")
 		
 		"sair":
 			get_tree().quit()

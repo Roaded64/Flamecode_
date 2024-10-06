@@ -216,7 +216,7 @@ radius = 24.1868
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsgk2"]
 radius = 20.0998
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxa78"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3s84a"]
 texture = ExtResource("2_hxqhu")
 3:0/0 = 0
 2:0/0 = 0
@@ -227,9 +227,9 @@ texture = ExtResource("2_hxqhu")
 4:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_kmjh4"]
-sources/0 = SubResource("TileSetAtlasSource_dxa78")
+sources/0 = SubResource("TileSetAtlasSource_3s84a")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0mi6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnve1"]
 texture = ExtResource("2_hxqhu")
 1:4/0 = 0
 1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -8, 4)
@@ -285,7 +285,7 @@ texture = ExtResource("2_hxqhu")
 
 [sub_resource type="TileSet" id="TileSet_p0b6y"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_x0mi6")
+sources/0 = SubResource("TileSetAtlasSource_tnve1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rloyh"]
 size = Vector2(382.5, 452)
@@ -1475,9 +1475,9 @@ texture_repeat = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -112.0
+offset_left = 528.0
 offset_top = -33.0
-offset_right = 4208.0
+offset_right = 4848.0
 offset_bottom = 237.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
