@@ -13,5 +13,12 @@
 		"desc": "Apenas uma descrição da merda",
 		"sprite_path": "res",
 		"hframe": 1
+	},
+	"balde":
+	{
+		"is_taken": false,
+		"desc": "Apenas um balde",
+		"sprite_path": "res",
+		"hframe": 1
 	}
 }

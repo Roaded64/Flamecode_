@@ -1,10 +1,10 @@
-[gd_scene load_steps=129 format=4 uid="uid://7tdjgphnrbxv"]
+[gd_scene load_steps=109 format=4 uid="uid://7tdjgphnrbxv"]
 
 [ext_resource type="Script" path="res://src/scripts/gameplay_script.gd" id="1_mygsn"]
 [ext_resource type="PackedScene" uid="uid://dhvb8kge6c3ly" path="res://src/scenes/player_scene.tscn" id="2_18val"]
 [ext_resource type="FontFile" uid="uid://cx32lcthwwpfj" path="res://assets/fonts/PressStart2P.ttf" id="2_aosde"]
 [ext_resource type="Texture2D" uid="uid://drm42mcsfoale" path="res://assets/images/house_tilemap.png" id="2_hxqhu"]
-[ext_resource type="PackedScene" uid="uid://he67pf13yc7r" path="res://src/scenes/fire_separado.tscn" id="3_4gb0q"]
+[ext_resource type="Shader" path="res://assets/shaders/outline_shader.gdshader" id="3_atmyd"]
 [ext_resource type="Texture2D" uid="uid://8f754c7rrs3" path="res://assets/images/scenes/banheiro/balde_sprite.png" id="4_a0cep"]
 [ext_resource type="PackedScene" uid="uid://1hw8ybo0uc5b" path="res://src/scenes/interaction/interaction_area.tscn" id="4_oxlb5"]
 [ext_resource type="Texture2D" uid="uid://fnh5bbcxg0y7" path="res://assets/images/scenes/sala/SOFA.png" id="5_7prpb"]
@@ -12,14 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://ht3qlxr6i2km" path="res://assets/images/scenes/sala/IA.png" id="6_ckdcg"]
 [ext_resource type="Script" path="res://src/scripts/interaction/interactions/item_interaction.gd" id="7_j2s0o"]
 [ext_resource type="Texture2D" uid="uid://cq8pscpxajhri" path="res://assets/images/scenes/banheiro/banheira_sprite.png" id="7_lqn0y"]
+[ext_resource type="Texture2D" uid="uid://bky1wckehkcig" path="res://icon.svg" id="8_khycv"]
 [ext_resource type="Texture2D" uid="uid://b53li3vrbw7ub" path="res://assets/images/scenes/sala/COMODA.png" id="8_u0271"]
 [ext_resource type="Material" uid="uid://d3p62owxka05b" path="res://assets/shaders/materials/outline.tres" id="9_d3gor"]
 [ext_resource type="Script" path="res://src/scripts/interaction/interactions/missions_interaction.gd" id="9_gored"]
 [ext_resource type="Texture2D" uid="uid://doiop65y6j7dd" path="res://assets/images/scenes/banheiro/pia_sprite.png" id="9_mn4k5"]
 [ext_resource type="Script" path="res://src/scripts/interaction/interactions/ia_interaction.gd" id="9_rtlto"]
+[ext_resource type="Texture2D" uid="uid://tetv2iw6yfk1" path="res://assets/images/scenes/banheiro/privada_sprite.png" id="10_4drbq"]
+[ext_resource type="Texture2D" uid="uid://bisyhpk2l5nv" path="res://assets/images/scenes/banheiro/desentupidor_sprite.png" id="11_2e54n"]
 [ext_resource type="Texture2D" uid="uid://15ypxn34vfgi" path="res://assets/images/scenes/banheiro/tapete_sprite.png" id="11_jjacx"]
 [ext_resource type="Texture2D" uid="uid://it5a2qlq7giu" path="res://assets/images/scenes/banheiro_sheet.png" id="12_pm70q"]
-[ext_resource type="Texture2D" uid="uid://br7tu50i025of" path="res://assets/images/scenes/banheiro_sheet_n.png" id="13_7eqav"]
 [ext_resource type="Texture2D" uid="uid://hctiwunm0k15" path="res://assets/images/scenes/cozinha/balcão_sprite.png" id="14_wm6cf"]
 [ext_resource type="Texture2D" uid="uid://cv825yejewgr" path="res://assets/images/scenes/cozinha/pia_sprite.png" id="15_v77wi"]
 [ext_resource type="PackedScene" uid="uid://djvd3rshc1rv8" path="res://src/scenes/interaction/area_entered.tscn" id="16_hp6ks"]
@@ -51,28 +53,36 @@
 [ext_resource type="Texture2D" uid="uid://c3vjci32btorq" path="res://assets/images/misc/termometro/termometro_sprite.png" id="47_n21ew"]
 [ext_resource type="Texture2D" uid="uid://vauk4t4mox2h" path="res://assets/images/misc/termometro/termometro_spriteOver.png" id="48_541if"]
 [ext_resource type="Texture2D" uid="uid://b1i8uk3dwjeii" path="res://assets/images/misc/termometro/termometro fases2.png" id="49_glery"]
+[ext_resource type="Texture2D" uid="uid://5ramottjeilk" path="res://assets/images/flame_sprite.png" id="54_p8u7v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg5vb"]
-size = Vector2(87.75, 121.5)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y0ykw"]
+shader = ExtResource("3_atmyd")
+shader_parameter/thickness = 5.775
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = null
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = null
+shader_parameter/max_or_add = false
 
-[sub_resource type="Gradient" id="Gradient_gcksw"]
-offsets = PackedFloat32Array(0, 0.530387)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="ArrayMesh" id="ArrayMesh_dvyq0"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-452, -491.1, 0, 904, 981.1, 0),
+"attribute_data": PackedByteArray("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"),
+"format": 34393296913,
+"index_count": 579,
+"index_data": PackedByteArray("AADCAMEAwQDAAL8AvgC9ALwAvAC7ALoAuAC3ALYAtgC1ALQAtACzALIAsgCxALAAsACvAK4ArgCtAKwAqwCqAKkAqQCoAKcApwCmAKUApQCkAKMAowCiAKEAnwCeAJ0AnQCcAJsAmwCaAJkAmQCYAJcAlgCVAJQAlACTAJIAkgCRAJAAkACPAI4AjACLAIoAigCJAIgAiACHAIYAhgCFAIQAhACDAIIAggCBAIAAgAB/AH4AfgB9AHwAfAB7AHoAegB5AHgAeAB3AHYAdgB1AHQAcwByAHEAcQBwAG8AbwBuAG0AbQBsAGsAawBqAGkAaQBoAGcAZwBmAGUAZQBkAGMAYwBiAGEAXwBeAF0AXQBcAFsAWwBaAFkAWQBYAFcAVwBWAFUAVQBUAFMAUwBSAFEAUABPAE4ATQBMAEsASwBKAEkASQBIAEcARwBGAEUARQBEAEMAQgBBAEAAPgA9ADwAOwA6ADkAOQA4ADcANwA2ADUANQA0ADMAMwAyADEALwAuAC0ALAArACoAKgApACgAKAAnACYAJgAlACQAJAAjACIAIQAgAB8AHgAdABwAHAAbABoAGgAZABgAGAAXABYAFQAUABMAEwASABEAEQAQAA8ADgANAAwADAALAAoACgAJAAgACAAHAAYABgAFAAQABAADAAIAAQAAAMEAwQC/AL4ArgCsAKsAqwCpAKcApwClAKMAowChAKAAnwCdAJsAmwCZAJcAigCIAIYAhgCEAIIAggCAAH4AfgB8AHoAegB4AHYAdgB0AHMAcwBxAG8AbwBtAGsAawBpAGcAZwBlAGMAYwBhAGAAUwBRAFAAUABOAE0ATQBLAEkASQBHAEUARQBDAEIAQgBAAD8APgA8ADsAOwA5ADcANwA1ADMAMwAxADAAJAAiACEAIQAfAB4AHgAcABoAGgAYABYAFQATABEAEQAPAA4ADgAMAAoACgAIAAYABgAEAAIAAgABAMEAwQC+ALwArgCrAKcApwCjAKAAnwCbAJcAjACKAIYAhgCCAH4AfgB6AHYAdgBzAG8AbwBrAGcAZwBjAGAAUwBQAE0ATQBJAEUARQBCAD8APgA7ADcANwAzADAAJAAhAB4AHgAaABYAFQARAA4ADgAKAAYABgACAMEAsACuAKcAoACfAJcAjACGAH4AfgB2AG8AbwBnAGAAVQBTAE0ATQBFAD8APwA+ADcAJAAeABYADgAGAMEAsACnAKAAoACXAJYAjQCMAH4AfgBvAGAAVQBNAD8APwA3ADAAJgAkABYADgDBALwAsgCwAKAAoACWAJQAjgCNAH4AfgBgAF8AVwBVAD8APwAwAC8AKAAmABYADgC8ALoAsgCgAJQAjgB+AF8AWQBXAD8AKgAoABYADgC6ALkAtACyAJQAkACOAF8AWwBZAD8ALAAqABYADgC5ALgAtACUAJIAkgCQAF8AXQBbAD8ALQAsABYADgC4ALYAtgC0AJIAkgBfAF0AXQA/AC8ALwAtABYADgC2AJIAkgBdAC8ALwAWABUAFQAOAJIAkgAvABUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 195,
+"vertex_data": PackedByteArray("AAACQ82M9cMAAAJDZub0w2hm0UIAAPPDaGbHQgAA88NoZpdCAADvwwAAkUIAAO/DAABaQgAA6sMwM1FCAADqwzAzCUIAAOPD0MwAQgAA48MAzUxAAIDUwwAAAEAAgNTDAAAQwQAAzcNAMyPBAADNwzAzJcJm5rHDAABYwjNzt8MAAFjCmhm4wwAAnsJmpr7DAACewgBAv8MAAM7CAMDCwwAAzsJmZsPDAADywmZmxMMAAPLCAADFw5oZJ8MAAMXDzExJwwCAwsPMTE/DAIDCw5oZfcMAALzDM7OAwwAAvMPNzJDDAIC1wwAAksMAgLXDAACVwwCAscMAAJbDAICxwwAAlsMAAK3DAICTw80Mq8MAgJPDZiaqw5oZbcMAAKbDzExpwwAApsNmZlvDAACjw5qZWMMAAKPDmplJwwAAnsNm5kfDAACew2bmPcMAgJjDzEw9wwCAmMPMTDjDAACTwzSzN8MAAJPDNLM1wwAAjcMAADjDmpmFwwAAOMMz84TDAABHw8zMecNmZmHDAABtw5qZZMMAAG3DAIB9wwAAXsPMzH/DAABewzPziMMAAE3DzYyJwwAATcPNDI3DAABCwzOzjcMAAELDM7ORwwAALMNmZpLDAAAsw2Zmk8MAABnDAACUwwAAGcMAAJTDmJnzwgCAkcM0M7vCAICRwwAAucIAAKLDmJncwgAAosM0M9/CAICtw2hm6cIAgK3DAADswmYmvMMAAOzCZqbFwwAA4MIAQMfDAADgwgDAz8MAAMzCmtnQwwAAzMKa2dfDAAC2wjPz2MMAALbCM3PfwwAAmsIzM+DDAACawjMz4cMAAI7CAADiwwAAjsIAAOLDaGZwwgAA38NoZlzCAADfw9DMVsIzM9fDAAA8wmZm1sMAADzCZubSwwAAIMIz89HDAAAgwjPzwsMAAKDAzYzCwwAAoMDNDLjDAAD4QQDAt8MAAPhBAEC0wwAAYEIz87PDAABgQjPzssMAAKZCzYyywwAApkIAgLPDAADyQgCAs8M0swRDmtm8wwAAcUMAgL3DAABxQwCAvcNmJohDAAC6wwCAlEMAALrDAECWQwAAs8MAwKNDAACzw5rZpEMAgKrDzEywQwCAqsM0c7FDAICdw2bmvUMAgJ3DAIC+QwAAjsMAAMpDAACOw5qZykMAAF3DzAzcQwAAXcM0s9xDAAAXwzQz6UMAABfDzMzpQwAAnsLMzPBDAACewjRz8UMAAIA/Zmb0QwAAgD8AAPVDMDO4QgAA9UPMTBNDAADxQ8xMGUMAAPFDzEw4QwCA7ENoZjxDAIDsQ2hmW0MAgOZDAIBeQwCA5kMAQIBDAADeQ8xMgUMAAN5DzEyIQwAA2UNmZolDAADZQ2ZmmkMAgMhDAACbQwCAyEMAAKVDAAC7Q5qZpUMAALtDmhmwQwCAp0MAwLBDAICnQwBAs0MAgJ5DAAC0QwCAnkMAALRDNLN8QzSzpUMAAC1DAEClQwAALUMAQJ9DAAAEQ2bmnkMAAARDAICeQ2hm/UIAgJ5D0MzCQgCAoUNoZoxCAIChQwAAh0IAAKdDAAA2QgAAp0PQzC5CAICxQ2BmnkEAgLFDQDOXQQCAykMAAKDBAIDKQzAzp8EAQN1DAAAowmZm3kMAACjCAADiQ9DMRMIAAOJDMDNvwgAA4EMwM3/CAADgQ8zMgsJmptpDAACKwmZm1EMAAIrCzEy5QwAAZMKaWbhDAABkwgCAtEPMzL7CAIC0Q5iZyMIAALFDAADxwgAAsUMAAPfCAICqQ5qZFMMAgKpDNLMWwwAApENm5ibDAACkQ2bmKMMAAJhDAAA/wwAAmEOaGUDDAACOQ5oZTMMAAI5DzExNw2hmWUMAAGrDAIBWQwAAasMAgEFDAAB2wzSzP0MAAHbDNLMzQwAAgMNo5jFDAACAw2jmIkMAAInDzEwiQwAAicM0MxVDAACVw2hmFEMAAJXDaGYIQwAApMMAgAdDAACkwwAA+EIAALrDAAD4QppZ0MMAAANDzczYwwAAA0MzM9rDAAALQ2am38MAAAtDmpngwwAAJEPNjOzDAAAkQwCA8MMAABtDAAD0wwAAG0Mz8/TD")
+}]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m1lk6"]
-gradient = SubResource("Gradient_gcksw")
-fill = 1
-fill_from = Vector2(0.518519, 0.532764)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fi74v"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 3.0
-radial_velocity_min = 18.0
-radial_velocity_max = 18.0
-gravity = Vector3(0, -98, 0)
-scale_min = 0.0
-scale_max = 10.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tevw"]
+size = Vector2(89, 75)
 
 [sub_resource type="Animation" id="Animation_ln8my"]
 length = 0.001
@@ -130,10 +140,6 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmbyh"]
 size = Vector2(143, 89.5)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_vq3ib"]
-diffuse_texture = ExtResource("12_pm70q")
-normal_texture = ExtResource("13_7eqav")
 
 [sub_resource type="Animation" id="Animation_jv2bc"]
 length = 0.001
@@ -193,25 +199,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcan"]
 size = Vector2(96, 53.5)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_xuhe2"]
-diffuse_texture = ExtResource("12_pm70q")
-normal_texture = ExtResource("13_7eqav")
-texture_filter = 1
-texture_repeat = 1
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivmla"]
 size = Vector2(95.5, 63.5)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_0g8d1"]
-diffuse_texture = ExtResource("12_pm70q")
-normal_texture = ExtResource("13_7eqav")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14i0x"]
 size = Vector2(97, 58)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_0e27q"]
-diffuse_texture = ExtResource("12_pm70q")
-normal_texture = ExtResource("13_7eqav")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35wn6"]
 size = Vector2(40.5, 38.5)
@@ -219,14 +211,11 @@ size = Vector2(40.5, 38.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cguoy"]
 size = Vector2(29, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yadgr"]
+radius = 24.1868
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsgk2"]
 radius = 20.0998
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xweq0"]
-size = Vector2(45, 60)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lucqp"]
-size = Vector2(59.5, 75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3s84a"]
 texture = ExtResource("2_hxqhu")
@@ -241,66 +230,19 @@ texture = ExtResource("2_hxqhu")
 [sub_resource type="TileSet" id="TileSet_kmjh4"]
 sources/0 = SubResource("TileSetAtlasSource_3s84a")
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jcd4j"]
-polygon = PackedVector2Array(-4.8, 8, -4.8, -4.8, 8, -4.8, 8, -8, -8, -8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7xath"]
-polygon = PackedVector2Array(-4.8, -8, -4.8, 8, -8, 8, -8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tiye8"]
-polygon = PackedVector2Array(-4.8, -8, -4.8, 8, -8, 8, -8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fs6bc"]
-polygon = PackedVector2Array(-4.8, -8, -4.8, 4.8, 8, 4.8, 8, 8, -8, 8, -8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_srglu"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, -4.8, -8, -4.8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gk12h"]
-polygon = PackedVector2Array(-8, 4.8, 8, 4.8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m4b1f"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, 4.8, 8, 4.8, -4.8, -8, -4.8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_31ken"]
-polygon = PackedVector2Array(4.8, -8, 4.8, 8, 8, 8, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_82lx5"]
-polygon = PackedVector2Array(4.8, -8, 4.8, 8, 8, 8, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8ilg7"]
-polygon = PackedVector2Array(4.8, -8, 4.8, 4.8, -8, 4.8, -8, 8, 8, 8, 8, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_23urd"]
-polygon = PackedVector2Array(-1.6, -8, -1.6, 4.8, -8, 4.8, -8, 8, 8, 8, 8, 4.8, 1.6, 4.8, 1.6, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_akgds"]
-polygon = PackedVector2Array(-1.6, -8, -1.6, 8, 1.6, 8, 1.6, -8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_af60g"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, 4.8, 8, 4.8, -4.8, -8, -4.8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1ehrm"]
-polygon = PackedVector2Array(4.8, -8, 4.8, 8, 8, 8, 8, -8)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnve1"]
 texture = ExtResource("2_hxqhu")
 1:4/0 = 0
-1:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_gk12h")
 1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -8, 4)
 0:4/0 = 0
-0:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_fs6bc")
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -6, 4, -6, -8, -8, -8)
 0:3/0 = 0
-0:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_tiye8")
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.33333, -8, -5.33333, 8, -8, 8, -8, -8)
 1:3/0 = 0
 2:3/0 = 0
-2:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_82lx5")
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.33333, -8, 5.33333, 8, 8, 8, 8, -8)
 2:1/next_alternative_id = 2
 2:1/0 = 0
-2:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_m4b1f")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -8, -6)
 2:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, -6, -8, 8, -6, 8, -6, -6)
 2:1/0/physics_layer_0/polygon_2/points = PackedVector2Array(8, 8, 4, 8, 4, -6, 8, -6)
@@ -309,41 +251,32 @@ texture = ExtResource("2_hxqhu")
 1:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, -8, 8, -8, 8, 4, 6, 4)
 1:2/0/physics_layer_0/polygon_2/points = PackedVector2Array(-8, -8, -6, -8, -6, 4, -8, 4)
 0:2/0 = 0
-0:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_7xath")
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
 0:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, 4, 6, -8, 8, -8, 8, 4)
 2:2/next_alternative_id = 3
 2:2/0 = 0
-2:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_31ken")
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
 2:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, -8, -8, -8, -8, 4, -6, 4, -6, -8)
 2:2/0/physics_layer_0/polygon_2/points = PackedVector2Array(4, -4, 4, -4, 4, -8, 8, -8, 8, 4, 4, 4)
 1:1/0 = 0
-1:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_srglu")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -6.01041, -6, -8, -6)
 1:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(6, 0, 6, -6, 8, -6, 8, 8, 6, 8)
 1:1/0/physics_layer_0/polygon_2/points = PackedVector2Array(-6, -6, -6, 8, -8, 8, -8, -6)
 0:1/0 = 0
-0:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_jcd4j")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, -8, -8, -8)
 0:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(8, 8, 8, -4, 6, -4, 6, 8)
 3:1/next_alternative_id = 3
 3:1/0 = 0
-3:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_23urd")
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2, -8, 2, 4, 8, 4, 8, 8, -8, 8, -8, 4, -2, 4, -2, -8)
 3:2/next_alternative_id = 2
 3:2/0 = 0
-3:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_akgds")
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -8, 2, -8, 2, 8, -2, 8)
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -8, 2, -8, 2, 8, -2, 8)
 2:4/0 = 0
-2:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_8ilg7")
 2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 6, 4, 6, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
-4:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_af60g")
 4:2/0 = 0
-4:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_1ehrm")
 4:3/0 = 0
 4:4/0 = 0
 5:3/0 = 0
@@ -352,24 +285,11 @@ texture = ExtResource("2_hxqhu")
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 6, -8, 6, -8, 8, 8, 8)
 
 [sub_resource type="TileSet" id="TileSet_p0b6y"]
-occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tnve1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rloyh"]
 size = Vector2(382.5, 452)
-
-[sub_resource type="Gradient" id="Gradient_2u6s5"]
-offsets = PackedFloat32Array(0, 0.530387)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nswju"]
-gradient = SubResource("Gradient_2u6s5")
-fill = 1
-fill_from = Vector2(0.518519, 0.532764)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_43wfo"]
-polygon = PackedVector2Array(81, -290, 81, -290, 81, -280, 227.536, -280, 435, -280, 426, -290)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x37v"]
 size = Vector2(152, 51)
@@ -427,12 +347,6 @@ size = Vector2(47, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ir6i"]
 size = Vector2(51, 109)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcrcj"]
-size = Vector2(44.5, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r88q4"]
-size = Vector2(156, 51)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mflpu"]
 size = Vector2(76, 92)
 
@@ -450,6 +364,12 @@ size = Vector2(31.8, 11.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpje4"]
 size = Vector2(16.2, 11.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcrcj"]
+size = Vector2(44.5, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r88q4"]
+size = Vector2(156, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mnmb"]
 size = Vector2(157, 93)
@@ -762,9 +682,6 @@ _data = {
 position = Vector2(-1, 704)
 script = ExtResource("1_mygsn")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.53523, 0.575911, 0.632919, 1)
-
 [node name="BGColor" type="ColorRect" parent="."]
 offset_top = -704.0
 offset_right = 1500.0
@@ -774,50 +691,50 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Scenes_Objects" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(555, -275)
+position = Vector2(425, -275)
 
-[node name="Player" parent="Scenes_Objects" groups=["player01"] instance=ExtResource("2_18val")]
+[node name="Player" parent="Scenes_Objects" instance=ExtResource("2_18val")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(451, 391)
 
-[node name="Fogos" type="Node2D" parent="Scenes_Objects"]
-position = Vector2(-294, 640)
-
-[node name="FogoBanheiro" parent="Scenes_Objects/Fogos" instance=ExtResource("3_4gb0q")]
-position = Vector2(438, -120)
-fogoID = 1
-
-[node name="AreaEntered" parent="Scenes_Objects/Fogos/FogoBanheiro" instance=ExtResource("16_hp6ks")]
-salaID = 0
-canSala = false
-useFire = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Fogos/FogoBanheiro/AreaEntered"]
-position = Vector2(-29.125, 3)
-shape = SubResource("RectangleShape2D_wg5vb")
-
-[node name="PointLight2D5" type="PointLight2D" parent="Scenes_Objects/Fogos/FogoBanheiro"]
-visible = false
-position = Vector2(-9, 0)
-scale = Vector2(8.4458, 8.4458)
-color = Color(1, 0.65, 0.3, 1)
-energy = 1.3
-texture = SubResource("GradientTexture2D_m1lk6")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Scenes_Objects/Fogos/FogoBanheiro"]
-z_index = 2
-position = Vector2(3, -8)
-scale = Vector2(1.1299, -1.61584)
-emitting = false
-amount = 5
-process_material = SubResource("ParticleProcessMaterial_fi74v")
-one_shot = true
-speed_scale = 2.0
-
 [node name="Banheiro_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
 position = Vector2(-375, 720)
+
+[node name="Node2D" type="Node2D" parent="Scenes_Objects/Banheiro_Objects"]
+visible = false
+position = Vector2(6, -129)
+scale = Vector2(5, 5)
+script = ExtResource("7_j2s0o")
+item_name = "lixoA"
+
+[node name="Icon" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Node2D"]
+modulate = Color(0.387034, 1, 0.825897, 1)
+self_modulate = Color(0.368627, 0, 0, 1)
+position = Vector2(121.4, 13.4)
+scale = Vector2(0.0132296, 0.0120623)
+texture = ExtResource("8_khycv")
+
+[node name="Outline" type="MeshInstance2D" parent="Scenes_Objects/Banheiro_Objects/Node2D" groups=["outline"]]
+visible = false
+modulate = Color(0.387034, 1, 0.825897, 1)
+self_modulate = Color(0.368627, 0, 0, 1)
+material = SubResource("ShaderMaterial_y0ykw")
+position = Vector2(121.4, 13.4)
+scale = Vector2(0.0132296, 0.0120623)
+mesh = SubResource("ArrayMesh_dvyq0")
+texture = ExtResource("8_khycv")
+
+[node name="InteractionArea" parent="Scenes_Objects/Banheiro_Objects/Node2D" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+position = Vector2(121.4, 13.4)
+scale = Vector2(0.0132296, 0.0120623)
+outline = NodePath("../Outline")
+
+[node name="lixo" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Node2D/InteractionArea"]
+position = Vector2(0.000976563, -16.582)
+scale = Vector2(15.1176, 16.5806)
+shape = SubResource("RectangleShape2D_2tevw")
 
 [node name="TapeteSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects"]
 position = Vector2(391, -281)
@@ -849,7 +766,7 @@ texture = ExtResource("7_lqn0y")
 [node name="BanheiraSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Banheira"]
 position = Vector2(386, -420)
 scale = Vector2(5, 5)
-texture = SubResource("CanvasTexture_vq3ib")
+texture = ExtResource("12_pm70q")
 offset = Vector2(2, 0)
 hframes = 3
 vframes = 5
@@ -881,16 +798,15 @@ shape = SubResource("RectangleShape2D_1vcan")
 
 [node name="Outline" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Pia"]
 visible = false
-modulate = Color(0.81, 0.81, 0.81, 1)
 material = ExtResource("9_d3gor")
-position = Vector2(125, -340)
+position = Vector2(124, -340)
 scale = Vector2(5, 5)
 texture = ExtResource("9_mn4k5")
 
 [node name="PiaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Pia"]
 position = Vector2(130, -340)
 scale = Vector2(5, 5)
-texture = SubResource("CanvasTexture_xuhe2")
+texture = ExtResource("12_pm70q")
 offset = Vector2(6, 0)
 hframes = 3
 vframes = 5
@@ -910,12 +826,9 @@ y_sort_enabled = true
 position = Vector2(81, -80)
 
 [node name="PrivadaSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/privada"]
-position = Vector2(135, -174)
+position = Vector2(106, -160)
 scale = Vector2(5, 5)
-texture = SubResource("CanvasTexture_0g8d1")
-hframes = 3
-vframes = 5
-frame = 8
+texture = ExtResource("10_4drbq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/privada"]
 position = Vector2(102.5, -154)
@@ -925,12 +838,9 @@ shape = SubResource("RectangleShape2D_14i0x")
 position = Vector2(81, -80)
 
 [node name="DesentupidorSprite" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/desentupidor"]
-position = Vector2(135, -139)
+position = Vector2(75, -104)
 scale = Vector2(5, 5)
-texture = SubResource("CanvasTexture_0e27q")
-hframes = 3
-vframes = 5
-frame = 13
+texture = ExtResource("11_2e54n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/desentupidor"]
 position = Vector2(74.75, -98.25)
@@ -950,6 +860,18 @@ texture = ExtResource("32_ih18f")
 position = Vector2(73.5, -226)
 shape = SubResource("RectangleShape2D_cguoy")
 
+[node name="lixo" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+position = Vector2(98, -85)
+
+[node name="lixo_balde" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/lixo"]
+position = Vector2(94, -45)
+scale = Vector2(5, 5)
+texture = ExtResource("4_a0cep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/lixo"]
+position = Vector2(96, -52)
+shape = SubResource("CircleShape2D_yadgr")
+
 [node name="planta" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
 z_index = 1
 y_sort_enabled = true
@@ -963,37 +885,6 @@ texture = ExtResource("20_3qnb4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/planta"]
 position = Vector2(387, -43)
 shape = SubResource("CircleShape2D_rsgk2")
-
-[node name="Balde" type="Node2D" parent="Scenes_Objects/Banheiro_Objects"]
-
-[node name="Balde" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects/Balde"]
-position = Vector2(98, -85)
-script = ExtResource("7_j2s0o")
-item_name = "balde"
-
-[node name="lixo_balde" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Balde/Balde"]
-position = Vector2(94, -45)
-scale = Vector2(5, 5)
-texture = ExtResource("4_a0cep")
-
-[node name="outline" type="Sprite2D" parent="Scenes_Objects/Banheiro_Objects/Balde/Balde"]
-visible = false
-material = ExtResource("9_d3gor")
-position = Vector2(94, -45)
-scale = Vector2(5, 5)
-texture = ExtResource("4_a0cep")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Balde/Balde"]
-position = Vector2(96.5, -45)
-shape = SubResource("RectangleShape2D_xweq0")
-
-[node name="InteractionArea" parent="Scenes_Objects/Banheiro_Objects/Balde/Balde" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
-outline = NodePath("../outline")
-can_interact = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/Balde/Balde/InteractionArea"]
-position = Vector2(99.25, -47.5)
-shape = SubResource("RectangleShape2D_lucqp")
 
 [node name="FloorTile" type="TileMapLayer" parent="Scenes_Objects/Banheiro_Objects"]
 position = Vector2(361, -720)
@@ -1017,42 +908,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/AreaEntered"]
 position = Vector2(328.75, -319)
 shape = SubResource("RectangleShape2D_rloyh")
-
-[node name="PointLight2D" type="PointLight2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(326, -259)
-scale = Vector2(6.25391, 6.25391)
-energy = 0.4
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_nswju")
-
-[node name="PointLight2D4" type="PointLight2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(790, -819)
-scale = Vector2(8.67383, 8.67383)
-energy = 0.4
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_nswju")
-
-[node name="PointLight2D2" type="PointLight2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(378, -500)
-scale = Vector2(6.25391, 6.25391)
-energy = 0.2
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_nswju")
-
-[node name="PointLight2D3" type="PointLight2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(207, -492)
-scale = Vector2(6.25391, 6.25391)
-energy = 0.2
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_nswju")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(81, -80)
-occluder = SubResource("OccluderPolygon2D_43wfo")
 
 [node name="Sala_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
@@ -1188,87 +1043,6 @@ tile_map_data = PackedByteArray("AAACAP7/AAAAAAMAAAACAP//AAAAAAMAAAACAAEAAAAAAAM
 tile_set = SubResource("TileSet_p0b6y")
 metadata/_edit_lock_ = true
 
-[node name="PointLight2D3" type="PointLight2D" parent="Scenes_Objects/Sala_Objects"]
-position = Vector2(242, 554)
-scale = Vector2(8.4458, 8.4458)
-color = Color(1, 0.65, 0.3, 1)
-energy = 1.3
-texture = SubResource("GradientTexture2D_m1lk6")
-
-[node name="Mesa_Objects" type="Node2D" parent="Scenes_Objects/Sala_Objects"]
-y_sort_enabled = true
-position = Vector2(220, 242)
-
-[node name="cadeiraes" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects"]
-z_index = 1
-y_sort_enabled = true
-
-[node name="CadeiraBSprite2" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeiraes"]
-position = Vector2(-90, 0)
-rotation = 3.14159
-scale = Vector2(5, -5)
-texture = ExtResource("28_2xne1")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeiraes"]
-position = Vector2(-93.75, 14)
-shape = SubResource("RectangleShape2D_tcrcj")
-
-[node name="cadeiradt" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects"]
-z_index = 1
-y_sort_enabled = true
-
-[node name="CadeiraBSprite" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeiradt"]
-position = Vector2(90, 0)
-scale = Vector2(5, 5)
-texture = ExtResource("28_2xne1")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeiradt"]
-position = Vector2(94, 14)
-shape = SubResource("RectangleShape2D_tcrcj")
-
-[node name="cadeiracm" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects"]
-z_index = 1
-y_sort_enabled = true
-
-[node name="CadeiraCSprite" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeiracm"]
-position = Vector2(0, -65)
-scale = Vector2(5, 5)
-texture = ExtResource("27_0cscy")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeiracm"]
-position = Vector2(1, -45)
-shape = SubResource("RectangleShape2D_tcrcj")
-
-[node name="cadeirabx" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects"]
-z_index = 1
-y_sort_enabled = true
-
-[node name="CadeiraASprite" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeirabx"]
-position = Vector2(0, 48)
-scale = Vector2(5, 5)
-texture = ExtResource("30_6mgwd")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/cadeirabx"]
-position = Vector2(0, 58)
-shape = SubResource("RectangleShape2D_tcrcj")
-
-[node name="mesa" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects"]
-z_index = 1
-y_sort_enabled = true
-
-[node name="MesaSprite" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/mesa"]
-scale = Vector2(5, 5)
-texture = ExtResource("29_dmf31")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Mesa_Objects/mesa"]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_r88q4")
-
 [node name="Cozinha_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
 position = Vector2(227, 0)
@@ -1385,6 +1159,80 @@ z_index = 1
 position = Vector2(306, -265)
 scale = Vector2(5, 5)
 texture = ExtResource("23_7yh7p")
+
+[node name="Mesa_Objects" type="Node2D" parent="Scenes_Objects"]
+y_sort_enabled = true
+position = Vector2(553, 193)
+
+[node name="cadeiraes" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraBSprite2" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeiraes"]
+position = Vector2(-90, 0)
+rotation = 3.14159
+scale = Vector2(5, -5)
+texture = ExtResource("28_2xne1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeiraes"]
+position = Vector2(-93.75, 14)
+shape = SubResource("RectangleShape2D_tcrcj")
+
+[node name="cadeiradt" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraBSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeiradt"]
+position = Vector2(90, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("28_2xne1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeiradt"]
+position = Vector2(94, 14)
+shape = SubResource("RectangleShape2D_tcrcj")
+
+[node name="cadeiracm" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraCSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeiracm"]
+position = Vector2(0, -65)
+scale = Vector2(5, 5)
+texture = ExtResource("27_0cscy")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeiracm"]
+position = Vector2(1, -45)
+shape = SubResource("RectangleShape2D_tcrcj")
+
+[node name="cadeirabx" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CadeiraASprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/cadeirabx"]
+position = Vector2(0, 48)
+scale = Vector2(5, 5)
+texture = ExtResource("30_6mgwd")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/cadeirabx"]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_tcrcj")
+
+[node name="mesa" type="StaticBody2D" parent="Scenes_Objects/Mesa_Objects"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="MesaSprite" type="Sprite2D" parent="Scenes_Objects/Mesa_Objects/mesa"]
+scale = Vector2(5, 5)
+texture = ExtResource("29_dmf31")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Mesa_Objects/mesa"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_r88q4")
 
 [node name="Quarto_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
@@ -1504,7 +1352,6 @@ tile_set = SubResource("TileSet_p0b6y")
 metadata/_edit_lock_ = true
 
 [node name="AreaEntered" parent="Scenes_Objects/Quarto_Objects" instance=ExtResource("16_hp6ks")]
-visible = false
 position = Vector2(141, 155)
 salaID = 3
 metadata/_edit_lock_ = true
@@ -1521,15 +1368,6 @@ offset_right = 146.0
 offset_bottom = 165.0
 color = Color(0.14902, 0.156863, 0.207843, 1)
 
-[node name="PointLight2D2" type="PointLight2D" parent="Scenes_Objects/Quarto_Objects"]
-position = Vector2(-43, -19)
-scale = Vector2(6.25391, 6.25391)
-energy = 0.5
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_nswju")
-metadata/_edit_lock_ = true
-
 [node name="HUD" type="CanvasLayer" parent="."]
 metadata/_edit_use_anchors_ = true
 
@@ -1540,7 +1378,6 @@ libraries = {
 }
 
 [node name="ColorRect2" type="ColorRect" parent="HUD"]
-visible = false
 offset_top = 727.0
 offset_right = 1501.0
 offset_bottom = 776.0
@@ -1652,6 +1489,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer_Dica" type="Timer" parent="HUD"]
+
+[node name="Fogo_banheiro" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fogo_banheiro"]
+position = Vector2(569, 227)
+scale = Vector2(13.5556, 6.38462)
+texture = ExtResource("54_p8u7v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fogo_banheiro"]
+
+[node name="Fogo_quarto" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fogo_quarto"]
+position = Vector2(555, -247)
+scale = Vector2(20.3333, 7.07692)
+texture = ExtResource("54_p8u7v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fogo_quarto"]
+
+[node name="Fogo_cozinha" type="Node2D" parent="."]
+position = Vector2(208, 624)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fogo_cozinha"]
+position = Vector2(555, -247)
+scale = Vector2(20.3333, 7.07692)
+texture = ExtResource("54_p8u7v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fogo_cozinha"]
 
 [connection signal="timeout" from="HUD/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HUD/Timer_Dica" to="." method="_on_Timer_Dica_timeout"]

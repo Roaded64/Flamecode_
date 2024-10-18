@@ -14,6 +14,7 @@ var comodID = 1
 var isCutscene = false
 
 signal missionCompleted
+signal useThing
 
 func _ready() -> void:
 	# colocar a cena se for debug

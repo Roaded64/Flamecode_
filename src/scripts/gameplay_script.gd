@@ -8,14 +8,14 @@ var dica
 # múltiplas dicas associadas às palavras (em diferentes níveis de clareza)
 const dicas = {
 	"IA": ["Refere-se à criação de máquinas que podem 'pensar'.", "É usada em muitos campos, incluindo tecnologia.", "É uma abreviação de Inteligência Artificial."],
-	#"Efeito Estufa": ["Relacionado ao aquecimento da superfície da Terra.", "Ocorre quando gases ficam presos na atmosfera.", "É um fenômeno que mantém o calor dentro da Terra."],
-	#"Reflorestamento": ["Ação de plantar árvores.", "Ajuda a restaurar áreas devastadas.", "Envolve replantar árvores em áreas desmatadas."],
 	"Sustentabilidade": ["Conceito de usar recursos sem prejudicar o futuro.", "Busca um equilíbrio ambiental.", "Refere-se à manutenção da qualidade do meio ambiente."],
 	"Aquecimento Global": ["Está ligado ao aumento da temperatura no planeta.", "Acontece por causa da poluição e desmatamento.", "É o aumento da temperatura média da Terra."],
 }
 
-var curMission
+var curMission = 0
+var rMission = 0
 var misCompleted = 0
+var used = false
 
 @onready var label = $HUD/Label
 @onready var label_dica = $HUD/Label_Dica # Label para exibir a dica
@@ -29,6 +29,14 @@ var misCompleted = 0
 var dica_index = -1
 var dica_firstTime = false
 
+# Referências para os Sprites dos fogos
+#@onready var fogo_banheiro = $Scenes_Objects/Fogo_banheiro
+#@onready var fogo_quarto = $Scenes_Objects/Fogo_quarto
+#@onready var fogo_porta = $Scenes_Objects/Fogo_porta
+#@onready var fogo_aux = $Scenes_Objects/Fogo_aux  # Novo fogo auxiliar
+
+var i: int
+
 func _ready():	
 	# escolher a palavra aleatória
 	rw = _random_word(word)
@@ -37,18 +45,27 @@ func _ready():
 	Dialogic.VAR.set('password', rw)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Main.missionCompleted.connect(_mission_completed)
+	Main.useThing.connect(_used)
 	
 	_fademission("Talvez conversar com a IA irá te ajudar.")
 	
 	# animação de fogo
 	$Scenes_Objects/Sala_Objects/Tv/AnimationPlayer.play("fogo")
 
-	## Exibir a primeira dica no início do jogo
-	#_exibir_dica()
-	
+	# Iniciar o estado inicial dos fogos
+	#_iniciar_fogos()
+
 	# Iniciar o timer para as dicas
 	timer_dica.wait_time = 10  # tempo antes de mostrar a dica
 	timer_dica.start()
+
+# Função para iniciar o estado inicial dos fogos
+#func _iniciar_fogos():
+	## Configurações iniciais dos fogos
+	#fogo_banheiro.visible = false  # Fogo do banheiro começa invisível
+	#fogo_quarto.visible = true  # Fogo do quarto começa visível
+	#fogo_porta.visible = true  # Fogo da porta começa visível
+	#fogo_aux.visible = true  # Fogo auxiliar começa visível
 
 # Função para exibir a dica atual
 func _exibir_dica():
@@ -70,7 +87,6 @@ func _exibir_dica():
 # Função chamada quando o timer expira
 func _on_Timer_Dica_timeout():
 	print("Timer Dica ativado")  # Mensagem de debug
-	#_exibir_dica()  # Exibir a dica novamente
 	timer_dica.start()  # Reiniciar o timer para a próxima dica
 
 func _process(delta: float) -> void:
@@ -83,47 +99,82 @@ func _process(delta: float) -> void:
 	elif timer_progress.value == 144:
 		timer_progress.texture_progress = preload("res://assets/images/misc/termometro/termometro fases6.png")
 
+	if Main.comodID == 1:
+		fade_in($Scenes_Objects/Sala_Objects, 0.4)
+		fade_in($Scenes_Objects/Cozinha_Objects, 0.4)
+	elif Main.comodID != 1:
+		fade_out($Scenes_Objects/Sala_Objects, 0.3, Color(0.071, 0.071, 0.071))
+		fade_out($Scenes_Objects/Cozinha_Objects, 0.3, Color(0.071, 0.071, 0.071))
+		
 	if Main.comodID == 2:
 		fade_in($Scenes_Objects/Banheiro_Objects, 0.4)
 	elif Main.comodID == 3:
 		fade_in($Scenes_Objects/Quarto_Objects, 0.4)
+	#elif Main.comodID == 4:
+		#fade_in($Scenes_Objects/Lavanderia_Objects, 0.4)
 	else:
-		fade_out($Scenes_Objects/Banheiro_Objects, 0.3, null)
-		fade_out($Scenes_Objects/Quarto_Objects, 0.3, null)
-		
-		if Main.comodID != 1:
-			fade_out($Scenes_Objects/Sala_Objects, 0.3, null)
+		fade_out($Scenes_Objects/Banheiro_Objects, 0.3, Color(0.071, 0.071, 0.071))
+		fade_out($Scenes_Objects/Quarto_Objects, 0.3, Color(0.071, 0.071, 0.071))
+		#fade_out($Scenes_Objects/Lavanderia_Objects, 0.3, Color(0.071, 0.071, 0.071))
+	
+	if curMission == 1 || curMission == 2:
+		if i == 6:
+			_fademission("Apague o fogo e volte para a torneira.")
+			await get_tree().create_timer(1).timeout
+			i = 7
+		elif i == 9:
+			if Main.comodID == 1:
+				$Scenes_Objects/Player/CharacterBody2D/Camera2D.apply_shake()
+				$Scenes_Objects/Fogos/FogoBanheiro.is_active = true
+				$Scenes_Objects/Fogos/FogoBanheiro/PointLight2D5.visible = true
+				await get_tree().create_timer(0.5).timeout
+				i = 0
 
 func _on_dialogic_signal(argument:String):
 	match argument:
 		"conseguiu":
 			print("acerto")
 		"mission1":
-			curMission = 1
+			if curMission == 0:
+				_random_mission(1, 2)
 			
-			if $Scenes_Objects/Banheiro_Objects/Pia/InteractionArea != null:
-				$Scenes_Objects/Banheiro_Objects/Pia/InteractionArea.can_interact = true
+			if rMission == 1:
+				curMission = 1
 				
-			$Scenes_Objects/Banheiro_Objects/Pia/AnimationPlayer.play("leak")
+				if $Scenes_Objects/Banheiro_Objects/Pia/InteractionArea != null:
+					$Scenes_Objects/Banheiro_Objects/Pia/InteractionArea.can_interact = true
+					
+				$Scenes_Objects/Banheiro_Objects/Pia/AnimationPlayer.play("leak")
+			elif rMission == 2:
+				curMission = 2
+			
+				if $Scenes_Objects/Banheiro_Objects/Banheira/InteractionArea != null:
+					$Scenes_Objects/Banheiro_Objects/Banheira/InteractionArea.can_interact = true
+				
+				$Scenes_Objects/Banheiro_Objects/Banheira/AnimationPlayer.play("leak")
 		"mission2":
-			curMission = 2
+			pass
 			
-			if $Scenes_Objects/Banheiro_Objects/Banheira/InteractionArea != null:
-				$Scenes_Objects/Banheiro_Objects/Banheira/InteractionArea.can_interact = true
-			
-			$Scenes_Objects/Banheiro_Objects/Banheira/AnimationPlayer.play("leak")
 		"mission3":
 			curMission = 3
 			
 			if $Scenes_Objects/Cozinha_Objects/Lixeira/InteractionArea != null:
 				$Scenes_Objects/Cozinha_Objects/Lixeira/InteractionArea.can_interact = true
+			
+			# Quando a missão 3 é completada, ativar o fogo do banheiro
+			#fogo_banheiro.visible = true
+		
 		"mission4":
 			curMission = 4
+			
+			if $Scenes_Objects/Cozinha_Objects/Lixeira/InteractionArea != null:
+				$Scenes_Objects/Cozinha_Objects/Lixeira/InteractionArea.can_interact = true
 	
 	# Resetar o timer da dica quando a missão mudar
 	timer_dica.start()
 
 func _mission_completed():
+	i = 9
 	misCompleted = curMission  # Corrigir a atribuição aqui
 	
 	# Atualizar a dica para a próxima mais clara
@@ -138,6 +189,17 @@ func _mission_completed():
 		Main.iaTalk = 2
 	elif misCompleted == 3:
 		Main.iaTalk = 3
+		
+		# Após a missão 3, fazer todos os fogos desaparecerem
+		#await get_tree().create_timer(2.0).timeout  # Tempo de 2 segundos
+		#_desativar_fogos()
+
+## Função para desativar todos os fogos
+#func _desativar_fogos():
+	#fogo_banheiro.visible = false
+	#fogo_quarto.visible = false
+	#fogo_porta.visible = false
+	#fogo_aux.visible = false  # Desativar também o fogo auxiliar
 
 func _end_game():
 	print("O jogo acabou! Parabéns por completar todas as missões!")
@@ -160,7 +222,7 @@ func _random_word(word):
 func _random_mission(i, f):
 	var rm = RandomNumberGenerator.new()
 	var mrn = rm.randi_range(i, f)
-	curMission = mrn
+	rMission = mrn
 
 func fade_in(node, fade_duration):
 	var fade_tween
@@ -175,3 +237,31 @@ func fade_out(node, fade_duration, color):
 
 func _on_timer_timeout() -> void:
 	timer_progress.value += 1
+	timer.start()
+
+
+func _on_area_2d_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_collision_shape_2d_tree_entered():
+	pass # Replace with function body.
+
+func _used():
+	if curMission == 1 || curMission == 2:
+		$Scenes_Objects/Fogos/FogoBanheiro/GPUParticles2D.emitting = true
+		$Scenes_Objects/Fogos/FogoBanheiro.is_active = false
+		$Scenes_Objects/Fogos/FogoBanheiro/PointLight2D5.visible = false
+			
+		if i <= 4 || i == 7:
+			if i != 7:
+				await get_tree().create_timer(0.7).timeout
+				$Scenes_Objects/Player/CharacterBody2D/Camera2D.apply_shake()
+				$Scenes_Objects/Fogos/FogoBanheiro.is_active = true
+				$Scenes_Objects/Fogos/FogoBanheiro/PointLight2D5.visible = true
+				i += 1
+				
+			if i == 4:
+				i = 6
+			elif i == 7:
+				i = 8

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://he67pf13yc7r"]
+
+[ext_resource type="Texture2D" uid="uid://bwwh3efci7dev" path="res://assets/images/fogo_sheet.png" id="1_7a5qo"]
+[ext_resource type="Script" path="res://src/scripts/fire_separado.gd" id="1_75l8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh1hw"]
+atlas = ExtResource("1_7a5qo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk0pv"]
+atlas = ExtResource("1_7a5qo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjqdb"]
+atlas = ExtResource("1_7a5qo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64645"]
+atlas = ExtResource("1_7a5qo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qm6kt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh1hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk0pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjqdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64645")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sgeu"]
+size = Vector2(62, 78)
+
+[node name="Fogo" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_75l8e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_qm6kt")
+frame_progress = 0.818832
+
+[node name="Area2D" type="Area2D" parent="." groups=["fogo"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8sgeu")
