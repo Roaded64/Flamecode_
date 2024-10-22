@@ -1,6 +1,5 @@
 extends Camera2D
 
-
 const SCREEN_SIZE := Vector2( 680, 700 )
 var cur_screen := Vector2( 680, 700 )
 
@@ -30,6 +29,7 @@ func _update_screen( new_screen : Vector2 ):
 	global_position = cur_screen * SCREEN_SIZE + SCREEN_SIZE * 0.7
 
 func apply_shake():
+	$"../../explosion".play()
 	shakeS = randomS
 
 func randomOffset():

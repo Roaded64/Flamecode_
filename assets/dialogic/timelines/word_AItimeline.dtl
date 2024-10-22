@@ -1,4 +1,3 @@
-Devido a falhas no sistema, a inteligência artificial não é capaz de executar a tarefa requisitada. 
 Deseja restaurar a inteligência artificial inserindo a senha previamente configurada?
 [text_input text="Escreva a senha:" var="checkPassword" placeholder=""]
 if {checkPassword} == {password}:

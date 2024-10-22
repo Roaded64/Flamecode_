@@ -7,18 +7,35 @@
 		"sprite_path": "res",
 		"hframe": 1
 	},
-	"lixoA":
-	{
-		"is_taken": false,
-		"desc": "Apenas uma descrição da merda",
-		"sprite_path": "res",
-		"hframe": 1
-	},
 	"balde":
 	{
 		"is_taken": false,
 		"desc": "Apenas um balde",
 		"sprite_path": "res",
 		"hframe": 1
+	},
+	"lixoA":
+	{
+		"is_taken": false,
+	},
+	"lixoB":
+	{
+		"is_taken": false,
+	},
+	"lixoC":
+	{
+		"is_taken": false,
+	},
+	"lixoD":
+	{
+		"is_taken": false,
+	},
+	"lixoE":
+	{
+		"is_taken": false,
+	},
+	"lixoF":
+	{
+		"is_taken": false,
 	}
 }

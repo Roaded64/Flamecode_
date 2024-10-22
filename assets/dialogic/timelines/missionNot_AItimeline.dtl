@@ -1,0 +1,7 @@
+Comunicação com a IA interrompida. Assistência desativada. Insira a senha para continuar manualmente.
+[text_input text="Escreva a senha:" var="checkPassword" placeholder=""]
+if {checkPassword} == {password}:
+	Operação completada com êxito. A inteligência artificial agora procederá com a restauração do controle sobre a propriedade e executará a necessidade solicitada conforme as instruções fornecidas.
+	[signal arg="conseguiu"]
+else:
+	"A IA não pode prosseguir com as operações devido à incorreção da senha."

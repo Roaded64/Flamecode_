@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=4 uid="uid://7tdjgphnrbxv"]
+[gd_scene load_steps=146 format=4 uid="uid://7tdjgphnrbxv"]
 
 [ext_resource type="Script" path="res://src/scripts/gameplay_script.gd" id="1_mygsn"]
 [ext_resource type="PackedScene" uid="uid://dhvb8kge6c3ly" path="res://src/scenes/player_scene.tscn" id="2_18val"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bmir0qoj8y0wg" path="res://assets/images/scenes/sala/tv_sprite.png" id="20_cbxwx"]
 [ext_resource type="Texture2D" uid="uid://bmt4iafhixjtx" path="res://assets/images/scenes/cozinha/coifa_sprite.png" id="22_o27wn"]
 [ext_resource type="Texture2D" uid="uid://b376fwoft8dk5" path="res://assets/images/scenes/cozinha/armario2_sprite.png" id="23_7yh7p"]
+[ext_resource type="Texture2D" uid="uid://ckr3hsdnxtetq" path="res://assets/images/misc/ai_talk.png" id="24_yi3v5"]
 [ext_resource type="Texture2D" uid="uid://5uk3s4bysg5p" path="res://assets/images/scenes/mesa/cadeiraC_sprite.png" id="27_0cscy"]
 [ext_resource type="Texture2D" uid="uid://da5a1f5m616a8" path="res://assets/images/scenes/cozinha/planta_sprite.png" id="28_2cbys"]
 [ext_resource type="Texture2D" uid="uid://y46htk7vi61j" path="res://assets/images/scenes/mesa/cadeiraB_sprite.png" id="28_2xne1"]
@@ -38,10 +39,13 @@
 [ext_resource type="Texture2D" uid="uid://b0srn3fqtbih6" path="res://assets/images/scenes/mesa/cadeiraA_sprite.png" id="30_6mgwd"]
 [ext_resource type="Texture2D" uid="uid://dgxj1fb0aabqs" path="res://assets/images/scenes/banheiro/papel_higienico.png" id="32_ih18f"]
 [ext_resource type="Texture2D" uid="uid://q0i1q48x0e40" path="res://assets/images/scenes/quarto/cama_sprite.png" id="33_m42km"]
+[ext_resource type="Texture2D" uid="uid://h70i5b3fwyf" path="res://assets/images/scenes/cozinha/lixeira_sprite_0001.png" id="33_up5f6"]
 [ext_resource type="Texture2D" uid="uid://k3wt4vn7wv51" path="res://assets/images/scenes/quarto/tapeteEntrada.png" id="39_fft7t"]
+[ext_resource type="Texture2D" uid="uid://cmqcu0vl1r3sk" path="res://assets/images/objects/cozinha_lixoA.png" id="40_04dd6"]
 [ext_resource type="Texture2D" uid="uid://et8ts4ikg3bu" path="res://assets/images/scenes/quarto/tapete_sprite.png" id="40_tn0ra"]
-[ext_resource type="Texture2D" uid="uid://5d0gclqj8f58" path="res://assets/images/scenes/quarto/tenis_sprite.png" id="41_mrxt8"]
+[ext_resource type="Texture2D" uid="uid://bewwy4uo0ipdp" path="res://assets/images/objects/cozinha_lixoB.png" id="41_x5a53"]
 [ext_resource type="Texture2D" uid="uid://bh1ig2gt00d68" path="res://assets/images/scenes/quarto/cabeceira_sprite.png" id="42_3xlnp"]
+[ext_resource type="Texture2D" uid="uid://rap5pgn34u6f" path="res://assets/images/scenes/quarto/tenis menor.png" id="43_4f88u"]
 [ext_resource type="Texture2D" uid="uid://b2ar61b2m6aap" path="res://assets/images/scenes/quarto/cabider_sprite.png" id="43_8xkfy"]
 [ext_resource type="Texture2D" uid="uid://cpkmrwxcb63cu" path="res://assets/images/scenes/quarto/mesaecadeiracomp_sprite.png" id="44_5ej03"]
 [ext_resource type="Texture2D" uid="uid://6fmcsnd4e43f" path="res://assets/images/scenes/quarto/comoda_sprite.png" id="45_hd553"]
@@ -51,9 +55,13 @@
 [ext_resource type="Texture2D" uid="uid://c3vjci32btorq" path="res://assets/images/misc/termometro/termometro_sprite.png" id="47_n21ew"]
 [ext_resource type="Texture2D" uid="uid://vauk4t4mox2h" path="res://assets/images/misc/termometro/termometro_spriteOver.png" id="48_541if"]
 [ext_resource type="Texture2D" uid="uid://b1i8uk3dwjeii" path="res://assets/images/misc/termometro/termometro fases2.png" id="49_glery"]
+[ext_resource type="Texture2D" uid="uid://nccdrnyb6jgt" path="res://assets/images/scenes/quarto/janelaquartoapart.png" id="52_e2opm"]
+[ext_resource type="PackedScene" uid="uid://cdhys03waq22f" path="res://src/scenes/tutorial_scene.tscn" id="53_sechw"]
+[ext_resource type="Texture2D" uid="uid://bi71meu3socfq" path="res://assets/images/misc/sust.png" id="58_kwi0j"]
+[ext_resource type="AudioStream" uid="uid://dj1t27e2dt63n" path="res://assets/sounds/pickup.wav" id="59_gbuyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wg5vb"]
-size = Vector2(87.75, 121.5)
+size = Vector2(95, 121.5)
 
 [sub_resource type="Gradient" id="Gradient_gcksw"]
 offsets = PackedFloat32Array(0, 0.530387)
@@ -64,7 +72,7 @@ gradient = SubResource("Gradient_gcksw")
 fill = 1
 fill_from = Vector2(0.518519, 0.532764)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fi74v"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_40yte"]
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
 spread = 3.0
@@ -73,6 +81,9 @@ radial_velocity_max = 18.0
 gravity = Vector3(0, -98, 0)
 scale_min = 0.0
 scale_max = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfx0x"]
+size = Vector2(49, 106)
 
 [sub_resource type="Animation" id="Animation_ln8my"]
 length = 0.001
@@ -107,7 +118,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_kq5u5"]
-resource_name = "staitc"
+resource_name = "static"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -125,7 +136,7 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_ln8my"),
 "leak": SubResource("Animation_54bmt"),
-"staitc": SubResource("Animation_kq5u5")
+"static": SubResource("Animation_kq5u5")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmbyh"]
@@ -371,6 +382,9 @@ fill_from = Vector2(0.518519, 0.532764)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_43wfo"]
 polygon = PackedVector2Array(81, -290, 81, -290, 81, -280, 227.536, -280, 435, -280, 426, -290)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvb7i"]
+size = Vector2(97, 108)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x37v"]
 size = Vector2(152, 51)
 
@@ -421,6 +435,42 @@ size = Vector2(29.8, 11.6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_244as"]
 size = Vector2(9.6, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_my2wq"]
+atlas = ExtResource("24_yi3v5")
+region = Rect2(0, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6uud"]
+atlas = ExtResource("24_yi3v5")
+region = Rect2(9, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q45w"]
+atlas = ExtResource("24_yi3v5")
+region = Rect2(18, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j52le"]
+atlas = ExtResource("24_yi3v5")
+region = Rect2(27, 0, 9, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ou5cy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my2wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6uud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q45w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j52le")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61iae"]
 size = Vector2(47, 35)
 
@@ -450,6 +500,12 @@ size = Vector2(31.8, 11.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpje4"]
 size = Vector2(16.2, 11.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07wod"]
+size = Vector2(10.8, 6.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_baoal"]
+size = Vector2(13.2, 9.19999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mnmb"]
 size = Vector2(157, 93)
@@ -779,12 +835,13 @@ position = Vector2(555, -275)
 [node name="Player" parent="Scenes_Objects" groups=["player01"] instance=ExtResource("2_18val")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(451, 391)
+position = Vector2(451, 412)
 
 [node name="Fogos" type="Node2D" parent="Scenes_Objects"]
 position = Vector2(-294, 640)
 
 [node name="FogoBanheiro" parent="Scenes_Objects/Fogos" instance=ExtResource("3_4gb0q")]
+z_index = 4
 position = Vector2(438, -120)
 fogoID = 1
 
@@ -794,15 +851,14 @@ canSala = false
 useFire = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Fogos/FogoBanheiro/AreaEntered"]
-position = Vector2(-29.125, 3)
+position = Vector2(-36.5, 3)
 shape = SubResource("RectangleShape2D_wg5vb")
 
 [node name="PointLight2D5" type="PointLight2D" parent="Scenes_Objects/Fogos/FogoBanheiro"]
 visible = false
-position = Vector2(-9, 0)
-scale = Vector2(8.4458, 8.4458)
+position = Vector2(1, 4.00012)
+scale = Vector2(6.27407, 6.27407)
 color = Color(1, 0.65, 0.3, 1)
-energy = 1.3
 texture = SubResource("GradientTexture2D_m1lk6")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Scenes_Objects/Fogos/FogoBanheiro"]
@@ -811,9 +867,37 @@ position = Vector2(3, -8)
 scale = Vector2(1.1299, -1.61584)
 emitting = false
 amount = 5
-process_material = SubResource("ParticleProcessMaterial_fi74v")
+process_material = SubResource("ParticleProcessMaterial_40yte")
 one_shot = true
 speed_scale = 2.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Scenes_Objects/Fogos/FogoBanheiro"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Fogos/FogoBanheiro/StaticBody2D2"]
+position = Vector2(8.5, 1)
+shape = SubResource("RectangleShape2D_bfx0x")
+disabled = true
+
+[node name="FogoQuarto" parent="Scenes_Objects/Fogos" instance=ExtResource("3_4gb0q")]
+position = Vector2(439, -600)
+fogoID = 1
+
+[node name="AreaEntered" parent="Scenes_Objects/Fogos/FogoQuarto" instance=ExtResource("16_hp6ks")]
+salaID = 0
+canSala = false
+useFire = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Fogos/FogoQuarto/AreaEntered"]
+position = Vector2(-36.5, 3)
+shape = SubResource("RectangleShape2D_wg5vb")
+disabled = true
+
+[node name="PointLight2D6" type="PointLight2D" parent="Scenes_Objects/Fogos/FogoQuarto"]
+position = Vector2(1, 5)
+scale = Vector2(6.27407, 6.27407)
+color = Color(1, 0.65, 0.3, 1)
+energy = 1.3
+texture = SubResource("GradientTexture2D_m1lk6")
 
 [node name="Banheiro_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
@@ -1026,16 +1110,8 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_nswju")
 
-[node name="PointLight2D4" type="PointLight2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(790, -819)
-scale = Vector2(8.67383, 8.67383)
-energy = 0.4
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_nswju")
-
 [node name="PointLight2D2" type="PointLight2D" parent="Scenes_Objects/Banheiro_Objects"]
-position = Vector2(378, -500)
+position = Vector2(532, -229)
 scale = Vector2(6.25391, 6.25391)
 energy = 0.2
 shadow_enabled = true
@@ -1053,6 +1129,14 @@ texture = SubResource("GradientTexture2D_nswju")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Scenes_Objects/Banheiro_Objects"]
 position = Vector2(81, -80)
 occluder = SubResource("OccluderPolygon2D_43wfo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Banheiro_Objects"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Banheiro_Objects/StaticBody2D"]
+visible = false
+position = Vector2(488, -208)
+shape = SubResource("RectangleShape2D_fvb7i")
+disabled = true
 
 [node name="Sala_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
@@ -1140,6 +1224,12 @@ shape = SubResource("RectangleShape2D_244as")
 visible = false
 material = ExtResource("9_d3gor")
 texture = ExtResource("6_ckdcg")
+
+[node name="aiTalk" type="AnimatedSprite2D" parent="Scenes_Objects/Sala_Objects/Ia/Ia"]
+z_index = 2
+position = Vector2(-10.4, -5.8)
+sprite_frames = SubResource("SpriteFrames_ou5cy")
+frame_progress = 0.787298
 
 [node name="TapeteEntrada" type="Sprite2D" parent="Scenes_Objects/Sala_Objects"]
 position = Vector2(13, 626)
@@ -1269,28 +1359,150 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_r88q4")
 
+[node name="FogosEntrada" type="Node2D" parent="Scenes_Objects/Sala_Objects"]
+position = Vector2(-626, 689)
+
+[node name="Fogo9" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+position = Vector2(481, -75)
+is_active = true
+
+[node name="Fogo1" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+position = Vector2(481, -55)
+is_active = true
+
+[node name="Fogo3" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+position = Vector2(527, -50)
+is_active = true
+
+[node name="Fogo4" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+position = Vector2(638, -50)
+is_active = true
+
+[node name="Fogo6" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+position = Vector2(576, -52)
+is_active = true
+
+[node name="Fogo5" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+position = Vector2(702, -46)
+is_active = true
+
+[node name="Fogo8" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+z_index = 3
+position = Vector2(950, -56)
+is_active = true
+
+[node name="Fogo2" parent="Scenes_Objects/Sala_Objects/FogosEntrada" instance=ExtResource("3_4gb0q")]
+z_index = 3
+position = Vector2(778, -55)
+is_active = true
+
+[node name="PointLight2D5" type="PointLight2D" parent="Scenes_Objects/Sala_Objects/FogosEntrada"]
+position = Vector2(745.5, -22.0001)
+scale = Vector2(15.4219, 4.125)
+color = Color(1, 0.65, 0.3, 1)
+energy = 1.3
+texture = SubResource("GradientTexture2D_m1lk6")
+
+[node name="FogosCozinha" type="Node2D" parent="Scenes_Objects/Sala_Objects"]
+position = Vector2(-630, 378)
+
+[node name="Fogo9" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+position = Vector2(891, -66)
+is_active = true
+
+[node name="Fogo1" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+position = Vector2(487, -42)
+is_active = true
+
+[node name="Fogo3" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+z_index = 0
+position = Vector2(527, -50)
+is_active = true
+
+[node name="Fogo4" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+z_index = 0
+position = Vector2(637, -51)
+is_active = true
+
+[node name="Fogo6" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+z_index = 0
+position = Vector2(576, -60)
+is_active = true
+
+[node name="Fogo5" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+position = Vector2(697, -41)
+is_active = true
+
+[node name="Fogo7" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+position = Vector2(746, -57)
+is_active = true
+
+[node name="Fogo8" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+position = Vector2(955, -48)
+is_active = true
+
+[node name="Fogo10" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+position = Vector2(829, -61)
+is_active = true
+
+[node name="Fogo2" parent="Scenes_Objects/Sala_Objects/FogosCozinha" instance=ExtResource("3_4gb0q")]
+position = Vector2(781, -40)
+is_active = true
+
+[node name="PointLight2D5" type="PointLight2D" parent="Scenes_Objects/Sala_Objects/FogosCozinha"]
+position = Vector2(879.5, -32.5365)
+scale = Vector2(11.1094, -4.04574)
+color = Color(1, 0.65, 0.3, 1)
+energy = 1.3
+texture = SubResource("GradientTexture2D_m1lk6")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Scenes_Objects/Sala_Objects/FogosCozinha"]
+position = Vector2(598, -35)
+scale = Vector2(7.86938, -3.20574)
+color = Color(1, 0.65, 0.3, 1)
+energy = 1.3
+texture = SubResource("GradientTexture2D_m1lk6")
+
+[node name="Balde" type="Node2D" parent="Scenes_Objects/Sala_Objects"]
+visible = false
+position = Vector2(-76, 650)
+
+[node name="Balde" type="StaticBody2D" parent="Scenes_Objects/Sala_Objects/Balde"]
+position = Vector2(98, -85)
+
+[node name="lixo_balde" type="Sprite2D" parent="Scenes_Objects/Sala_Objects/Balde/Balde"]
+position = Vector2(94, -45)
+scale = Vector2(5, 5)
+texture = ExtResource("4_a0cep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Sala_Objects/Balde/Balde"]
+position = Vector2(96.5, -45)
+shape = SubResource("RectangleShape2D_xweq0")
+disabled = true
+
 [node name="Cozinha_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
 position = Vector2(227, 0)
 
 [node name="Lixeira" type="Node2D" parent="Scenes_Objects/Cozinha_Objects"]
-position = Vector2(-186, -160)
+position = Vector2(-159, -160)
 script = ExtResource("9_gored")
 objectID = 3
+
+[node name="LixeiraSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixeira"]
+z_index = 1
+position = Vector2(195, -5.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("28_br2py")
+hframes = 2
 
 [node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixeira"]
 visible = false
 z_index = 1
 material = ExtResource("9_d3gor")
-position = Vector2(195, -3.05176e-05)
+position = Vector2(195, -5.00003)
 scale = Vector2(5, 5)
-texture = ExtResource("28_br2py")
-
-[node name="LixeiraSprite" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixeira"]
-z_index = 1
-position = Vector2(195, -3.05176e-05)
-scale = Vector2(5, 5)
-texture = ExtResource("28_br2py")
+texture = ExtResource("33_up5f6")
 
 [node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixeira" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
 outline = NodePath("../Outline")
@@ -1386,6 +1598,190 @@ position = Vector2(306, -265)
 scale = Vector2(5, 5)
 texture = ExtResource("23_7yh7p")
 
+[node name="Lixos" type="Node2D" parent="Scenes_Objects/Cozinha_Objects"]
+
+[node name="LixoA" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/Lixos"]
+z_index = 1
+position = Vector2(421, 64)
+scale = Vector2(5, 5)
+script = ExtResource("7_j2s0o")
+item_name = "lixoA"
+
+[node name="CozinhaLixoA" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoA"]
+texture = ExtResource("40_04dd6")
+
+[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoA"]
+visible = false
+material = ExtResource("9_d3gor")
+texture = ExtResource("40_04dd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoA"]
+position = Vector2(0.199997, 0.350006)
+shape = SubResource("RectangleShape2D_07wod")
+disabled = true
+
+[node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoA" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+outline = NodePath("../Outline")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoA/InteractionArea"]
+position = Vector2(-0.400009, -0.399994)
+shape = SubResource("RectangleShape2D_baoal")
+
+[node name="LixoB" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/Lixos"]
+position = Vector2(417, -76)
+scale = Vector2(5, 5)
+script = ExtResource("7_j2s0o")
+item_name = "lixoB"
+
+[node name="CozinhaLixoA" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoB"]
+texture = ExtResource("40_04dd6")
+
+[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoB"]
+visible = false
+material = ExtResource("9_d3gor")
+texture = ExtResource("40_04dd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoB"]
+position = Vector2(0.199997, 0.350006)
+shape = SubResource("RectangleShape2D_07wod")
+disabled = true
+
+[node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoB" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+outline = NodePath("../Outline")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoB/InteractionArea"]
+position = Vector2(-0.400009, -0.399994)
+shape = SubResource("RectangleShape2D_baoal")
+
+[node name="LixoC" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/Lixos"]
+position = Vector2(-22, -46)
+scale = Vector2(5, 5)
+script = ExtResource("7_j2s0o")
+item_name = "lixoC"
+
+[node name="CozinhaLixoA" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoC"]
+texture = ExtResource("40_04dd6")
+
+[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoC"]
+visible = false
+material = ExtResource("9_d3gor")
+texture = ExtResource("40_04dd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoC"]
+position = Vector2(0.199997, 0.350006)
+shape = SubResource("RectangleShape2D_07wod")
+disabled = true
+
+[node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoC" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+outline = NodePath("../Outline")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoC/InteractionArea"]
+position = Vector2(-0.400009, -0.399994)
+shape = SubResource("RectangleShape2D_baoal")
+
+[node name="LixoD" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/Lixos"]
+visible = false
+z_index = 1
+position = Vector2(88, 34)
+scale = Vector2(5, 5)
+script = ExtResource("7_j2s0o")
+item_name = "lixoD"
+
+[node name="CozinhaLixoB" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoD"]
+texture = ExtResource("41_x5a53")
+
+[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoD"]
+visible = false
+material = ExtResource("9_d3gor")
+texture = ExtResource("41_x5a53")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoD"]
+position = Vector2(0.199997, 0.350006)
+shape = SubResource("RectangleShape2D_07wod")
+disabled = true
+
+[node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoD" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+outline = NodePath("../Outline")
+can_interact = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoD/InteractionArea"]
+position = Vector2(-0.400009, -0.399994)
+shape = SubResource("RectangleShape2D_baoal")
+
+[node name="LixoE" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/Lixos"]
+visible = false
+position = Vector2(132, -80)
+scale = Vector2(5, 5)
+script = ExtResource("7_j2s0o")
+item_name = "lixoE"
+
+[node name="CozinhaLixoB" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoE"]
+texture = ExtResource("41_x5a53")
+
+[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoE"]
+visible = false
+material = ExtResource("9_d3gor")
+texture = ExtResource("41_x5a53")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoE"]
+position = Vector2(0.199997, 0.350006)
+shape = SubResource("RectangleShape2D_07wod")
+disabled = true
+
+[node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoE" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+outline = NodePath("../Outline")
+can_interact = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoE/InteractionArea"]
+position = Vector2(-0.400009, -0.399994)
+shape = SubResource("RectangleShape2D_baoal")
+
+[node name="LixoF" type="StaticBody2D" parent="Scenes_Objects/Cozinha_Objects/Lixos"]
+visible = false
+position = Vector2(272, -43)
+scale = Vector2(5, 5)
+script = ExtResource("7_j2s0o")
+item_name = "lixoF"
+
+[node name="CozinhaLixoB" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoF"]
+texture = ExtResource("41_x5a53")
+
+[node name="Outline" type="Sprite2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoF"]
+visible = false
+material = ExtResource("9_d3gor")
+texture = ExtResource("41_x5a53")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoF"]
+position = Vector2(0.199997, -0.200002)
+shape = SubResource("RectangleShape2D_07wod")
+disabled = true
+
+[node name="InteractionArea" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoF" node_paths=PackedStringArray("outline") instance=ExtResource("4_oxlb5")]
+outline = NodePath("../Outline")
+can_interact = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Cozinha_Objects/Lixos/LixoF/InteractionArea"]
+position = Vector2(-0.400009, -0.399994)
+shape = SubResource("RectangleShape2D_baoal")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Scenes_Objects/Cozinha_Objects"]
+position = Vector2(84, -124)
+scale = Vector2(8.67383, 8.67383)
+energy = 0.4
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_nswju")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D5" type="PointLight2D" parent="Scenes_Objects/Cozinha_Objects"]
+position = Vector2(362, -22)
+scale = Vector2(8.67383, 8.67383)
+energy = 0.4
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_nswju")
+metadata/_edit_lock_ = true
+
 [node name="Quarto_Objects" type="Node2D" parent="Scenes_Objects"]
 y_sort_enabled = true
 
@@ -1417,12 +1813,12 @@ y_sort_enabled = true
 position = Vector2(80, 0)
 
 [node name="TenisSprite" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/tenis"]
-position = Vector2(-134, 113)
+position = Vector2(-148, 117)
 scale = Vector2(4, 4)
-texture = ExtResource("41_mrxt8")
+texture = ExtResource("43_4f88u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scenes_Objects/Quarto_Objects/tenis"]
-position = Vector2(-143.5, 123.25)
+position = Vector2(-144, 126)
 shape = SubResource("RectangleShape2D_ipvub")
 
 [node name="cabeceira" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
@@ -1489,6 +1885,16 @@ texture = ExtResource("45_hd553")
 position = Vector2(-0.5, -161.25)
 shape = SubResource("RectangleShape2D_58tm2")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenes_Objects/Quarto_Objects"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-5.99994, -241)
+scale = Vector2(5, 5)
+
+[node name="Janelaquartoapart" type="Sprite2D" parent="Scenes_Objects/Quarto_Objects/StaticBody2D"]
+position = Vector2(-3.99998, -1.6)
+texture = ExtResource("52_e2opm")
+
 [node name="FloorTile" type="TileMapLayer" parent="Scenes_Objects/Quarto_Objects"]
 position = Vector2(-14, 0)
 scale = Vector2(5, 5)
@@ -1540,7 +1946,6 @@ libraries = {
 }
 
 [node name="ColorRect2" type="ColorRect" parent="HUD"]
-visible = false
 offset_top = 727.0
 offset_right = 1501.0
 offset_bottom = 776.0
@@ -1616,7 +2021,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_aosde")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Missão_placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1652,6 +2057,101 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer_Dica" type="Timer" parent="HUD"]
+
+[node name="ColorRect3" type="ColorRect" parent="HUD"]
+visible = false
+z_index = 6
+offset_left = -218.0
+offset_top = -43.0
+offset_right = 1683.0
+offset_bottom = 1272.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" parent="HUD" instance=ExtResource("53_sechw")]
+visible = false
+
+[node name="ThingMotivo" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="HUD/ThingMotivo"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.866667)
+
+[node name="Label" type="Label" parent="HUD/ThingMotivo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 353.0
+offset_top = 148.0
+offset_right = 905.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_aosde")
+theme_override_font_sizes/font_size = 32
+text = "Parabéns!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HUD/ThingMotivo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 116.0
+offset_top = 207.0
+offset_right = 1142.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_aosde")
+theme_override_font_sizes/font_size = 15
+text = " \"Economizar água potável evita desperdício e 
+ajuda a preservar recursos naturais limitados.\""
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="HUD/ThingMotivo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = 572.0
+offset_right = 1134.0
+offset_bottom = 604.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_aosde")
+theme_override_font_sizes/font_size = 15
+text = "Pressione ENTER para continuar."
+horizontal_alignment = 1
+
+[node name="Sust" type="Sprite2D" parent="HUD/ThingMotivo"]
+position = Vector2(640, 408)
+scale = Vector2(8, 8)
+texture = ExtResource("58_kwi0j")
+hframes = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HUD/ThingMotivo"]
+stream = ExtResource("59_gbuyd")
 
 [connection signal="timeout" from="HUD/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HUD/Timer_Dica" to="." method="_on_Timer_Dica_timeout"]

@@ -17,16 +17,13 @@ var playerMove = true
 var baldeCheio = false
 
 func _ready() -> void:
-	if Main.isCutscene:
-		playerMove = false
-	else:
-		playerMove = true
+	state = "normal"
 
 func _process(delta: float) -> void:
-	if Dialogic.is_playing:
+	if Dialogic.is_playing || Main.isCutscene:
 		playerMove = false
 		playerSprite.play("idle_" + state)
-	elif !Dialogic.is_playing && !isUsing:
+	elif !Dialogic.is_playing && !isUsing || !Main.isCutscene :
 		playerMove = true
 		
 	if Input.is_action_just_pressed("key_use"):	
@@ -48,6 +45,8 @@ func _process(delta: float) -> void:
 				playerSprite.play("idle_" + state)
 				playerMove = true
 				$GPUParticles2D.emitting = false
+			else:
+				$"../cannot".play()
 				
 	if playerMove:
 		if Input.is_action_pressed("key_run"):

@@ -1,8 +1,141 @@
-[gd_scene load_steps=4 format=3 uid="uid://caofhjgv7ooo"]
+[gd_scene load_steps=26 format=3 uid="uid://caofhjgv7ooo"]
 
 [ext_resource type="Script" path="res://src/scripts/menu_inicial.gd" id="1_om8jm"]
+[ext_resource type="Texture2D" uid="uid://c733qm42uard1" path="res://assets/images/menu/mainmenu/text.PNG" id="2_n4ejk"]
+[ext_resource type="Texture2D" uid="uid://cvuxr3vm7irc2" path="res://assets/images/menu/mainmenu/flame_sprite.png" id="2_utgdl"]
 [ext_resource type="FontFile" uid="uid://cx32lcthwwpfj" path="res://assets/fonts/PressStart2P.ttf" id="3_2vpa1"]
 [ext_resource type="Texture2D" uid="uid://oc7yjy86fc8m" path="res://assets/images/menu/mainmenu/flamecode_logo.svg" id="3_h6sqo"]
+[ext_resource type="AudioStream" uid="uid://ipvqibqbownu" path="res://assets/sounds/musics/mainMenu_song.wav" id="4_bjfvw"]
+[ext_resource type="Texture2D" uid="uid://b2rrtu7kwyoft" path="res://assets/images/menu/mainmenu/logo_radar.png" id="7_o030t"]
+[ext_resource type="Texture2D" uid="uid://dm4nqok3vi8pt" path="res://assets/images/menu/mainmenu/logo-cps.png" id="8_3kdms"]
+[ext_resource type="Texture2D" uid="uid://c6w1uiw8agjl7" path="res://assets/images/menu/mainmenu/imagem_2024-10-17_171729886-removebg-preview.png" id="10_emms4"]
+[ext_resource type="Texture2D" uid="uid://cjb5vijjxw5nc" path="res://assets/images/menu/mainmenu/Sylvamo-Logo (1).png" id="11_6svbh"]
+[ext_resource type="Texture2D" uid="uid://cvn3f5sh0d5u6" path="res://assets/images/menu/mainmenu/logo-bco_InstChamex.png" id="11_mjral"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwkk3"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j54gk"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uwnm"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uc4y"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wntv8"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dshsr"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qouje"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(7680, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkf8i"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(8960, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ep87"]
+atlas = ExtResource("2_utgdl")
+region = Rect2(10240, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dr2b8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwkk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j54gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uwnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uc4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wntv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dshsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qouje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkf8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ep87")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_u7pvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1wd33"]
+resource_name = "fade"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 10.0]
+}
+
+[sub_resource type="Animation" id="Animation_0n01l"]
+resource_name = "fadeout"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsurk"]
+_data = {
+"RESET": SubResource("Animation_u7pvv"),
+"fade": SubResource("Animation_1wd33"),
+"fadeout": SubResource("Animation_0n01l")
+}
 
 [node name="menu_inicial" type="Control"]
 layout_mode = 3
@@ -13,16 +146,52 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_om8jm")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = -614.0
+offset_top = -355.0
+offset_right = 666.0
+offset_bottom = 365.0
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.232551, 0.215261, 0.318211, 1)
+position = Vector2(79, 57)
+texture = ExtResource("2_n4ejk")
+
 [node name="back_dus_grund" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -614.0
+offset_top = -357.0
+offset_right = -614.0
+offset_bottom = -357.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.040845, 0.0357, 0.07, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.906493, 0.906493, 0.906493, 1)
+position = Vector2(25, 9)
+sprite_frames = SubResource("SpriteFrames_dr2b8")
+autoplay = "default"
+frame_progress = 0.871356
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.278431)
+layout_mode = 0
+offset_left = -614.0
+offset_top = -357.0
+offset_right = 666.0
+offset_bottom = 363.0
 color = Color(0, 0, 0, 1)
 
-[node name="box_buttons" type="VBoxContainer" parent="back_dus_grund"]
+[node name="box_buttons" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(510, 350)
 layout_mode = 1
 anchors_preset = 7
@@ -30,10 +199,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -444.0
-offset_top = -263.0
-offset_right = 444.0
-offset_bottom = 87.0
+offset_left = -1058.0
+offset_top = -751.0
+offset_right = -170.0
+offset_bottom = -401.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
@@ -42,7 +211,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="jogar" type="Button" parent="back_dus_grund/box_buttons" groups=["buttons_menu"]]
+[node name="jogar" type="Button" parent="box_buttons" groups=["buttons_menu"]]
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_2vpa1")
@@ -52,6 +221,44 @@ flat = true
 
 [node name="FlamecodeLogo" type="Sprite2D" parent="."]
 texture_filter = 2
-position = Vector2(640, 264)
+position = Vector2(26.0001, -54)
 scale = Vector2(0.925795, 0.925795)
 texture = ExtResource("3_h6sqo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-614, -357)
+stream = ExtResource("4_bjfvw")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AudioStreamPlayer2D"]
+libraries = {
+"": SubResource("AnimationLibrary_rsurk")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.1, 1.1)
+
+[node name="LogoRadar" type="Sprite2D" parent="."]
+position = Vector2(-476, 305)
+scale = Vector2(0.108, 0.108)
+texture = ExtResource("7_o030t")
+
+[node name="Logo-cps" type="Sprite2D" parent="."]
+position = Vector2(-356, 296)
+scale = Vector2(0.196315, 0.196315)
+texture = ExtResource("8_3kdms")
+
+[node name="Imagem2024-10-17171729886-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(-525.072, 233.072)
+scale = Vector2(0.30029, 0.30029)
+texture = ExtResource("10_emms4")
+
+[node name="Logo-bcoInstChamex" type="Sprite2D" parent="."]
+position = Vector2(261, 280)
+scale = Vector2(0.606061, 0.606061)
+texture = ExtResource("11_mjral")
+
+[node name="Sylvamo-logo(1)" type="Sprite2D" parent="."]
+position = Vector2(458, 297)
+scale = Vector2(0.662338, 0.662338)
+texture = ExtResource("11_6svbh")

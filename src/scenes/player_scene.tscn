@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dhvb8kge6c3ly"]
+[gd_scene load_steps=37 format=3 uid="uid://dhvb8kge6c3ly"]
 
 [ext_resource type="Script" path="res://src/scripts/player_script.gd" id="1_qchcu"]
 [ext_resource type="Texture2D" uid="uid://bk0b4x5th2jml" path="res://assets/images/player_sheet.png" id="2_b5muu"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://da2wrky8ybdeb" path="res://assets/images/misc/stamina_under.png" id="5_solcr"]
 [ext_resource type="Texture2D" uid="uid://cl6le11ocyhtk" path="res://assets/images/player_sheetBaldeCheio.png" id="5_y7bhv"]
 [ext_resource type="Texture2D" uid="uid://cpu5ewsvft44k" path="res://assets/images/misc/stamina_progress.png" id="6_3x3hd"]
+[ext_resource type="AudioStream" uid="uid://c7ja76c7v4lp8" path="res://assets/sounds/explosion.wav" id="10_7hyjh"]
+[ext_resource type="AudioStream" uid="uid://4bojlmfbfvxx" path="res://assets/sounds/cannot.wav" id="10_65xdb"]
 
 [sub_resource type="Gradient" id="Gradient_tc0yi"]
 colors = PackedColorArray(0.254902, 0.4, 0.631373, 1, 0.78, 0.864333, 1, 1)
@@ -277,6 +279,12 @@ texture_progress = ExtResource("6_3x3hd")
 [node name="Timer" type="Timer" parent="CanvasLayer"]
 wait_time = 0.025
 autostart = true
+
+[node name="cannot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_65xdb")
+
+[node name="explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7hyjh")
 
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="CanvasLayer/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

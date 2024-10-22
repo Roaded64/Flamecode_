@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://he67pf13yc7r"]
+[gd_scene load_steps=10 format=3 uid="uid://he67pf13yc7r"]
 
 [ext_resource type="Texture2D" uid="uid://bwwh3efci7dev" path="res://assets/images/fogo_sheet.png" id="1_7a5qo"]
 [ext_resource type="Script" path="res://src/scripts/fire_separado.gd" id="1_75l8e"]
@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sgeu"]
 size = Vector2(62, 78)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tivi1"]
+size = Vector2(66, 36)
+
 [node name="Fogo" type="Node2D"]
 z_index = 1
 y_sort_enabled = true
@@ -56,3 +59,9 @@ frame_progress = 0.818832
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8sgeu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 22)
+shape = SubResource("RectangleShape2D_tivi1")
