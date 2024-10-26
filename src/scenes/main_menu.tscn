@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://caofhjgv7ooo"]
+[gd_scene load_steps=21 format=3 uid="uid://caofhjgv7ooo"]
 
 [ext_resource type="Script" path="res://src/scripts/menu_inicial.gd" id="1_om8jm"]
 [ext_resource type="Texture2D" uid="uid://c733qm42uard1" path="res://assets/images/menu/mainmenu/text.PNG" id="2_n4ejk"]
@@ -6,11 +6,6 @@
 [ext_resource type="FontFile" uid="uid://cx32lcthwwpfj" path="res://assets/fonts/PressStart2P.ttf" id="3_2vpa1"]
 [ext_resource type="Texture2D" uid="uid://oc7yjy86fc8m" path="res://assets/images/menu/mainmenu/flamecode_logo.svg" id="3_h6sqo"]
 [ext_resource type="AudioStream" uid="uid://ipvqibqbownu" path="res://assets/sounds/musics/mainMenu_song.wav" id="4_bjfvw"]
-[ext_resource type="Texture2D" uid="uid://b2rrtu7kwyoft" path="res://assets/images/menu/mainmenu/logo_radar.png" id="7_o030t"]
-[ext_resource type="Texture2D" uid="uid://dm4nqok3vi8pt" path="res://assets/images/menu/mainmenu/logo-cps.png" id="8_3kdms"]
-[ext_resource type="Texture2D" uid="uid://c6w1uiw8agjl7" path="res://assets/images/menu/mainmenu/imagem_2024-10-17_171729886-removebg-preview.png" id="10_emms4"]
-[ext_resource type="Texture2D" uid="uid://cjb5vijjxw5nc" path="res://assets/images/menu/mainmenu/Sylvamo-Logo (1).png" id="11_6svbh"]
-[ext_resource type="Texture2D" uid="uid://cvn3f5sh0d5u6" path="res://assets/images/menu/mainmenu/logo-bco_InstChamex.png" id="11_mjral"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwkk3"]
 atlas = ExtResource("2_utgdl")
@@ -111,7 +106,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-80.0, 10.0]
+"values": [-80.0, 24.0]
 }
 
 [sub_resource type="Animation" id="Animation_0n01l"]
@@ -127,7 +122,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [10.0, -80.0]
+"values": [24.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsurk"]
@@ -237,28 +232,3 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.1, 1.1)
-
-[node name="LogoRadar" type="Sprite2D" parent="."]
-position = Vector2(-476, 305)
-scale = Vector2(0.108, 0.108)
-texture = ExtResource("7_o030t")
-
-[node name="Logo-cps" type="Sprite2D" parent="."]
-position = Vector2(-356, 296)
-scale = Vector2(0.196315, 0.196315)
-texture = ExtResource("8_3kdms")
-
-[node name="Imagem2024-10-17171729886-removebg-preview" type="Sprite2D" parent="."]
-position = Vector2(-525.072, 233.072)
-scale = Vector2(0.30029, 0.30029)
-texture = ExtResource("10_emms4")
-
-[node name="Logo-bcoInstChamex" type="Sprite2D" parent="."]
-position = Vector2(261, 280)
-scale = Vector2(0.606061, 0.606061)
-texture = ExtResource("11_mjral")
-
-[node name="Sylvamo-logo(1)" type="Sprite2D" parent="."]
-position = Vector2(458, 297)
-scale = Vector2(0.662338, 0.662338)
-texture = ExtResource("11_6svbh")

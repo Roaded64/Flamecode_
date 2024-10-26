@@ -243,7 +243,7 @@ func _on_dialogic_signal(argument:String):
 
 func _mission_completed():
 	if curMission == 3:
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.5).timeout
 		$Scenes_Objects/Player/CharacterBody2D/Camera2D.apply_shake()
 		$Scenes_Objects/Sala_Objects/FogosCozinha/Fogo9.is_active = true
 		$Scenes_Objects/Sala_Objects/FogosCozinha/Fogo1.is_active = true
